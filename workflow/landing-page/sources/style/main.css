@@ -1,0 +1,94 @@
+body {
+    font-family: 'Roboto Slab', serif;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    background-color: #efd;
+    /*----------------*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo {
+    background-color: rgb(177, 110, 110);
+    /*----------------*/
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.header__icons {
+    background-color: rgb(160, 123, 196);
+    /*----------------*/
+}
+
+.header__list {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0;
+
+    list-style-type: none;
+}
+
+.header__item {
+    height: 36px;
+    width: 36px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 2px;
+    border: 1px solid #d0d0d0;
+}
+
+.header__item a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.header__item a img {
+    width: 40%;
+    height: 40%;
+}
+
+
+nav {
+    background-color: rgb(138, 196, 123);
+    height: 70px;
+    /*----------------*/
+}
+
+.slider {
+    background-color: rgb(196, 123, 168);
+    height: 200px;
+    /*----------------*/
+}
+
+.services {
+    background-color: rgb(235, 169, 125);
+    height: 200px;
+    /*----------------*/
+}
+
+.cards-board {
+    background-color: rgb(109, 150, 212);
+    height: 200px;
+    /*----------------*/
+}
+
+footer {
+    height: 300px;
+    background-color: #cff;
+    /*----------------*/
+}
