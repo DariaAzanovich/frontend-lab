@@ -9,18 +9,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="sources/style/main.css">
-    <link rel="shortcut icon" href="../../../_Images/octahedron.png" type="image/x-icon">
+    <link rel="shortcut icon" href="sources/img/icons/octahedron.png" type="image/x-icon">
     
     <script defer src="sources/sctript.js"></script>
 </head>
 <body class="preload">
     <div class="wrap">
+        <div class="search-window"></div>
         <header>
             <h1 class="header__logo">
                 <span class="orange-text">Art</span> core
-            </h1>
+            </h1>   <!-- ./ header__logo -->
             <div class="header__icons">
                 <ul class="header__list">
                     <li class="header__item header__item--facebook">
@@ -44,32 +46,47 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-        </header>
+            </div>  <!-- ./ header__icons -->
+        </header> <!-- ./ header -->
 
         <nav>
             <ul class="nav__list">
-                <li class="nav_item"></li>
-                <li class="nav_item"></li>
-                <li class="nav_item"></li>
-            </ul>
+                <li class="nav__item">
+                    <img src="sources/img/icons/search.svg" alt="Search">
+                </li>
+                <li class="nav__item">
+                    <img src="sources/img/icons/arrow-left.svg" alt="Left">
+                </li>
+                <li class="nav__item">
+                    <img src="sources/img/icons/arrow-right.svg" alt="Right">
+                </li>
+            </ul>   <!-- ./ nav__list -->
 
+            <div class="nav__menu">
+                <a class="nav__link orange-text" href="#">Home</a>
+                <a class="nav__link" href="#">Services</a>
+                <a class="nav__link" href="#">Projects</a>
+                <a class="nav__link" href="#">Blog</a>
+                <a class="nav__link" href="#">Pages</a>
+                <a class="nav__link last-link" href="#">Contact</a>
+                <div class="nav_burger-menu"></div>
+            </div>
             
-        </nav>
+        </nav>  <!-- ./ nav -->
 
         <section class="slider">
             IMAGE SLIDER
-        </section>
+        </section>  <!-- ./ slider -->
 
         <section class="services">
             SERVICES
-        </section>
+        </section>  <!-- ./ services -->
 
         <section class="cards-board">
             CARDS BOARD
-        </section>
+        </section>  <!-- ./ cards-board -->
 
-        <footer>FOOTER</footer>
+        <footer>FOOTER</footer> <!-- ./ footer -->
     </div>
 </body>
 </html>
