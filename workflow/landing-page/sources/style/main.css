@@ -10,6 +10,10 @@ body {
     background-color: #efefef;
 }
 
+a {
+    text-decoration: none;
+}
+
 h3 {
     padding: 70px 0;
 
@@ -187,9 +191,36 @@ nav {
 /*---------------------- SERVICES --------------------------*/
 
 .services {
-    background-color: rgb(235, 169, 125);
-    height: 200px;
-    /*----------------*/
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    flex-grow: 1;
+    padding: 70px 40px;
+}
+
+.service-cards {
+    display: flex;
+}
+
+.service {
+    margin-bottom: 30px;
+    padding: 25px;
+
+    background-color: #ffffff;
+}
+
+.service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 80px;
+
+    border: 2px solid #e4e4e4;
+    border-radius: 50%;
 }
 
 /*---------------------- CARDS BOARD --------------------------*/
@@ -202,6 +233,7 @@ nav {
 
 /*---------------------- FOOTER --------------------------*/
 footer {
+    max-width: 80%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -303,6 +335,14 @@ input:focus {
 
 .gray-text {
     color: #778899;
+}
+
+.blue-text {
+    color: #00bfff;
+}
+
+.green-text {
+    color: #adff2f;
 }
 
 /*------------------- Transition off -----------------------*/
