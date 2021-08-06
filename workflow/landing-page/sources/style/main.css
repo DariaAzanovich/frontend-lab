@@ -1,5 +1,8 @@
-body {
-    font-family: 'Roboto Slab', serif;
+* {
+    /* font-family: 'Roboto Slab', serif; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .wrap {
@@ -8,22 +11,30 @@ body {
     justify-content: space-between;
 }
 
+/*---------------------- Header --------------------------*/
+
 header {
-    background-color: #efd;
+    /* background-color: #efd; */
     /*----------------*/
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    padding: 40px 60px;
 }
 
 .header__logo {
-    background-color: rgb(177, 110, 110);
+    /* background-color: rgb(177, 110, 110); */
     /*----------------*/
     margin: 0;
     text-transform: uppercase;
+    flex-wrap: nowrap;
+
+    cursor: pointer;
 }
 
 .header__icons {
-    background-color: rgb(160, 123, 196);
+    /* background-color: rgb(160, 123, 196); */
     /*----------------*/
 }
 
@@ -32,6 +43,7 @@ header {
     justify-content: space-between;
 
     padding: 0;
+    margin: 0;
 
     list-style-type: none;
 }
@@ -48,6 +60,10 @@ header {
     border: 1px solid #d0d0d0;
 }
 
+.header__item:hover {
+    border-color: black;
+}
+
 .header__item a {
     display: flex;
     justify-content: center;
@@ -58,10 +74,11 @@ header {
 }
 
 .header__item a img {
-    width: 40%;
-    height: 40%;
+    width: 33.3%;
+    height: 33.3%;
 }
 
+/*---------------------- Nav --------------------------*/
 
 nav {
     background-color: rgb(138, 196, 123);
@@ -69,11 +86,78 @@ nav {
     /*----------------*/
 }
 
+.nav_menu {
+    position: relative;
+}
+  
+.nav__link {
+    position: relative;
+    margin: 0 1rem;
+  
+    font-size: calc(10px + 0.9vw);
+    font-stretch: ultra-condensed;
+  
+    text-decoration: none;
+    text-transform: uppercase;
+  
+    color: #ffffff;
+}
+  
+.nav__burger-menu {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    width: 30px;
+    height: 5px;
+  
+    background-color: #ffffff;
+  
+    cursor: pointer;
+}
+  
+  
+.nav__burger-menu::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    height: 5px;
+  
+    background-color: #ffffff;
+}
+  
+.nav__burger-menu::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 30px;
+    height: 5px;
+  
+    background-color: #ffffff;
+}
+  
+.nav__link + .nav__link::before {
+    content: '';
+    position: absolute;
+    width: calc(1.2rem + 0.4vw);
+    height: 0.11rem;
+  
+    transform: rotate(-65deg);
+    top: calc(0.7rem + 0.1vw);
+    left: calc(-2rem - 0.2vw);
+  
+    background: #ffffff;
+}
+
+/*---------------------- Slider -------------------------*/
+
 .slider {
     background-color: rgb(196, 123, 168);
     height: 200px;
     /*----------------*/
 }
+
+/*---------------------- Services --------------------------*/
 
 .services {
     background-color: rgb(235, 169, 125);
@@ -81,14 +165,42 @@ nav {
     /*----------------*/
 }
 
+/*---------------------- Cards board --------------------------*/
+
 .cards-board {
     background-color: rgb(109, 150, 212);
     height: 200px;
     /*----------------*/
 }
 
+/*---------------------- Footer --------------------------*/
 footer {
     height: 300px;
     background-color: #cff;
     /*----------------*/
 }
+
+
+/*------------------ Transition, :hover ----------------------*/
+.header__item,
+.nav__item {   
+    transition: all 0.5s ease;
+}
+
+.header__item:hover,
+.nav__item:hover {
+    border-color: black;
+}
+
+/*------------------- Colored text -----------------------*/
+.orange-text {
+    color: #ffa500;
+}
+
+/*------------------- Transition off -----------------------*/
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+  }
