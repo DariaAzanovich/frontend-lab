@@ -74,7 +74,7 @@ header {
 .header__logo {
     margin: 0;
     text-transform: uppercase;
-    flex-wrap: nowrap;
+    overflow-wrap: normal;
 
     cursor: pointer;
 }
@@ -202,6 +202,8 @@ nav {
 
 .service-cards {
     display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
 }
 
 .service {
@@ -219,9 +221,22 @@ nav {
     width: 80px;
     height: 80px;
 
+    margin-bottom: 30px;
+
     border: 2px solid #e4e4e4;
     border-radius: 50%;
+
+    font-size: 1.6em;
 }
+
+.service-icon:hover {
+    border: 2px solid #ffa500;
+    color: #ffa500;
+    
+    transform: rotate(360deg);
+    transition: transform 0.3s ease;
+}
+
 
 /*---------------------- CARDS BOARD --------------------------*/
 
