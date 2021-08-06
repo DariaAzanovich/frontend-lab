@@ -7,12 +7,41 @@
 
 body {
     position: relative;
+    background-color: #efefef;
 }
 
+h3 {
+    padding: 70px 0;
+
+    text-transform: uppercase; 
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+h4 {
+    margin-bottom: 25px;
+    font-weight: normal;
+    font-size: 1.125em;
+
+    text-transform: capitalize;
+    color: #000000;
+}
+
+textarea {
+    width: 40%;
+}
 .wrap {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.header-wrap {
+    display: flex;
+}
+
+.content-wrap {
+    padding: 0 60px;
 }
 
 .search-window {
@@ -28,11 +57,14 @@ body {
 /*---------------------- HEADER --------------------------*/
 
 header {
+    width: 100%;
+    padding: 40px 60px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding: 40px 60px;
+    background-color: #ffffff;
 }
 
 .header__logo {
@@ -144,7 +176,7 @@ nav {
     background-color: #ffffff;
 }
 
-/*---------------------- Slider -------------------------*/
+/*---------------------- SLIDER -------------------------*/
 
 .slider {
     background-color: rgb(196, 123, 168);
@@ -152,7 +184,7 @@ nav {
     /*----------------*/
 }
 
-/*---------------------- Services --------------------------*/
+/*---------------------- SERVICES --------------------------*/
 
 .services {
     background-color: rgb(235, 169, 125);
@@ -160,7 +192,7 @@ nav {
     /*----------------*/
 }
 
-/*---------------------- Cards board --------------------------*/
+/*---------------------- CARDS BOARD --------------------------*/
 
 .cards-board {
     background-color: rgb(109, 150, 212);
@@ -168,13 +200,90 @@ nav {
     /*----------------*/
 }
 
-/*---------------------- Footer --------------------------*/
+/*---------------------- FOOTER --------------------------*/
 footer {
-    height: 300px;
-    background-color: #cff;
-    /*----------------*/
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    margin: auto;
+    margin-bottom: 110px;
 }
 
+.contact-wrap {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.contact-form {
+    padding: 22px;
+    max-width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25em 0;
+}
+
+
+label > input,
+label > .message {
+    /* padding: .5em 1em .5em 0; */
+    /* flex: 2; */
+}
+
+.infotext {
+    margin-bottom: 25px;
+
+    line-height: 1.5em;
+}
+
+.submit-btn {
+    margin: 0.25em 0;
+    align-self: flex-end;
+
+    text-transform: uppercase;
+    font-weight: bold;
+
+    background-color: #ffffff;
+
+    transition: all 0.5s ease;
+}
+
+.submit-btn:hover {
+    color: #ffa500;
+    border-color: #ffa500;;
+}
+
+input, 
+.submit-btn {
+    height: 36px;
+    width: 250px;
+
+    /* margin: 2px; */
+}
+
+input {
+    margin-right: 70px;
+}
+
+input,
+.message {
+    padding-left: 10px;
+}
+
+.message:focus, 
+input:focus { 
+    outline: 1px solid #000000;   
+}
+
+/*============================================================*/
 
 /*------------------ Transition, :hover ----------------------*/
 .header__item,
@@ -190,6 +299,10 @@ footer {
 /*------------------- Colored text -----------------------*/
 .orange-text {
     color: #ffa500;
+}
+
+.gray-text {
+    color: #778899;
 }
 
 /*------------------- Transition off -----------------------*/
@@ -208,7 +321,6 @@ footer {
     width: 36px;
 
     margin: 2px;
-    border: 1px solid #d0d0d0;
 }
 
 .header__list,
@@ -231,7 +343,9 @@ footer {
 
 /*---------------------- Fonts --------------------------*/
 
-.nav__menu {
+.nav__menu,
+label,
+.infotext {
     font-family: 'Roboto', serif; 
     font-size: 14px;
     font-weight: 400;
@@ -241,3 +355,12 @@ footer {
 .last-link {
     margin-right: 0;
 }
+
+/*---------------------- Border --------------------------*/
+input, 
+.submit-btn,
+.header__item,
+.nav__item,
+.message {
+    border: 1px solid #d0d0d0;
+ }

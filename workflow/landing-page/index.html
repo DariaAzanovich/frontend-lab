@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="sources/style/main.css">
+    <link rel="stylesheet" href="sources/style/media.css">
     <link rel="shortcut icon" href="sources/img/icons/octahedron.png" type="image/x-icon">
     
     <script defer src="sources/sctript.js"></script>
@@ -19,74 +20,136 @@
 <body class="preload">
     <div class="wrap">
         <div class="search-window"></div>
-        <header>
-            <h1 class="header__logo">
-                <span class="orange-text">Art</span> core
-            </h1>   <!-- ./ header__logo -->
-            <div class="header__icons">
-                <ul class="header__list">
-                    <li class="header__item header__item--facebook">
-                        <a href="https://www.facebook.com/">
-                            <img src="sources/img/icons/facebook.svg" alt="Facebook icon">
-                        </a>
+        <!-- <div class="header-wrap"> -->
+            <header>
+                <h1 class="header__logo">
+                    <span class="orange-text">Art</span> core
+                </h1>   <!-- ./ header__logo -->
+                <div class="header__icons">
+                    <ul class="header__list">
+                        <li class="header__item header__item--facebook">
+                            <a href="https://www.facebook.com/">
+                                <img src="sources/img/icons/facebook.svg" alt="Facebook icon">
+                            </a>
+                        </li>
+                        <li class="header__item header__item--twitter">
+                            <a href="https://twitter.com/">
+                                <img src="sources/img/icons/twitter.svg" alt="Twitter icon">
+                            </a>
+                        </li>
+                        <li class="header__item header__item--linkedin">
+                            <a href="#">
+                                <img src="sources/img/icons/linkedin.svg" alt="Linkedin icon">
+                            </a>
+                        </li>
+                        <li class="header__item header__item--rss">
+                            <a href="#">
+                                <img src="sources/img/icons/rss.svg" alt="RSS icon">
+                            </a>
+                        </li>
+                    </ul>
+                </div>  <!-- ./ header__icons -->
+            </header> <!-- ./ header -->
+        <!-- </div> -->
+
+        <!-- <div class="content-wrap"> -->
+            <nav>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <img src="sources/img/icons/search.svg" alt="Search">
                     </li>
-                    <li class="header__item header__item--twitter">
-                        <a href="https://twitter.com/">
-                            <img src="sources/img/icons/twitter.svg" alt="Twitter icon">
-                        </a>
+                    <li class="nav__item">
+                        <img src="sources/img/icons/arrow-left.svg" alt="Left">
                     </li>
-                    <li class="header__item header__item--linkedin">
-                        <a href="#">
-                            <img src="sources/img/icons/linkedin.svg" alt="Linkedin icon">
-                        </a>
+                    <li class="nav__item">
+                        <img src="sources/img/icons/arrow-right.svg" alt="Right">
                     </li>
-                    <li class="header__item header__item--rss">
-                        <a href="#">
-                            <img src="sources/img/icons/rss.svg" alt="RSS icon">
-                        </a>
-                    </li>
-                </ul>
-            </div>  <!-- ./ header__icons -->
-        </header> <!-- ./ header -->
+                </ul>   <!-- ./ nav__list -->
+    
+                <div class="nav__menu">
+                    <a class="nav__link orange-text" href="#">Home</a>
+                    <a class="nav__link" href="#">Services</a>
+                    <a class="nav__link" href="#">Projects</a>
+                    <a class="nav__link" href="#">Blog</a>
+                    <a class="nav__link" href="#">Pages</a>
+                    <a class="nav__link last-link" href="#">Contact</a>
+                    <div class="nav_burger-menu"></div>
+                </div>
+                
+            </nav>  <!-- ./ nav -->
+    
+            <section class="slider">
+                IMAGE SLIDER
+            </section>  <!-- ./ slider -->
+    
+            <section class="services">
+                SERVICES
+            </section>  <!-- ./ services -->
+    
+            <section class="cards-board">
+                CARDS BOARD
+            </section>  <!-- ./ cards-board -->
+    
+            <footer>
+                <h3>Contact us</h3>
+                <div class="contact-wrap">
+                    <form class="contact-form gray-text" action="index.html">
+                        <p class="infotext">
+                            This is an example of a contact page. You can set the contact page in your themes backend and add, remove and modify the input fields, text areas, dropdowns and checkboxes from your backend as well.
+    
+                        </p>
+                        <h4>Send us email</h4>
 
-        <nav>
-            <ul class="nav__list">
-                <li class="nav__item">
-                    <img src="sources/img/icons/search.svg" alt="Search">
-                </li>
-                <li class="nav__item">
-                    <img src="sources/img/icons/arrow-left.svg" alt="Left">
-                </li>
-                <li class="nav__item">
-                    <img src="sources/img/icons/arrow-right.svg" alt="Right">
-                </li>
-            </ul>   <!-- ./ nav__list -->
+                        <!-- <ul class="inputs-wrap">
+                            <li class="form-row">
+                                <label>
+                                    Your name: <input type="text">
+                                </label>
+                            </li>
 
-            <div class="nav__menu">
-                <a class="nav__link orange-text" href="#">Home</a>
-                <a class="nav__link" href="#">Services</a>
-                <a class="nav__link" href="#">Projects</a>
-                <a class="nav__link" href="#">Blog</a>
-                <a class="nav__link" href="#">Pages</a>
-                <a class="nav__link last-link" href="#">Contact</a>
-                <div class="nav_burger-menu"></div>
-            </div>
-            
-        </nav>  <!-- ./ nav -->
+                            <li class="form-row">
+                                <label>
+                                    Your name: <input type="text">
+                                </label>
+                            </li>
 
-        <section class="slider">
-            IMAGE SLIDER
-        </section>  <!-- ./ slider -->
+                            <li class="form-row">
+                                <label>
+                                    Your name: <input type="text">
+                                </label>
+                            </li>
 
-        <section class="services">
-            SERVICES
-        </section>  <!-- ./ services -->
+                            <li class="form-row">
+                                <label>
+                                    Your name: <input type="text">
+                                </label>
+                            </li>
+                        </ul> -->
 
-        <section class="cards-board">
-            CARDS BOARD
-        </section>  <!-- ./ cards-board -->
+                        <label>
+                            Your name: <input type="text">
+                        </label>
 
-        <footer>FOOTER</footer> <!-- ./ footer -->
+                        <label>
+                            Email Address: <input type="email">
+                        </label>
+
+                        <label>
+                            Phone number: <input type="number">
+                        </label>
+
+                        <label>
+                            Your message: <textarea class="message" cols="10" rows="10"></textarea>
+                        </label>
+
+                        <button class="submit-btn" type="submit">Send message</button>
+                    </form>
+                    
+                </div>
+            </footer> <!-- ./ footer -->
+        <!-- </div> -->
+
+ 
     </div>
 </body>
 </html>
