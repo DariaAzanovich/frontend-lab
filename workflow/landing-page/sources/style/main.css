@@ -64,8 +64,6 @@ textarea {
 /*---------------------- SEARCH WINDOW --------------------------*/
 .search-window {
     position: fixed;
-    top: 0px;
-    left: 0px;
 
     display: flex;
     flex-direction: column;
@@ -78,7 +76,11 @@ textarea {
     opacity: 0.9;
     z-index: 999999;
 
-    visibility: hidden;
+    transition: 1s ease-in-out;
+}
+
+.closed-search-window {
+    transform: translateY(-100%);
 }
 
 .close-btn {
