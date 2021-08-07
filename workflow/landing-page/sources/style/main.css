@@ -43,10 +43,13 @@ h4 {
 textarea {
     width: 40%;
 }
+
 .wrap {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    position: relative;
 }
 
 .header-wrap {
@@ -57,14 +60,43 @@ textarea {
     padding: 0 60px;
 }
 
+
+/*---------------------- SEARCH WINDOW --------------------------*/
 .search-window {
-    /* position: absolute;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
     width: 100vw;
     height: 100vh;
 
     background-color: #000000;
-    opacity: 0.8;
-    z-index: 999999; */
+    opacity: 0.9;
+    z-index: 999999;
+
+    visibility: hidden;
+}
+
+.close-btn {
+    align-self: flex-end;
+
+    margin: 20px;
+
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+.search-text {
+    align-self: center;
+
+    margin-top: 30vh;
+
+    font-size: 5em;
+    color: #ffffff;
 }
 
 /*---------------------- HEADER --------------------------*/
