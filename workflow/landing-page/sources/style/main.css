@@ -14,7 +14,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
 }
 
 h2 {
@@ -127,11 +127,18 @@ nav {
     height: 40%;
 }
 
-.nav_menu {
+
+/*---------------------- Nav menu -------------------------*/
+
+.nav__menu {
     position: relative;
+
+    display: flex;
+
+    list-style: none;
 }
   
-.nav__link {
+.nav__menu-item {
     position: relative;
     
     margin: 0 30px;
@@ -145,7 +152,11 @@ nav {
     color:#ffa500;
 }
 
-.nav__link + .nav__link::before {
+/* .nav__link {
+    position: relative;
+} */
+
+.nav__menu li::before {
     content: '/';
     position: absolute;
 
@@ -154,9 +165,40 @@ nav {
     color: #d0d0d0;
 }
 
+.nav__menu-item {
+    position: relative;
+}
 
+.dropdown {
+    position: absolute;
+    top: 50px;
+    right: calc();
+
+    display: flex;
+    flex-direction: column;
+
+    visibility: hidden;
+
+    background-color: #ffffff;
+}
+
+.nav__menu-item:hover .dropdown {
+    visibility: visible;
+}
+
+
+.dropdown li {
+    padding: 10px;
+    overflow-wrap: normal;
+}
+
+.dropdown li:not(:last-child) {
+    border-bottom: 1px solid #d0d0d0;
+}
+
+/*---------------------- Burger menu -------------------------*/
   
-.nav__burger-menu {
+/* .nav__burger-menu {
     display: none;
     position: relative;
     flex-direction: column;
@@ -187,8 +229,9 @@ nav {
     height: 5px;
   
     background-color: #ffffff;
-}
+} */
 
+/*---------------------- Dropdown menu -------------------------*/
 .dropdown-menu {
     display: flex;
     
@@ -216,16 +259,14 @@ nav {
 
 .dropdown-menu__list li {
     padding: 15px 0px;
-    /* margin: 0 25px; */
 }
 
-.dropdown-menu__list li,
-.dropdown-menu__list ul li {
-    border-bottom: 1px solid #474747;
-}
-
-.dropdown-menu__list ul li {
+.dropdown-menu__list li ul {
     margin: 0 25px;
+}
+
+.dropdown-menu__list li:not(:last-child) {
+    border-bottom: 1px solid #474747;
 }
 
 .dropdown-menu__list li:first-child {
@@ -459,6 +500,10 @@ input:focus {
 
 .green-text {
     color: #adff2f;
+}
+
+.white-text {
+    color: #ffffff;
 }
 
 /*------------------- Transition off -----------------------*/
