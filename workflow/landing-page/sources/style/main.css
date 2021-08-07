@@ -189,6 +189,49 @@ nav {
     background-color: #ffffff;
 }
 
+.dropdown-menu {
+    display: flex;
+    
+    overflow: hidden;
+    background-color: #2c2c2c;
+}
+
+.dropdown-menu__list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    margin: 0 25px;
+    
+    list-style-type: none;
+
+    color: #ffffff;
+    font-size: 1.25em;
+}
+
+.dropdown-menu__list ul {
+    list-style-type: none;
+    padding-left: 25px;
+}
+
+.dropdown-menu__list li {
+    padding: 15px 0px;
+    /* margin: 0 25px; */
+}
+
+.dropdown-menu__list li,
+.dropdown-menu__list ul li {
+    border-bottom: 1px solid #474747;
+}
+
+.dropdown-menu__list ul li {
+    margin: 0 25px;
+}
+
+.dropdown-menu__list li:first-child {
+    padding-top: 25px;
+}
+
 /*---------------------- SLIDER -------------------------*/
 
 .slider {
@@ -460,9 +503,16 @@ input:focus {
 label,
 .infotext,
 p {
-    font-family: 'Roboto', serif; 
     font-size: 14px;
     font-weight: 400;
+}
+
+.nav__menu,
+label,
+.infotext,
+p,
+.dropdown-menu__list {
+    font-family: 'Roboto', serif; 
 }
 
 
