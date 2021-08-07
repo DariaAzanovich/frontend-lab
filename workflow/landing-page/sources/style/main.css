@@ -203,6 +203,11 @@ nav {
     color: #ffffff;
 }
 
+.slider {
+    background: url(../img/bacgrounds/background.jpeg) no-repeat center center;
+    background-size: cover;
+  }
+
 .slider > p {
     color: #ffffff;
 }
@@ -316,7 +321,7 @@ footer {
 
 .contact-form {
     padding: 22px;
-    max-width: 50%;
+    /* max-width: 50%; */
 
     display: flex;
     flex-direction: column;
