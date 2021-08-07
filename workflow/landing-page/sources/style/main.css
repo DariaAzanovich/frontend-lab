@@ -7,14 +7,23 @@
 
 body {
     position: relative;
+
+    font-size: 16px;
     background-color: #efefef;
 }
 
 a {
     text-decoration: none;
+    color: #ffffff;
+}
+
+h2 {
+    text-transform: uppercase; 
+    font-weight: normal;
 }
 
 h3 {
+    flex-grow: 1;
     padding: 70px 0;
 
     text-transform: uppercase; 
@@ -184,8 +193,28 @@ nav {
 
 .slider {
     background-color: rgb(196, 123, 168);
-    height: 200px;
+    height: 500px;
     /*----------------*/
+    display: flex;
+    align-items: center;
+
+    padding-left: 170px;
+
+    color: #ffffff;
+}
+
+.slider > p {
+    color: #ffffff;
+}
+
+.slider-content > * {
+    margin-bottom: 35px;
+
+    font-size: 1.2em;
+}
+
+.slider-content > h2 {
+    font-weight: normal;
 }
 
 /*---------------------- SERVICES --------------------------*/
@@ -193,17 +222,17 @@ nav {
 .services {
     display: flex;
     flex-direction: column;
-}
-
-.title {
-    flex-grow: 1;
-    padding: 70px 40px;
+    align-items: center;
 }
 
 .service-cards {
+    align-self: center;
+
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-flow: row wrap;
+
+    max-width: 90%;
 }
 
 .service {
@@ -224,6 +253,11 @@ nav {
     flex-grow: 0;
 
     max-width: 400px;
+}
+
+.service:nth-child(2n+1) > .service-content {
+    align-items: flex-end;
+    text-align: end;
 }
 
 .service-icon {
@@ -249,15 +283,13 @@ nav {
     transition: transform 0.3s ease;
 }
 
-.left-icon {
+.service:nth-child(2n) > .service-icon {
     margin-right: 25px;
 }
 
-.right-icon {
+.service:nth-child(2n+1) > .service-icon {
     margin-left: 25px;
 }
-
-
 /*---------------------- CARDS BOARD --------------------------*/
 
 .cards-board {
@@ -368,7 +400,8 @@ input:focus {
     color: #ffa500;
 }
 
-.gray-text {
+.contact-form,
+.service-content {
     color: #778899;
 }
 
@@ -420,7 +453,8 @@ input:focus {
 
 .nav__menu,
 label,
-.infotext {
+.infotext,
+p {
     font-family: 'Roboto', serif; 
     font-size: 14px;
     font-weight: 400;
