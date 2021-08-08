@@ -177,7 +177,7 @@ nav {
 .nav__menu-item {
     position: relative;
     
-    margin: 0 30px;
+    /* margin: 0 30px; */
     
     text-decoration: none;
     text-transform: uppercase;
@@ -194,9 +194,11 @@ nav {
 
 .nav__menu > .nav__menu-item:not(:first-child):before {
     content: '/';
-    position: absolute;
+    position: relative;
 
-    left: -30px;
+    margin: 0 30px;
+
+    /* left: -30px; */
 
     color: #d0d0d0;
 }
@@ -209,20 +211,37 @@ nav {
 
 .dropdown-submenu {
     position: absolute;
-    top: 30px;
-    right: calc();
+    top: 40px;
+    width: 200px;
 
     display: flex;
     flex-direction: column;
 
     visibility: hidden;
+    opacity: 0;
 
     background-color: #ffffff;
     list-style: none;
+
+    transition: visibility 0.1s, opacity 0.4s linear;
+}
+
+.dropdown-submenu::before {
+    content: '';
+    position: absolute;
+
+    top: -10px;
+    right: 95px;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffffff;
 }
 
 .nav__menu-item:hover .dropdown-submenu {
     visibility: visible;
+    opacity: 1;
+    transition: visibility 0.1s, opacity 0.4s linear;
 }
 
 
@@ -406,8 +425,43 @@ nav {
 
 .cards-board {
     background-color: rgb(109, 150, 212);
-    height: 200px;
+    /* height: 200px; */
     /*----------------*/
+}
+
+.container {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 2px solid #CCCCCC;
+    max-width: 80%;
+    margin: 40px auto;
+    height: 470px;
+    display: flex;
+    flex-flow: column wrap; /* Shorthand – you could use ‘flex-direction: column’ and ‘flex-wrap: wrap’ instead */
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.item {
+    background-color: orange;
+    height: 150px;
+    width: 31%;
+    margin: 1%;
+    padding: 10px;
+}
+
+.item:nth-child(2) {
+    background-color: pink;
+    height: 250px;
+}
+
+.item:nth-child(3) {
+    height: 190px;
+}
+
+.item:nth-child(4) {
+    background-color: aqua;
+    height: 220px;
 }
 
 /*---------------------- FOOTER --------------------------*/
