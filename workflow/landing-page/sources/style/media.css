@@ -19,16 +19,21 @@
     .nav__menu .nav__menu-item {
         display: none;
     }
+
+    .page-content {
+        width: 80%;
+    }
+}
+
+
+@media screen and (min-width: 992px) {
+    .dropdown-menu {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 1200px) {
     .service {
         width: 455px;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .dropdown-menu {
-        display: none;
     }
 }

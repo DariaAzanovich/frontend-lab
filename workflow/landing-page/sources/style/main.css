@@ -348,22 +348,32 @@ nav {
     font-weight: normal;
 }
 
+/*------------------- Page content wrap -----------------------*/
+
+.page-content {
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 70%;
+}
+
 /*---------------------- SERVICES --------------------------*/
 
 .services {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .service-cards {
     align-self: center;
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-flow: row wrap;
-
-    max-width: 90%;
 }
 
 .service {
@@ -373,7 +383,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    /* flex-grow: 1; */
 
     background-color: #ffffff;
 }
@@ -384,6 +394,7 @@ nav {
     flex-grow: 0;
 
     max-width: 400px;
+    line-height: 1.5em;
 }
 
 .service:nth-child(2n+1) > .service-content {
@@ -427,6 +438,7 @@ nav {
     background-color: rgb(109, 150, 212);
     /* height: 200px; */
     /*----------------*/
+    width: 100%;
 }
 
 .container {
@@ -466,7 +478,6 @@ nav {
 
 /*---------------------- FOOTER --------------------------*/
 footer {
-    max-width: 80%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -547,6 +558,11 @@ input,
 input:focus { 
     outline: 1px solid #000000;   
 }
+
+/* .phone {
+    display: flex;
+    justify-content: space-between;
+} */
 
 /*============================================================*/
 
