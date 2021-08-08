@@ -3,8 +3,8 @@
 [Take a look](https://dariaazanovich.github.io/frontend-lab/workflow/landing-page/)
 
 ## To do list
-- [] cards board;
-- [] services cards location;
-- [] form fields location;
-- [] dropdown menu animation;
-- [] event target mutual funvtion;
+- [ ] [cards board];
+- [ ] services cards location;
+- [ ] form fields location;
+- [ ] dropdown menu animation;
+- [ ] event target mutual funvtion;
