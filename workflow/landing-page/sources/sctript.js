@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function ready() {
+window.onload(function () {
     document.body.classList.remove('preload');
-});
+})
 
 const searchBtn = document.querySelector('.search-btn');
 const searchWindow = document.querySelector('.search-window');

@@ -346,14 +346,14 @@ nav {
 
 /*===================== Page content wrap =====================*/
 
-.page-content {
+.page-content-wrap {
     align-self: center;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    width: 70%;
+    width: 80%;
     max-width: 1140px;
 }
 
