@@ -12,6 +12,14 @@
         padding-bottom: 50%;
     }
 
+    .form-row label {
+        width: 20%;
+    }
+
+    .submit-btn {
+        margin-left: 20%;
+    }
+
     .form-row input, 
     .message,
     .submit-btn {
