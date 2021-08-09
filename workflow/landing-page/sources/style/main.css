@@ -50,7 +50,7 @@ h4 {
 }
 
 textarea {
-    width: 40%;
+    /* width: 40%; */
 }
 
 .wrap {
@@ -571,25 +571,11 @@ footer {
 
 .contact-form {
     padding: 22px;
-    /* max-width: 50%; */
+    max-width: 60%;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-}
-
-label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.25em 0;
-}
-
-
-label > input,
-label > .message {
-    /* padding: .5em 1em .5em 0; */
-    /* flex: 2; */
 }
 
 .infotext {
@@ -598,9 +584,48 @@ label > .message {
     line-height: 1.5em;
 }
 
+.inputs-wrap {
+    display: flex;
+    flex-direction: column;
+
+    list-style: none;
+    padding: 0;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-bottom: 10px;
+    width: 100%;
+} 
+
+.form-row label {
+    width: 30%;
+}
+
+.message-label {
+    align-self: flex-start;
+}
+
+input,
+.message {
+    padding-left: 10px;
+}
+
+.message:focus, 
+input:focus { 
+    outline: 1px solid #000000;   
+}
+
+.message {
+    width: 320px;
+}
+
 .submit-btn {
-    margin: 0.25em 0;
-    align-self: flex-end;
+    align-self: flex-start;
+    margin-left: 30%;
 
     text-transform: uppercase;
     font-weight: bold;
@@ -620,28 +645,7 @@ input,
 .submit-btn {
     height: 36px;
     width: 250px;
-
-    /* margin: 2px; */
 }
-
-input {
-    margin-right: 70px;
-}
-
-input,
-.message {
-    padding-left: 10px;
-}
-
-.message:focus, 
-input:focus { 
-    outline: 1px solid #000000;   
-}
-
-/* .phone {
-    display: flex;
-    justify-content: space-between;
-} */
 
 /*===================== Combined selectors ===================*/
 

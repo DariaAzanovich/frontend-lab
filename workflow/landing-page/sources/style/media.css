@@ -8,8 +8,14 @@
     }
 
     .contact-form {
-        width: 100%;
+        max-width: 100%;
         padding-bottom: 50%;
+    }
+
+    .form-row input, 
+    .message,
+    .submit-btn {
+        width: 400px;
     }
 
     .nav__burger-menu {
@@ -37,10 +43,6 @@
 }
 
 @media screen and (max-width: 1200px) {
-    /* .service {
-        width: 455px;
-    } */
-
     .page-content {
         width: 80%;
     }
@@ -49,5 +51,9 @@
 @media screen and (min-width: 1200px) {
     .page-content {
         width: 90%;
+    }
+
+    .contact-form {
+        max-width: 50%;
     }
 }
