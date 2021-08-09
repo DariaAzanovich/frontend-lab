@@ -49,9 +49,9 @@
 }
 
 @media screen and (min-width: 1200px) {
-    .page-content {
+    /* .page-content {
         width: 90%;
-    }
+    } */
 
     .contact-form {
         max-width: 50%;
