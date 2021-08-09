@@ -7,4 +7,4 @@
 - [ ] services cards location;
 - [x] form fields location;
 - [ ] dropdown menu animation;
-- [ ] event target mutual funvtion;
+- [x] event target mutual funvtion; - excess
