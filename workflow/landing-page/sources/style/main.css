@@ -1,9 +1,18 @@
 * {
-    /* font-family: 'Roboto Slab', serif; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/*------------------- Transition off -----------------------*/
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+/*------------------ Elements & main wraps ------------------*/
 
 body {
     position: relative;
@@ -15,7 +24,6 @@ body {
 a {
     text-decoration: none;
     color: #000000;
-    /* color: #ffffff; */
 }
 
 h2 {
@@ -62,7 +70,7 @@ textarea {
 }
 
 
-/*---------------------- SEARCH WINDOW --------------------------*/
+/*===================== SEARCH WINDOW =======================*/
 .search-window {
     position: fixed;
 
@@ -102,7 +110,7 @@ textarea {
     color: #ffffff;
 }
 
-/*---------------------- HEADER --------------------------*/
+/*========================= HEADER =========================*/
 
 header {
     width: 100%;
@@ -141,7 +149,7 @@ header {
     height: 33.3%;
 }
 
-/*---------------------- NAV --------------------------*/
+/*========================= NAV =========================*/
 
 nav {
     display: flex;
@@ -177,28 +185,16 @@ nav {
 .nav__menu-item {
     position: relative;
     
-    /* margin: 0 30px; */
-    
     text-decoration: none;
     text-transform: uppercase;
     color: #000000;
 }
-
-.nav__link:hover {
-    color:#ffa500;
-}
-
-/* .nav__link {
-    position: relative;
-} */
 
 .nav__menu > .nav__menu-item:not(:first-child):before {
     content: '/';
     position: relative;
 
     margin: 0 30px;
-
-    /* left: -30px; */
 
     color: #d0d0d0;
 }
@@ -315,7 +311,7 @@ nav {
     padding-top: 25px;
 }
 
-/*---------------------- SLIDER -------------------------*/
+/*========================= SLIDER =========================*/
 
 .slider {
     background-color: rgb(196, 123, 168);
@@ -348,7 +344,7 @@ nav {
     font-weight: normal;
 }
 
-/*------------------- Page content wrap -----------------------*/
+/*===================== Page content wrap =====================*/
 
 .page-content {
     align-self: center;
@@ -360,7 +356,7 @@ nav {
     width: 70%;
 }
 
-/*---------------------- SERVICES --------------------------*/
+/*========================= SERVICES =========================*/
 
 .services {
     display: flex;
@@ -432,51 +428,133 @@ nav {
 .service:nth-child(2n+1) > .service-icon {
     margin-left: 25px;
 }
-/*---------------------- CARDS BOARD --------------------------*/
+/*========================= CARDS BOARD =========================*/
 
 .cards-board {
-    background-color: rgb(109, 150, 212);
+    /* background-color: rgb(109, 150, 212); */
     /* height: 200px; */
     /*----------------*/
+    /* display: flex;
+    flex-direction: column;  */
+
     width: 100%;
 }
 
-.container {
-    background-color: #f2f2f2;
-    padding: 10px;
-    border: 2px solid #CCCCCC;
-    max-width: 80%;
-    margin: 40px auto;
-    height: 470px;
+.cards-wrap {
     display: flex;
-    flex-flow: column wrap; /* Shorthand – you could use ‘flex-direction: column’ and ‘flex-wrap: wrap’ instead */
-    justify-content: flex-start;
+    flex-flow: row wrap; 
+    align-items: baseline;
+    align-content: space-between;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.card {
+    /* position: relative; */
+
+    display: flex;
+    flex-direction: column;
+
+    width: 32%;
+    min-width: auto;
+    margin-bottom: 30px;
+
+    background-color: #ffffff;
+
+    overflow: hidden;
+}
+
+/*==========================*/
+/* .cards-wrap {
+    counter-reset: items;
+}
+
+.card::before {
+    counter-increment: items;
+    content: counter(items);
+}
+
+/* Re-order items into 3 rows 
+.card:nth-child(3n+1) { order: 1; }
+.card:nth-child(3n+2) { order: 2; }
+.card:nth-child(3n)   { order: 3; }
+
+
+/* Force new columns 
+.cards-wrap::before,
+.cards-wrap::after {
+  content: "";
+  flex-basis: 100%;
+  width: 0;
+  order: 2;
+}
+
+.cards-wrap > :nth-child(-n + 3) {
+    break-before: flex; /* так должно быть по текущей спеке 
+    break-before: always; /* так работает в Firefox, хотя не должно:) 
+ } */
+/*-==========================*/
+
+
+
+.card-img {
+    position: relative;
+
+    transition: all 0.2s ease;
+}
+
+.card-img:hover .img-blackout {
+    visibility: visible;
+}
+
+.img-blackout {
+    position: absolute;
+    top: 0;
+    /* left: 44%; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+
+    opacity: 0.8;
+    visibility: hidden;
+}
+
+.link-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #ffffff;
+}
+
+.link-btn:hover a {
+    color: #ffa500;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
+
+    padding: 25px;
 }
 
-.item {
-    background-color: orange;
-    height: 150px;
-    width: 31%;
-    margin: 1%;
-    padding: 10px;
+.card-content h4 {
+    cursor: pointer;
 }
 
-.item:nth-child(2) {
-    background-color: pink;
-    height: 250px;
+.card-date {
+    font-size: 0.8em;
+    padding-bottom: 10px;
 }
 
-.item:nth-child(3) {
-    height: 190px;
-}
-
-.item:nth-child(4) {
-    background-color: aqua;
-    height: 220px;
-}
-
-/*---------------------- FOOTER --------------------------*/
+/*========================= FOOTER =========================*/
 footer {
     display: flex;
     flex-direction: column;
@@ -532,7 +610,8 @@ label > .message {
     transition: all 0.5s ease;
 }
 
-.submit-btn:hover {
+.submit-btn:hover, 
+.link-btn:hover {
     color: #ffa500;
     border-color: #ffa500;;
 }
@@ -564,7 +643,7 @@ input:focus {
     justify-content: space-between;
 } */
 
-/*============================================================*/
+/*===================== Combined selectors ===================*/
 
 /*------------------ Transition, :hover ----------------------*/
 .header__item,
@@ -577,13 +656,21 @@ input:focus {
     border-color: black;
 }
 
+.nav__link:hover,
+.card-content h4:hover {
+    color:#ffa500;
+}
+
 /*------------------- Colored text -----------------------*/
 .orange-text {
     color: #ffa500;
 }
 
 .contact-form,
-.service-content {
+.service-content,
+.infotext,
+.card-date,
+.card-text {
     color: #778899;
 }
 
@@ -600,23 +687,16 @@ input:focus {
 }
 
 .dropdown-menu__list a,
-.slider a {
+.slider a,
+.link-btn a {
     color: #ffffff;
 }
-
-/*------------------- Transition off -----------------------*/
-.preload * {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
-    -o-transition: none !important;
-}
-
 
 /*------------------- Links/btns -----------------------*/
 .header__item,
 .nav__item,
-.nav__burger-menu {
+.nav__burger-menu,
+.link-btn {
     height: 36px;
     width: 36px;
 

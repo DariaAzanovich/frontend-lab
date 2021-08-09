@@ -30,10 +30,24 @@
     .dropdown-menu {
         display: none;
     }
+
+    .page-content {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 1200px) {
-    .service {
+    /* .service {
         width: 455px;
+    } */
+
+    .page-content {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .page-content {
+        width: 90%;
     }
 }
