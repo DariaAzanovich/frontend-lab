@@ -2,11 +2,20 @@
     header {
         padding: 40px 20px;
     }
+/*----------------------------- Nav ----------------------------*/
+    .nav__burger-menu {
+        display: flex;
+    }
 
+    .nav__menu .nav__menu-item {
+        display: none;
+    }
+/*-------------------------- Services -------------------------*/
     .service {
         width: 100%;
     }
 
+/*-------------------------- Contacts -------------------------*/
     .contact-form {
         max-width: 100%;
         padding-bottom: 50%;
@@ -26,20 +35,42 @@
         width: 400px;
     }
 
-    .nav__burger-menu {
-        display: flex;
-    }
-
-    .nav__menu .nav__menu-item {
-        display: none;
-    }
-
+/*----------------------- Page content ----------------------*/
     .page-content-wrap {
         width: 75%;
+    }
+/*----------------------- Cards board ----------------------*/
+    .cards-wrap {
+        max-height: 2300px;
     }
 
     .card {
         max-width: calc(50% - 15px);
+    }
+
+    .card:nth-child(2) { 
+        order: 5; 
+    }
+    .card:nth-child(3) { 
+        order: 2; 
+    }
+    .card:nth-child(4) { 
+        order: 6; 
+    }
+    .card:nth-child(5) { 
+        order: 3; 
+    }
+    .card:nth-child(6) { 
+        order: 7; 
+    }
+    .card:nth-child(7) { 
+        order: 4; 
+    }
+    .card:nth-child(8) { 
+        order: 8; 
+    }
+    .card:nth-child(9) { 
+        order: 9; 
     }
 }
 
