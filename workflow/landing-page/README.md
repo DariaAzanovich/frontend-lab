@@ -5,7 +5,7 @@
 ## To do list
 - [ ] cards board:
     - [ ] masonry;
-    - [ ] card overstretching;
+    - [x] card overstretching;
 - [x] services cards location;
 - [x] form fields location;
 - [ ] dropdown menu animation;
