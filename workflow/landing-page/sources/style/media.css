@@ -34,8 +34,8 @@
         display: none;
     }
 
-    .page-content {
-        width: 80%;
+    .page-content-wrap {
+        width: 75%;
     }
 }
 
@@ -45,22 +45,16 @@
         display: none;
     }
 
-    .page-content {
-        width: 80%;
+    .page-content-wrap {
+        width: 90%;
     }
-}
 
-@media screen and (max-width: 1200px) {
-    .page-content {
-        width: 80%;
+    .service {
+        max-width: calc(50% - 15px);
     }
 }
 
 @media screen and (min-width: 1200px) {
-    /* .page-content {
-        width: 90%;
-    } */
-
     .contact-form {
         max-width: 50%;
     }

@@ -42,15 +42,15 @@ h3 {
 
 h4 {
     margin-bottom: 25px;
+
+    width: 100%;
+
+    text-transform: capitalize;
+    
     font-weight: normal;
     font-size: 1.125em;
 
-    text-transform: capitalize;
     color: #000000;
-}
-
-textarea {
-    /* width: 40%; */
 }
 
 .wrap {
@@ -353,7 +353,7 @@ nav {
     flex-direction: column;
     align-items: center;
 
-    width: 80%;
+    width: 90%;
     max-width: 1140px;
 }
 
@@ -373,6 +373,8 @@ nav {
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
+
+    width: 100%;
 }
 
 .service {
@@ -380,19 +382,16 @@ nav {
     padding: 25px;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    /* flex-grow: 1; */
-
+    
     background-color: #ffffff;
 }
 
 .service-content {
     display: flex;
     flex-direction: column;
-    flex-grow: 0;
 
-    max-width: 400px;
     line-height: 1.5em;
 }
 
@@ -413,7 +412,7 @@ nav {
     border: 2px solid #e4e4e4;
     border-radius: 50%;
 
-    font-size: 1.6em;
+    font-size: 1.8em;
 }
 
 .service-icon:hover {
@@ -514,7 +513,6 @@ nav {
 .img-blackout {
     position: absolute;
     top: 0;
-    /* left: 44%; */
 
     display: flex;
     justify-content: center;
