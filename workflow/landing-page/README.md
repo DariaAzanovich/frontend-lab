@@ -1,6 +1,6 @@
 # Progress
 
-[Take a look](https://dariaazanovich.github.io/frontend-lab/workflow/landing-page/)
+[Take a look]()
 
 ## To do list
 - [x] cards board:
@@ -11,3 +11,12 @@
 - [x] dropdown menu animation;
 - [x] event target mutual funvtion; - excess
 - [x] services & contact form paragraphs font size autoincrement;
+
+## To do list (GIFs, fetch, Promises)
+- [x] try to use gif instead of static picture;
+- [ ] choose gifs category;
+- [ ] gifs link click;
+- [ ] fetch gifs and its data;
+- [ ] async/await functions;
+- [ ] pagination;
+- [ ] btns previous, next;
