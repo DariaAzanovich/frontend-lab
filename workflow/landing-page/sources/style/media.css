@@ -55,6 +55,7 @@
 
     .service {
         max-width: calc(50% - 15px);
+        transition: all 1s ease;
     }
 }
 

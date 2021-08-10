@@ -456,6 +456,7 @@ nav {
     max-width: calc(33% - 15px);
     margin-bottom: 30px;
 
+    transition: all 1s ease;
     background-color: #ffffff;
 }
 
