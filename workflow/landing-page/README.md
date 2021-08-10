@@ -6,8 +6,8 @@
 - [ ] cards board:
     - [ ] masonry;
     - [ ] card overstretching;
-- [ ] services cards location;
+- [x] services cards location;
 - [x] form fields location;
 - [ ] dropdown menu animation;
 - [x] event target mutual funvtion; - excess
-- [ ] services & contact form paragraphs font size autoincrement;
+- [x] services & contact form paragraphs font size autoincrement;
