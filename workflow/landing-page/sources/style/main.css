@@ -433,11 +433,8 @@ nav {
 /*========================= CARDS BOARD =========================*/
 
 .cards-board {
-    /* background-color: rgb(109, 150, 212); */
-    /* height: 200px; */
-    /*----------------*/
-    /* display: flex;
-    flex-direction: column;  */
+    display: flex;
+    flex-direction: column; 
 
     width: 100%;
 }
@@ -445,69 +442,53 @@ nav {
 .cards-wrap {
     display: flex;
     flex-flow: row wrap; 
-    align-items: baseline;
-    align-content: space-between;
-    justify-content: space-between;
+    /* align-items: baseline;
+    align-content: space-between; */
+    justify-content: space-between; 
 
     width: 100%;
 }
 
 .card {
-    /* position: relative; */
-
     display: flex;
     flex-direction: column;
 
-    width: 32%;
-    min-width: auto;
+    max-width: calc(33% - 15px);
     margin-bottom: 30px;
 
     background-color: #ffffff;
-
-    overflow: hidden;
 }
 
-/*==========================*/
-/* .cards-wrap {
-    counter-reset: items;
-}
 
-.card::before {
-    counter-increment: items;
-    content: counter(items);
-}
-
-/* Re-order items into 3 rows 
-.card:nth-child(3n+1) { order: 1; }
+/*===================================================*/
+/* .card:nth-child(3n+1) { order: 1; }
 .card:nth-child(3n+2) { order: 2; }
 .card:nth-child(3n)   { order: 3; }
 
-
-/* Force new columns 
 .cards-wrap::before,
 .cards-wrap::after {
-  content: "";
-  flex-basis: 100%;
-  width: 0;
-  order: 2;
-}
+    content: "";
 
-.cards-wrap > :nth-child(-n + 3) {
-    break-before: flex; /* так должно быть по текущей спеке 
-    break-before: always; /* так работает в Firefox, хотя не должно:) 
- } */
-/*-==========================*/
-
-
+    flex-basis: 100%;
+    width: 0;
+  
+    order: 2;
+} */
+/*===================================================*/
 
 .card-img {
     position: relative;
+    display: flex;
+    flex-direction: column;
 
-    transition: all 0.2s ease;
+    /* width: 100%; */
 }
 
 .card-img:hover .img-blackout {
+    opacity: 0.9;
     visibility: visible;
+
+    transition: all 0.2s ease;
 }
 
 .img-blackout {
@@ -520,10 +501,13 @@ nav {
 
     height: 100%;
     width: 100%;
+
     background-color: #000000;
 
-    opacity: 0.8;
+    opacity: 0;
     visibility: hidden;
+
+    transition: all 0.2s ease;
 }
 
 .link-btn {

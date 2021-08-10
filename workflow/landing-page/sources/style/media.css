@@ -37,6 +37,10 @@
     .page-content-wrap {
         width: 75%;
     }
+
+    .card {
+        max-width: calc(50% - 15px);
+    }
 }
 
 
