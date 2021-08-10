@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Artcore - Responsive HTML5 Template</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="sources/style/main.css">
+    <link rel="stylesheet" href="sources/style/media.css">
+    <link rel="shortcut icon" href="sources/img/icons/octahedron.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
+    <script defer src="sources/sctript.js"></script>
+</head>
+<body class="preload">
+    <div class="wrap">
+        <div class="search-window closed-search-window">
+            <div class="close-btn">
+                <i class="far fa-times-circle"></i>
+            </div>
+            <p class="search-text">Some text is here...</p>
+        </div>
+            <header>
+                <h1 class="header__logo">
+                    <span class="orange-text">Art</span> core
+                </h1>   <!-- ./ header__logo -->
+                <div class="header__icons">
+                    <ul class="header__list">
+                        <li class="header__item header__item--facebook">
+                            <a href="https://www.facebook.com/">
+                                <img src="sources/img/icons/facebook.svg" alt="Facebook icon">
+                            </a>
+                        </li>
+                        <li class="header__item header__item--twitter">
+                            <a href="https://twitter.com/">
+                                <img src="sources/img/icons/twitter.svg" alt="Twitter icon">
+                            </a>
+                        </li>
+                        <li class="header__item header__item--linkedin">
+                            <a href="https://www.linkedin.com/">
+                                <img src="sources/img/icons/linkedin.svg" alt="Linkedin icon">
+                            </a>
+                        </li>
+                        <li class="header__item header__item--rss">
+                            <a href="https://rss.com/">
+                                <img src="sources/img/icons/rss.svg" alt="RSS icon">
+                            </a>
+                        </li>
+                    </ul>
+                </div>  <!-- ./ header__icons -->
+            </header> <!-- ./ header -->
+
+            <nav>
+                <ul class="nav__list">
+                    <li class="nav__item search-btn">
+                        <img src="sources/img/icons/search.svg" alt="Search">
+                    </li>
+                    <li class="nav__item">
+                        <img src="sources/img/icons/arrow-left.svg" alt="Left">
+                    </li>
+                    <li class="nav__item">
+                        <img src="sources/img/icons/arrow-right.svg" alt="Right">
+                    </li>
+                </ul>   <!-- ./ nav__list -->
+
+                <ul class="nav__menu">
+                    <li class="nav__menu-item">
+                        <a class="nav__link orange-text" href="#">Home</a>
+                    </li>
+
+                    <li class="nav__menu-item">
+                        <a class="nav__link" href="#">Services</a>
+                    </li>
+
+                    <li class="nav__menu-item">
+                        <a class="nav__link" href="#">Projects</a>
+
+                        <ul class="dropdown-submenu">
+                            <li>
+                                <a class="nav__link" href="#">Two columns</a>
+                            </li>
+
+                            <li>
+                                <a class="nav__link" href="#">Three columns</a>
+                            </li>
+
+                            <li>
+                                <a class="nav__link" href="#">Progect single</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav__menu-item">
+                        <a class="nav__link" href="#">Blog</a>
+
+                        <ul class="dropdown-submenu">
+                            <li>
+                                <a class="nav__link" href="#">Blog masonary</a>
+                            </li>
+
+                            <li>
+                                <a class="nav__link" href="#">Post single</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav__menu-item">
+                        <a class="nav__link" href="#">Pages</a>
+
+                        <ul class="dropdown-submenu">
+                            <li>
+                                <a class="nav__link" href="#">Our team</a>
+                            </li>
+
+                            <li>
+                                <a class="nav__link" href="#">Archives</a>
+                            </li>
+
+                            <li>
+                                <a class="nav__link" href="#">Teams</a>
+                            </li>
+
+                            <li>
+                                <a class="nav__link" href="#">404 page</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav__menu-item">
+                        <a class="nav__link" href="#">Contact</a>
+                    </li>
+                    
+                    <div class="nav__burger-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </ul>
+            </nav>  <!-- ./ nav -->
+            
+            <div class="dropdown-menu closed-dropdown-menu">
+                <ul class="dropdown-menu__list">
+                    <li class="dropdown-menu__item">
+                        <a href="#">Home</a>
+                    </li>
+
+                    <li class="dropdown-menu__item">
+                        <a href="#">Services</a>
+                    </li>
+
+                    <li class="dropdown-menu__item">
+                        <a href="#">Projects</a>
+
+                        <ul>
+                            <li class="">
+                                <a href="#">Two columns</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Three columns</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Project single</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-menu__item">
+                        <a href="#">Blog</a>
+
+                        <ul>
+                            <li class="">
+                                <a href="#">Blog masonary</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Post single</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown-menu__item">
+                        <a href="#">Pages</a>
+
+                        <ul>
+                            <li class="">
+                                <a href="#">Our team</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Archives</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Teams</a>
+                            </li>
+                            <li class="">
+                                <a href="#">404 page</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown-menu__item">Contact</li>
+                </ul>
+            </div>
+    
+            <section class="slider">
+                <div class="slider-content">
+                    <h2>I <i class="fas fa-heart"></i> frontend</h2>
+                    <p>Some lorem ipsum text.</p>
+                    <p>Credit goes to <a href="https://unsplash.com/">Unsplash</a>  for photos.</p>
+                </div>
+                
+            </section>  <!-- ./ slider -->
+            <section class="page-content-wrap">
+                <section class="services">
+                    <h3 >Our services</h3>
+    
+                    <div class="service-cards">
+                        <div class="service">
+                            <div class="service-content">
+                                <h4>Quality matter with us</h4>
+                                
+                                <p>
+                                    Artcore is free HTML5 <span class="blue-text">template</span>  by template <span class="green-text">mo</span>. Credit goes to <a class="orange-text" href="https://unsplash.com/">Unsplash</a> for photos used in this template. You can use this layout for your personal or commercial websites.   
+                                </p>
+                            </div>
+    
+                            <div class="service-icon ">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                        </div>
+    
+                        <div class="service">
+                            <div class="service-icon ">
+                                <i class="far fa-lightbulb"></i>
+                            </div>
+    
+                            <div class="service-content">
+                                <h4>Creative idea important</h4>
+    
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, odit, magnam, autem ipsum incidunt modi saepe id ullam consectetur unde minima quis.  
+                                </p>
+                            </div>
+                        </div>
+    
+                        <div class="service">
+    
+                            <div class="service-content">
+                                <h4>Our open office</h4>
+    
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, odit, magnam, autem ipsum incidunt modi saepe id ullam consectetur unde minima quis.  
+                                </p>
+                            </div>
+    
+                            <div class="service-icon ">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                        </div>
+    
+                        <div class="service">
+                            <div class="service-icon ">
+                                <i class="far fa-clock"></i>
+                            </div>
+    
+                            <div class="service-content">
+                                <h4>On-time delivery</h4>
+    
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, odit, magnam, autem ipsum incidunt modi saepe id ullam consectetur unde minima quis.  
+                                </p>
+                            </div>
+                        </div>
+    
+                        <div class="service">
+                            <div class="service-content">
+                                <h4>Sincerely supporting</h4>
+    
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, odit, magnam, autem ipsum incidunt modi saepe id ullam consectetur unde minima quis.  
+                                </p>
+                            </div>
+    
+                            <div class="service-icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </div>
+                        </div>
+    
+                        <div class="service">
+                            <div class="service-icon ">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+    
+                            <div class="service-content">
+                                <h4>Learning new things</h4>
+    
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, odit, magnam, autem ipsum incidunt modi saepe id ullam consectetur unde minima quis.  
+                                </p>
+                            </div>
+                        </div>
+    
+                    </div>
+                </section>  <!-- ./ services -->
+        
+                <section class="cards-board">
+                    <h3 >And here are some images for you...</h3>
+    
+                    <div class="cards-wrap">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="sources/img/cards/water-tree.png" alt="Water tree">
+                                <div class="img-blackout">
+                                    <div class="link-btn">
+                                        <a href="#">
+                                            <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="card-content">
+                                <h4>Keep your stuff alive</h4>
+    
+                                <p class="card-date">10 November 2084 by Tawana</p>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="sources/img/cards/sandy-beach-and-waves.png" alt="Sandy beach and waves">
+                                <div class="img-blackout">
+                                    <div class="link-btn">
+                                        <a href="#">
+                                            <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="card-content">
+                                <h4>Brigette Brown on Umbrellas</h4>
+    
+                                <p class="card-date">8 November 2084 by Christina</p>
+                                <p class="card-text">
+                                    <a class="orange-text" href="#">Artcore</a> is free HTML5 <span class="blue-text">template</span><span class="green-text">mo</span>. by template There are total 12 HTML pages. Credit goes to <a class="orange-text" href="https://unsplash.com/">Unsplash</a> for images.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="sources/img/cards/church-ceiling.png" alt="Church ceiling">
+                                <div class="img-blackout">
+                                    <div class="link-btn">
+                                        <a href="#">
+                                            <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="card-content">
+                                <h4>An Open Letter to Larry Page</h4>
+    
+                                <p class="card-date">6 November 2084 by Michael</p>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="sources/img/cards/sault-beach.png" alt="Sault beach">
+                                <div class="img-blackout">
+                                    <div class="link-btn">
+                                        <a href="#">
+                                            <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="card-content">
+                                <h4>A Love Letter to the City</h4>
+    
+                                <p class="card-date">2 November 2084 by Michael</p>
+
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="sources/img/cards/waterfall.png" alt="Waterfall">
+                                <div class="img-blackout">
+                                    <div class="link-btn">
+                                        <a href="#">
+                                            <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="card-content">
+                                <h4>The Night-Side of Hospitals</h4>
+    
+                                <p class="card-date">4 November 2084 by George</p>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="sources/img/cards/man-by-the-water.png" alt="Man by the water">
+                                <div class="img-blackout">
+                                    <div class="link-btn">
+                                        <a href="#">
+                                            <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="card-content">
+                                <h4>The Essence of a Teapot</h4>
+    
+                                <p class="card-date">31 October 2084 by George</p>
+
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="sources/img/cards/field-and-tree.png" alt="Field and tree">
+                                <div class="img-blackout">
+                                    <div class="link-btn">
+                                        <a href="#">
+                                            <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="card-content">
+                                <h4>Design and Violence Debate</h4>
+    
+                                <p class="card-date">4 November 2084 by Tawana</p>
+
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="sources/img/cards/hot-springs.png" alt="Hot springs">
+                                <div class="img-blackout">
+                                    <div class="link-btn">
+                                        <a href="#">
+                                            <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="card-content">
+                                <h4>Porto Design Summer School</h4>
+    
+                                <p class="card-date">4 November 2084 by Christina</p>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="sources/img/cards/sunset.png" alt="Sunset">
+                                <div class="img-blackout">
+                                    <div class="link-btn">
+                                        <a href="#">
+                                            <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="card-content">
+                                <h4>War of Streets and Houses</h4>
+    
+                                <p class="card-date">4 November 2084 by George</p>
+
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </section>  <!-- ./ cards-board -->
+        
+                <footer>
+                    <h3 >Contact us</h3>
+                    <div class="contact-wrap">
+                        <form class="contact-form" action="index.html">
+                            <p class="infotext">
+                                This is an example of a contact page. You can set the contact page in your themes backend and add, remove and modify the input fields, text areas, dropdowns and checkboxes from your backend as well.
+        
+                            </p>
+                            <h4>Send us email</h4>
+    
+                            <ul class="inputs-wrap">
+                                <li class="form-row">
+                                    <label>Your name:</label>
+                                    <input type="text">
+                                </li>
+    
+                                <li class="form-row">
+                                    <label>Email Address:</label>
+                                    <input type="email">
+                                </li>
+    
+                                <li class="form-row">
+                                    <label>Phone number:</label>
+                                    <input type="number">
+                                </li>
+    
+                                <li class="form-row">
+                                    <label class="message-label">Your message:</label>
+                                    <textarea class="message" rows="8"></textarea>
+                                </li>
+                            </ul>  
+                            <button class="submit-btn" type="submit">Send message</button>
+                        </form>
+                        
+                    </div>
+                </footer> <!-- ./ footer -->
+            </section>
+    </div>
+</body>
+</html>
