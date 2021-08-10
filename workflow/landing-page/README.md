@@ -1,6 +1,6 @@
 # Progress
 
-[Take a look]()
+[Take a look](https://dariaazanovich.github.io/frontend-lab/workflow/landing-page/)
 
 ## To do list
 - [x] cards board:
