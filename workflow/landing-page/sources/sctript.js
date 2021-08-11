@@ -19,3 +19,8 @@ closeBtn.addEventListener('click', function () {
 burgerBtn.addEventListener('click', function() {
     dropdownMenu.classList.toggle('closed-dropdown-menu');
 })
+
+
+/*============================================================*/
+const apiKey = 'HWXlq6vqGYVF4HOKSQZmzS5Fjdn7dWwx';
+
