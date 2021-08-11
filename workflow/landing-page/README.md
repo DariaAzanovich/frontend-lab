@@ -23,3 +23,4 @@
 - [ ] deal with asynchronous loading;
 - [ ] displaying uploaded gifs all together;
 - [ ] deal with cicle & counter (sctript);
+- [ ] add interrupt request ???;
