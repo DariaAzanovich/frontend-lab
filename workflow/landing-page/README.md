@@ -22,3 +22,4 @@
 - [x] btns previous, next;
 - [ ] deal with asynchronous loading;
 - [ ] displaying uploaded gifs all together;
+- [ ] deal with cicle & counter (sctript);
