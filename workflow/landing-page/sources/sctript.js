@@ -21,6 +21,71 @@ burgerBtn.addEventListener('click', function() {
 })
 
 
-/*============================================================*/
-const apiKey = 'HWXlq6vqGYVF4HOKSQZmzS5Fjdn7dWwx';
+/*=========================== GIPHY API =================================*/
+const MAX_OFFSET = 4999;
+const API_KEY = 'HWXlq6vqGYVF4HOKSQZmzS5Fjdn7dWwx';
 
+const cardsImg = document.getElementsByClassName('card-img');
+const cardsDate = document.getElementsByClassName('card-date');
+const cardContent = document.getElementsByClassName('card-content');
+const imgLink = document.getElementsByName('gif-link');
+
+const leftBtn = document.querySelector('.pag-left');
+const rightBtn = document.querySelector('.pag-right');
+
+const cardsAmount = document.querySelector('.card').length;
+
+let offset = 0,
+    counter = 0,
+    currentOffset = cardsAmount,
+    url = new URL(`https://api.giphy.com/v1/gifs/search?q=cute+cat&api_key=${API_KEY}&limit=${cardsAmount}&offset=${offset}`);
+
+uploadGifs(offset);
+
+async function uploadGifs(currOffset) {
+    url = new URL(`https://api.giphy.com/v1/gifs/search?q=cute+cat&api_key=${API_KEY}&limit=${cardsAmount}&offset=${currOffset}`);
+
+    fetch(url)
+        .then(response =>  response.json())
+        .then(json => {
+            json.data
+            .forEach(gif => {
+            cardsImg[counter].firstElementChild.src = gif.images.fixed_height.url;
+    
+            cardsDate[counter].textContent = (new Date()).toLocaleString(); 
+            cardContent[counter].firstElementChild.textContent = gif.title;
+
+            imgLink[counter].href = gif.url;
+    
+            counter++;
+            })
+        })
+        .catch(error => {
+            document.body.appendChild = error;
+            console.log(error);
+        });
+
+    counter = 0;
+}
+
+
+
+leftBtn.addEventListener('click', function(event) {
+    if(currentOffset > 0) {
+        currentOffset -= cardsAmount;
+
+        uploadGifs(currentOffset);
+    } else {
+        currentOffset = 0;
+    }
+})
+
+rightBtn.addEventListener('click', function(event) {
+    currentOffset += cardsAmount;
+
+    if(currentOffset < MAX_OFFSET) {
+        uploadGifs(currentOffset);
+    } else {
+        currentOffset = MAX_OFFSET;
+    }
+})
