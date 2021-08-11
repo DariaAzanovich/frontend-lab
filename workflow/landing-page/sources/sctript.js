@@ -38,12 +38,13 @@ const cardsAmount = document.querySelector('.card').length;
 let offset = 0,
     counter = 0,
     currentOffset = cardsAmount,
+    regExpOffcet = new RegExp(/offset=\d+/);
     url = new URL(`https://api.giphy.com/v1/gifs/search?q=cute+cat&api_key=${API_KEY}&limit=${cardsAmount}&offset=${offset}`);
 
 uploadGifs(offset);
 
 async function uploadGifs(currOffset) {
-    url = new URL(`https://api.giphy.com/v1/gifs/search?q=cute+cat&api_key=${API_KEY}&limit=${cardsAmount}&offset=${currOffset}`);
+    url.search = url.search.replace(regExpOffcet, `offset=${currOffset}`);
 
     fetch(url)
         .then(response =>  response.json())
