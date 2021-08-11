@@ -19,4 +19,4 @@
 - [ ] fetch gifs and its data;
 - [ ] async/await functions;
 - [ ] pagination;
-- [ ] btns previous, next;
+- [x] btns previous, next;
