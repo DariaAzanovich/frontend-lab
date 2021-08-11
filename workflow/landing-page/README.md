@@ -15,8 +15,10 @@
 ## To do list (GIFs, fetch, Promises)
 - [x] try to use gif instead of static picture;
 - [ ] choose gifs category;
-- [ ] gifs link click;
-- [ ] fetch gifs and its data;
+- [x] gifs link click;
+- [x] fetch gifs and its data;
 - [ ] async/await functions;
-- [ ] pagination;
+- [x] pagination;
 - [x] btns previous, next;
+- [ ] deal with asynchronous loading;
+- [ ] displaying uploaded gifs all together;
