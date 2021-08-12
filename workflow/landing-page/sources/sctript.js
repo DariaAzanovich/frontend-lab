@@ -33,7 +33,7 @@ const imgLink = document.getElementsByName('gif-link');
 const leftBtn = document.querySelector('.pag-left');
 const rightBtn = document.querySelector('.pag-right');
 
-const cardsAmount = document.querySelector('.card').length;
+const cardsAmount = document.querySelectorAll('.card').length;
 
 let offset = 0,
     counter = 0,
