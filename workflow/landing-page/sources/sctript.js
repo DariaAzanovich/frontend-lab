@@ -36,7 +36,6 @@ const rightBtn = document.querySelector('.pag-right');
 const cardsAmount = document.querySelectorAll('.card').length;
 
 let offset = 0,
-    counter = 0,
     currentOffset = cardsAmount,
     regExpOffcet = new RegExp(/offset=\d+/);
     url = new URL(`https://api.giphy.com/v1/gifs/search?q=cute+cat&api_key=${API_KEY}&limit=${cardsAmount}&offset=${offset}`);
@@ -46,9 +45,11 @@ uploadGifs(offset);
 async function uploadGifs(currOffset) {
     url.search = url.search.replace(regExpOffcet, `offset=${currOffset}`);
 
-    fetch(url)
+    await fetch(url)
         .then(response =>  response.json())
         .then(json => {
+            let counter = 0;
+
             json.data
             .forEach(gif => {
             cardsImg[counter].firstElementChild.src = gif.images.fixed_height.url;
