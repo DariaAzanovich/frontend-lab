@@ -438,7 +438,7 @@ nav {
     align-content: space-between;
 
     width: 100%;
-    max-height: 1700px;
+    max-height: 1500px;
 }
 
 .card {
@@ -469,6 +469,8 @@ nav {
     position: relative;
     display: flex;
     flex-direction: column;
+
+    max-height: 250px;
 }
 
 .card-img:hover .img-blackout {
