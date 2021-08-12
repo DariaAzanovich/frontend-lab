@@ -43,8 +43,6 @@ let search = ['cute', 'cat'].join('+');
 
 let imgBlackout = '<div class="img-blackout"><div class="link-btn"><a href="#" name="gif-link"><i class="fas fa-link"></i></a></div></div>';
 
-let cardText = '<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>';
-
 uploadGifs(offset);
 
 function uploadGifs(currOffset) {
@@ -73,17 +71,21 @@ function uploadGifs(currOffset) {
                 let cardDate = document.createElement('p');
                 cardDate.className = 'card-date';
 
+                let cardText = document.createElement('p');
+                cardText.className = 'card-text';
+
                 img.src = gif.images.fixed_height.url;
                 img.alt = gif.title;
                 imgBlackout = imgBlackout.replace('#', gif.url);
                 
                 title.textContent = gif.title; 
                 cardDate.textContent = (new Date()).toLocaleString(); 
+                cardText.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.';
 
                 cardImg.appendChild(img);
                 cardContent.appendChild(title);
                 cardContent.appendChild(cardDate);
-                cardContent.insertAdjacentHTML('beforeend', cardText);
+                cardContent.appendChild(cardText);
 
                 img.insertAdjacentHTML('afterend', imgBlackout);
 
