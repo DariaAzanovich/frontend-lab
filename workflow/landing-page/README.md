@@ -17,10 +17,10 @@
 - [x] choose gifs category;
 - [x] gifs link click;
 - [x] fetch gifs and its data;
-- [ ] async/await functions;
+- [x] async/await functions;
 - [x] pagination;
 - [x] btns previous, next;
-- [ ] deal with asynchronous loading;
-- [ ] displaying uploaded gifs all together;
+- [x] deal with asynchronous loading;
+- [x] displaying uploaded gifs all together - Not necessary;
 - [x] deal with cicle & counter (sctript);
-- [ ] add interrupt request ???;
+- [x] add interrupt request - Not necessary;
