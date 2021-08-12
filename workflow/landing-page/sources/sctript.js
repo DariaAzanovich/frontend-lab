@@ -36,9 +36,14 @@ const rightBtn = document.querySelector('.pag-right');
 const cardsAmount = document.querySelectorAll('.card').length;
 
 let offset = 0,
-    currentOffset = cardsAmount,
-    regExpOffcet = new RegExp(/offset=\d+/);
-    url = new URL(`https://api.giphy.com/v1/gifs/search?q=cute+cat&api_key=${API_KEY}&limit=${cardsAmount}&offset=${offset}`);
+    currentOffset = cardsAmount;
+
+let searchArr = ['cute', 'cat'],
+    search = searchArr.join('+'),
+    regExpOffcet = new RegExp(/offset=\d*/);
+
+
+let url = new URL(`https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}&limit=${cardsAmount}&offset=`);
 
 uploadGifs(offset);
 
