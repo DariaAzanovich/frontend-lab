@@ -66,8 +66,6 @@ async function uploadGifs(currOffset) {
             document.body.appendChild = error;
             console.log(error);
         });
-
-    counter = 0;
 }
 
 
