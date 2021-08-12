@@ -33,42 +33,67 @@ const imgLink = document.getElementsByName('gif-link');
 const leftBtn = document.querySelector('.pag-left');
 const rightBtn = document.querySelector('.pag-right');
 
-const cardsAmount = document.querySelectorAll('.card').length;
+const cardsAmount = 9;
 
 let offset = 0,
-    currentOffset = cardsAmount;
+    currentOffset = offset;
 
-let searchArr = ['cute', 'cat'],
-    search = searchArr.join('+'),
-    regExpOffcet = new RegExp(/offset=\d*/);
+let search = ['cute', 'cat'].join('+');
 
 
-let url = new URL(`https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}&limit=${cardsAmount}&offset=`);
+let imgBlackout = '<div class="img-blackout"><div class="link-btn"><a href="#" name="gif-link"><i class="fas fa-link"></i></a></div></div>';
+
+let cardText = '<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>';
 
 uploadGifs(offset);
 
-async function uploadGifs(currOffset) {
-    url.search = url.search.replace(regExpOffcet, `offset=${currOffset}`);
+function uploadGifs(currOffset) {
+    let url = new URL(`https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}&limit=${cardsAmount}&offset=${currOffset}`);
 
-    await fetch(url)
+    fetch(url)
         .then(response =>  response.json())
         .then(json => {
-            let counter = 0;
+            document.querySelector('.cards-wrap').innerHTML = '';
 
             json.data
             .forEach(gif => {
-            cardsImg[counter].firstElementChild.src = gif.images.fixed_height.url;
-    
-            cardsDate[counter].textContent = (new Date()).toLocaleString(); 
-            cardContent[counter].firstElementChild.textContent = gif.title;
+                let card = document.createElement('div');
+                card.className = 'card';
 
-            imgLink[counter].href = gif.url;
-    
-            counter++;
+                let cardImg = document.createElement('div');
+                cardImg.className = 'card-img';
+                
+                let cardContent = document.createElement('div');
+                cardContent.className = 'card-content';
+                
+
+                let img = document.createElement('img');
+                let title = document.createElement('h4');
+
+                let cardDate = document.createElement('p');
+                cardDate.className = 'card-date';
+
+                img.src = gif.images.fixed_height.url;
+                img.alt = gif.title;
+                imgBlackout = imgBlackout.replace('#', gif.url);
+                
+                title.textContent = gif.title; 
+                cardDate.textContent = (new Date()).toLocaleString(); 
+
+                cardImg.appendChild(img);
+                cardContent.appendChild(title);
+                cardContent.appendChild(cardDate);
+                cardContent.insertAdjacentHTML('beforeend', cardText);
+
+                img.insertAdjacentHTML('afterend', imgBlackout);
+
+                card.appendChild(cardImg);
+                card.appendChild(cardContent);
+
+                document.querySelector('.cards-wrap').appendChild(card);
             })
         })
         .catch(error => {
-            document.body.appendChild = error;
             console.log(error);
         });
 }
