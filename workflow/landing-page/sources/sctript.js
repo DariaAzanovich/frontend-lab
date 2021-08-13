@@ -1,5 +1,6 @@
 window.addEventListener("load", function ready() {
     document.body.classList.remove('preload');
+    uploadGifs(offset);
 });
 
 const searchBtn = document.querySelector('.search-btn');
@@ -43,8 +44,6 @@ let search = ['cute', 'cat'].join('+');
 
 let imgBlackout = '<div class="img-blackout"><div class="link-btn"><a href="#" name="gif-link"><i class="fas fa-link"></i></a></div></div>';
 
-uploadGifs(offset);
-
 function uploadGifs(currOffset) {
     let url = new URL(`https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}&limit=${cardsAmount}&offset=${currOffset}`);
 
@@ -54,53 +53,49 @@ function uploadGifs(currOffset) {
             document.querySelector('.cards-wrap').innerHTML = '';
 
             json.data
-            .forEach(gif => {
-                let card = document.createElement('div');
-                card.className = 'card';
-
-                let cardImg = document.createElement('div');
-                cardImg.className = 'card-img';
-                
-                let cardContent = document.createElement('div');
-                cardContent.className = 'card-content';
-                
-
-                let img = document.createElement('img');
-                let title = document.createElement('h4');
-
-                let cardDate = document.createElement('p');
-                cardDate.className = 'card-date';
-
-                let cardText = document.createElement('p');
-                cardText.className = 'card-text';
-
-                img.src = gif.images.fixed_height.url;
-                img.alt = gif.title;
-                imgBlackout = imgBlackout.replace('#', gif.url);
-                
-                title.textContent = gif.title; 
-                cardDate.textContent = (new Date()).toLocaleString(); 
-                cardText.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.';
-
-                cardImg.appendChild(img);
-                cardContent.appendChild(title);
-                cardContent.appendChild(cardDate);
-                cardContent.appendChild(cardText);
-
-                img.insertAdjacentHTML('afterend', imgBlackout);
-
-                card.appendChild(cardImg);
-                card.appendChild(cardContent);
-
-                document.querySelector('.cards-wrap').appendChild(card);
-            })
+            .forEach(gif => createCards(gif))
         })
         .catch(error => {
             console.log(error);
         });
 }
 
+function createCards(gif) {
+    const card = createElem('div', 'card');
+    const cardImg = createElem('div', 'card-img');
+    const cardContent = createElem('div', 'card-content');
+    const img = createElem('img', '');
+    const title = createElem('h4', '');
+    const cardDate = createElem('p', 'card-date');
+    const cardText = createElem('p', 'card-text');
 
+    img.src = gif.images.fixed_height.url;
+    img.alt = gif.title;
+    imgBlackout = imgBlackout.replace('#', gif.url);
+    
+    title.textContent = gif.title; 
+    cardDate.textContent = (new Date()).toLocaleString(); 
+    cardText.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.';
+
+    cardImg.appendChild(img);
+    cardContent.appendChild(title);
+    cardContent.appendChild(cardDate);
+    cardContent.appendChild(cardText);
+
+    img.insertAdjacentHTML('afterend', imgBlackout);
+
+    card.appendChild(cardImg);
+    card.appendChild(cardContent);
+
+    document.querySelector('.cards-wrap').appendChild(card);
+}
+
+function createElem(tag, elemClassName) {
+    const elem = document.createElement(tag);
+    elem.className = elemClassName;
+
+    return elem;
+}
 
 leftBtn.addEventListener('click', function(event) {
     if(currentOffset > 0) {
