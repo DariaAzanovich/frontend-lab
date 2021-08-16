@@ -161,16 +161,6 @@ nav {
     background-color: #efefef;
 }
 
-.nav__item {
-    cursor: pointer;
-}
-
-.nav__item img {
-    width: 40%;
-    height: 40%;
-}
-
-
 /*---------------------- Nav menu -------------------------*/
 
 .nav__menu {
@@ -479,6 +469,8 @@ nav {
     position: relative;
     display: flex;
     flex-direction: column;
+
+    max-height: 250px;
 }
 
 .card-img:hover .img-blackout {
@@ -534,6 +526,20 @@ nav {
 .card-date {
     font-size: 0.8em;
     padding-bottom: 10px;
+}
+
+.pagination {
+    align-self: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    list-style: none;
 }
 
 /*========================= FOOTER =========================*/
@@ -633,12 +639,14 @@ input,
 
 /*------------------ Transition, :hover ----------------------*/
 .header__item,
-.nav__item {   
+.nav__item,
+.pag-btn {   
     transition: all 0.5s ease;
 }
 
 .header__item:hover,
-.nav__item:hover {
+.nav__item:hover,
+.pag-btn:hover {
     border-color: black;
 }
 
@@ -682,7 +690,8 @@ input,
 .header__item,
 .nav__item,
 .nav__burger-menu,
-.link-btn {
+.link-btn,
+.pag-btn {
     height: 36px;
     width: 36px;
 
@@ -701,10 +710,22 @@ input,
 }
 
 .header__item,
-.nav__item {
+.nav__item,
+.pag-btn {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.nav__item,
+.pag-btn {
+    cursor: pointer;
+}
+
+.nav__item img,
+.pag-btn img {
+    width: 40%;
+    height: 40%;
 }
 
 /*---------------------- Fonts --------------------------*/
@@ -735,6 +756,7 @@ input,
 .submit-btn,
 .header__item,
 .nav__item,
-.message {
+.message,
+.pag-btn {
     border: 1px solid #d0d0d0;
 }
