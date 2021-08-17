@@ -3,17 +3,13 @@ const result = document.getElementsByClassName('result')[0];
 const input = document.getElementsByClassName('input-value');
 const chb = document.getElementById('cacher-chb');
 
-function fib(n) {
-    return n <= 1 ? n : fib(n - 1) + fib(n - 2);
-}
-
-function fiBSlow(n) {
-  return n <= 1 ? n : fiBSlow(n - 1) + fiBSlow(n - 2);
+function fib(n, func) {
+    return n <= 1 ? n : func(n - 1, func) + func(n - 2, func);
 }
 
 function stopwatch(func, val, calcType) {
   const start = new Date().getTime();
-  const result = func(val);
+  const result = func(val, func);
   const end = new Date().getTime();
 
   return calcType + ' ' + `${end - start}ms.`+ ' ' + `Value: ${result}`;
@@ -28,16 +24,15 @@ calcBtn.addEventListener('click', function() {
   const value = Number(inputVal);
 
   if(chb.checked) {
-    fib = Cacher.withCache(fib);
+    const fibCache = Cacher.withCache(fib);
 
-    resultVal = stopwatch(fib, value, 'With cache:');
+    resultVal = stopwatch(fibCache, value, 'With cache:');
   } else {
-    resultVal = stopwatch(fiBSlow, value, 'No cache:');
+    resultVal = stopwatch(fib, value, 'No cache:');
   }
 
   result.innerHTML = resultVal;
 }) 
-
 
 
 class Cacher {
@@ -63,21 +58,3 @@ class Cacher {
     return [].join.call(args);
   }
 }
-
-
-/*-------------- Func-s with few arg-s ---------------*/
-// function fibPow(n, ...args) {
-//   return n <= 1 ? n : (fibPow(n - 1, args) + fibPow(n - 2,  args)) * args.reduce((current) => Math.pow(current, current));
-// }
-
-// function fibPowSlow(n, ...args) {
-//   return n <= 1 ? n : (fib(n - 1, args) + fib(n - 2, args)) * args.reduce((current) => Math.pow(current, current));
-// }
-
-// let slow = fibPowSlow(40, 10);
-// console.log('Slow not fib: ', slow);
-
-// fibPow = Cacher.withCache(fibPow);
-// let notSlow = fibPow(40, 10);
-// console.log('Not slow not fib: ', notSlow);
-
