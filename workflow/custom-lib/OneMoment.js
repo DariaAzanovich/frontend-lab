@@ -54,7 +54,7 @@
     }
 
     OneMoment.parse = function(date, format) {
-        let parsedDate = new Date();
+        const parsedDate = new Date();
         let dateArr = [],
             formatArr = [];
 
@@ -80,7 +80,7 @@
             const month = date.slice(monthIndex, monthIndex + 2),
                   day = date.slice(dayIndex, dayIndex + 2),
                   year = date.slice(yearIndex, yearIndex + 4);
-                  
+
             const monthDateShift = month - 1;
 
             parsedDate.setMonth(monthDateShift); 
