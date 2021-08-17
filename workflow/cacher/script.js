@@ -3,16 +3,6 @@ const result = document.getElementsByClassName('result')[0];
 const input = document.getElementsByClassName('input-value');
 const chb = document.getElementById('cacher-chb');
 
-function rFact(num)
-{
-    if (num === 0 || num === 1) { 
-        return 1; 
-    }
-    else { 
-        return num * rFact(num - 1); 
-    }
-}
-
 function fib(n) {
     return n <= 1 ? n : fib(n - 1) + fib(n - 2);
 }
@@ -21,62 +11,32 @@ function fiBSlow(n) {
   return n <= 1 ? n : fiBSlow(n - 1) + fiBSlow(n - 2);
 }
 
-function fibPow(n, ...args) {
-  return n <= 1 ? n : (fib(n - 1) + fib(n - 2)) * args.reduce((current) => Math.pow(current, current));
+function stopwatch(func, val, calcType) {
+  const start = new Date().getTime();
+  const result = func(val);
+  const end = new Date().getTime();
+
+  return calcType + ' ' + `${end - start}ms.`+ ' ' + `Value: ${result}`;
 }
-
-let fibCache;
-
-// function fi(...theArgs) {
-//   return theArgs.reduce((current) => {
-//     return Math.pow(current, current);
-//   });
-// }
 
 calcBtn.addEventListener('click', function() {
   const inputVal = input[0].value;
-  // let inputArr = [];
-
-  // if(inputVal.search(/\;|\,|\ /) !== -1) {
-  //   inputArr = inputVal.split(/\;|\,|\ /).map(num => +num);
-  // }
-
-  // console.log(inputArr);
-
-  const value = Number(inputVal);
 
   let resultVal = null;
+  let calcType = '';
+
+  const value = Number(inputVal);
 
   if(chb.checked) {
     fib = Cacher.withCache(fib);
 
-    // fibCache = Cacher.withCache(fib);
-
-
-
-    const start= new Date().getTime();
-    resultVal = fib(value);
-    const end = new Date().getTime();
-    console.log(`With cache: ${end - start}ms`);
-
-
-    // resultVal = fibCache(value);
+    resultVal = stopwatch(fib, value, 'With cache:');
   } else {
-    // resultVal = fib(value);
-
-
-    const start= new Date().getTime();
-    resultVal = fiBSlow(value);
-    const end = new Date().getTime();
-    console.log(`No cache: ${end - start}ms`);
-    
-    // console.log(fib);
+    resultVal = stopwatch(fiBSlow, value, 'No cache:');
   }
 
   result.innerHTML = resultVal;
 }) 
-
-
 
 
 
@@ -104,18 +64,20 @@ class Cacher {
   }
 }
 
-// const fiSlow = fib(40);
-// console.log(fiSlow);
 
-// fib = Cacher.withCache(fib);
+/*-------------- Func-s with few arg-s ---------------*/
+// function fibPow(n, ...args) {
+//   return n <= 1 ? n : (fibPow(n - 1, args) + fibPow(n - 2,  args)) * args.reduce((current) => Math.pow(current, current));
+// }
 
-// const fi = fib(100);
-// console.log(fi);
+// function fibPowSlow(n, ...args) {
+//   return n <= 1 ? n : (fib(n - 1, args) + fib(n - 2, args)) * args.reduce((current) => Math.pow(current, current));
+// }
 
-
-// const slow = fibPow(40, 10);
+// let slow = fibPowSlow(40, 10);
 // console.log('Slow not fib: ', slow);
 
 // fibPow = Cacher.withCache(fibPow);
-// const notSlow = fibPow(40, 10);
+// let notSlow = fibPow(40, 10);
 // console.log('Not slow not fib: ', notSlow);
+
