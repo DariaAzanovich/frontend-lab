@@ -68,7 +68,7 @@
             return new OneMoment(parsedDate);
         }
 
-        formatArr.findIndex((elem, ind) => {
+        formatArr.forEach((elem, ind) => {
             if(elem === 'YYYY') {
                 parsedDate.setFullYear(dateArr[ind]);
             } else if(elem === 'MM') {
