@@ -17,9 +17,15 @@ function fib(n) {
     return n <= 1 ? n : fib(n - 1) + fib(n - 2);
 }
 
+function fiBSlow(n) {
+  return n <= 1 ? n : fiBSlow(n - 1) + fiBSlow(n - 2);
+}
+
 function fibPow(n, ...args) {
   return n <= 1 ? n : (fib(n - 1) + fib(n - 2)) * args.reduce((current) => Math.pow(current, current));
 }
+
+let fibCache;
 
 // function fi(...theArgs) {
 //   return theArgs.reduce((current) => {
@@ -28,8 +34,6 @@ function fibPow(n, ...args) {
 // }
 
 calcBtn.addEventListener('click', function() {
-  result.innerHTML = '-';
-
   const inputVal = input[0].value;
   // let inputArr = [];
 
@@ -44,13 +48,29 @@ calcBtn.addEventListener('click', function() {
   let resultVal = null;
 
   if(chb.checked) {
-    const fibCache = Cacher.withCache(fib);
-    console.log(fibCache);
+    fib = Cacher.withCache(fib);
 
-    resultVal = fibCache(value);
-  } else {
+    // fibCache = Cacher.withCache(fib);
+
+
+
+    const start= new Date().getTime();
     resultVal = fib(value);
-    console.log(fib);
+    const end = new Date().getTime();
+    console.log(`With cache: ${end - start}ms`);
+
+
+    // resultVal = fibCache(value);
+  } else {
+    // resultVal = fib(value);
+
+
+    const start= new Date().getTime();
+    resultVal = fiBSlow(value);
+    const end = new Date().getTime();
+    console.log(`No cache: ${end - start}ms`);
+    
+    // console.log(fib);
   }
 
   result.innerHTML = resultVal;
