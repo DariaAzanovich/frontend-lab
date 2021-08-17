@@ -1,16 +1,19 @@
 (function() {
     "use strict"
+
+    const DAYS_IN_A_YEAR = 365;
+    const MS_IN_A_DAY = 1000 * 60 * 60 * 24;
     
     function OneMoment(date = new Date()) {
         this.date = new Date(date);
     
         this.format = function(format) {
             let dash = '';
-            let year = this.date.getFullYear();
-            let month = ('0' + (this.date.getMonth() + 1)).slice(-2);
+            const year = this.date.getFullYear();
+            const month = ('0' + (this.date.getMonth() + 1)).slice(-2);
             if(format === 'YYYY/MM/DD') {
                 dash = '/';
-                let day = ('0' + (this.date.getDate())).slice(-2);
+                const day = ('0' + (this.date.getDate())).slice(-2);
     
                 return `${year}${dash}${month}${dash}${day}`;
             } else if(format === 'MM-YYYY') {
@@ -30,8 +33,8 @@
                 past = !past;
             }
     
-            const gapDays = Math.round(gapMs / (1000 * 60 * 60 * 24));
-            const gapYears = Math.round(gapDays / 365);
+            const gapDays = Math.round(gapMs / MS_IN_A_DAY);
+            const gapYears = Math.round(gapDays / DAYS_IN_A_YEAR);
     
             let result = '';
     
@@ -58,26 +61,32 @@
         if(format.search(/\/|\-/) !== -1) {
             dateArr = date.split(/\/|\-/);
             formatArr = format.split(/\/|\-/);
+
+            formatArr.forEach((elem, ind) => {
+                if(elem === 'YYYY') {
+                    parsedDate.setFullYear(dateArr[ind]);
+                } else if(elem === 'MM') {
+                    const month = dateArr[ind] - 1;
+                    parsedDate.setMonth(month);
+                } else if(elem === 'DD') {
+                    parsedDate.setDate(dateArr[ind]);
+                }
+            })
         } else {
-            parsedDate.setMonth(date.slice(format.indexOf('MM'), format.indexOf('MM') + 2) - 1); 
-            
-            parsedDate.setDate(date.slice(format.indexOf('DD'), format.indexOf('DD') + 2));
+            const monthIndex = format.indexOf('MM'),
+                  dayIndex = format.indexOf('DD'),
+                  yearIndex = format.indexOf('YYYY');
 
-            parsedDate.setFullYear(date.slice(format.indexOf('YYYY'), format.indexOf('YYYY') + 4));
-            
-            return new OneMoment(parsedDate);
+            const month = date.slice(monthIndex, monthIndex + 2),
+                  day = date.slice(dayIndex, dayIndex + 2),
+                  year = date.slice(yearIndex, yearIndex + 4);
+                  
+            const monthDateShift = month - 1;
+
+            parsedDate.setMonth(monthDateShift); 
+            parsedDate.setDate(day);
+            parsedDate.setFullYear(year);
         }
-
-        formatArr.forEach((elem, ind) => {
-            if(elem === 'YYYY') {
-                parsedDate.setFullYear(dateArr[ind]);
-            } else if(elem === 'MM') {
-                let month = dateArr[ind] - 1;
-                parsedDate.setMonth(dateArr[ind] - 1);
-            } else if(elem === 'DD') {
-                parsedDate.setDate(dateArr[ind]);
-            }
-        })
 
         return new OneMoment(parsedDate);
     }
