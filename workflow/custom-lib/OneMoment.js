@@ -2,16 +2,9 @@
     "use strict"
     
     function OneMoment(date = new Date()) {
-        this.inputDate = date;
-
-        if(date instanceof Date) {
-            this.date = date;
-        } else {
-            this.date = new Date(date);
-        }
+        this.date = new Date(date);
     
         this.format = function(format) {
-            let formatedDate = '';
             let dash = '';
             let year = this.date.getFullYear();
             let month = ('0' + (this.date.getMonth() + 1)).slice(-2);
@@ -89,9 +82,11 @@
         return new OneMoment(parsedDate);
     }
 
-    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
+    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
         module.exports = OneMoment;
-    else
+    }
+    else {
         window.OneMoment = OneMoment;
+    }
 })();
 
