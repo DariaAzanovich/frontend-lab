@@ -4,9 +4,9 @@ The next function call with the same arguments should return the value from the 
 
 E.g.
 ```
-factorial = cacher.withCache(factorial);
-const a = factorial(someBigNumber); // => very long calculations...
-const b = factorial(someBigNumber); // => the result is returned from the cache - very quickly,
+cachedFactorial = cacher.withCache(factorial);
+const a = cachedFactorial(someBigNumber); // => very long calculations...
+const b = cachedFactorial(someBigNumber); // => the result is returned from the cache - very quickly,
 ```
 ## Requirements 
 
