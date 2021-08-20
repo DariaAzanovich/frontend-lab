@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 20px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.validator-wrap {
+  width: 100%;
+  height: 1000px;
+  /*---------------------*/
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.json-data {
+  width: 40%;
+  height: 500px;
+  background-color: rgb(228, 173, 233);
+}
+
+.btns-bar {
+  width: 10%;
+  height: 500px;
+  background-color: rgb(192, 233, 173);
+}
+
+.json-tree {
+  width: 40%;
+  height: 500px;
+  background-color: rgb(240, 197, 168);
+}
