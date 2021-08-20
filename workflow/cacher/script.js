@@ -22,8 +22,6 @@ calcBtn.addEventListener('click', function() {
   let resultVal = null;
 
   if(chb.checked) {
-    const fibCache = Cacher.withCache(fib);
-
     resultVal = stopwatch(fibCache, value, 'With cache:');
   } else {
     resultVal = stopwatch(fib, value, 'No cache:');
@@ -54,3 +52,5 @@ class Cacher {
     return [].join.call(args);
   }
 }
+
+const fibCache = Cacher.withCache(fib);
