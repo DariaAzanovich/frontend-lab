@@ -26,6 +26,7 @@
 
   margin: 15px;
   padding: 10px;
+  max-width: 80%;
 
   background-color: rgb(229, 214, 231);
 
@@ -66,12 +67,11 @@
   width: 100%;
 }
 
-.active {
+.tab-content.active {
   display: flex;
 }
 
-.tab-btn:active,
-.tab-btn:focus {
+.tab-btn.active {
   color: "#ffffff";
   background-color: rgb(217, 164, 224);
 }

@@ -1,68 +1,66 @@
-const btnsWrap = document.querySelector('.btns-wrap');
-const tabsWrap = document.querySelector('.content-wrap');
-const tabs = document.querySelectorAll('.tab-content');
+class Tabs {
+    constructor(btnsWrap, tabsWrap, tabs) {
+        this.btnsWrap = btnsWrap;
+        this.tabsWrap = tabsWrap;
+        this.tabs = tabs;
 
-// btnsWrap[0].style.active = "true";
-tabs[0].classList.add('active');
+        this.defaultTab(0);
 
-console.log(tabs);
+        this.btnsWrap.addEventListener('click', (event) => {
+            const btn = event.target.closest('.tab-btn');
+            const tabIndex = +btn.dataset.value;
+            
+            this.openTab(tabIndex, btn);
+        });
+    }
 
+    openTab(tabIndex, currBtn) {
+        this.btnsWrap.querySelector('.active').classList.remove('active');
+        currBtn.classList.add('active');
 
-btnsWrap.addEventListener('click', function(event) {
-    const btn = event.target.closest('.tab-btn');
-    const tabIndex = +btn.dataset.value;
+        this.tabsWrap.querySelector('.active').classList.remove('active');
+        this.tabsWrap.querySelector(`.tab-${tabIndex}`).classList.add('active');
+    }
+
+    defaultTab(index) {
+        this.btnsWrap.children[index].classList.add('active');
+        this.tabs[index].classList.add('active');
+    }
+
+    createTab() {
+        const nextIndex = this.btnsWrap.children.length + 1;
+
+        if(nextIndex > 8) {
+            return new Error(`Can not be more than ${nextIndex - 1} tabs`);
+        }
+
+        const btn = document.createElement('button');
+        const tab = document.createElement('article');
+        const tabHeader = document.createElement('h3');
+        const tabContent = document.createElement('p');
+
+        btn.classList.add('tab-btn');
+        btn.dataset.value = nextIndex;
+        tab.classList.add('tab-content');
+        tab.classList.add(`tab-${nextIndex}`);
+
+        btn.innerHTML = `Tab btn ${nextIndex}`
+        tabHeader.innerHTML = `TAB ${nextIndex}`;
+        tabContent.innerHTML = `${nextIndex}. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum provident consequuntur deleniti dignissimos architecto amet totam necessitatibus veritatis odit hic ad corporis modi placeat nesciunt reprehenderit, asperiores maiores iste quia.`;
+
+        tab.appendChild(tabHeader);
+        tab.appendChild(tabContent);
+
+        this.btnsWrap.appendChild(btn);
+        this.tabsWrap.appendChild(tab);
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    const btnsWrap = document.querySelector('.btns-wrap');
+    const tabsWrap = document.querySelector('.content-wrap');
+    const tabs = document.querySelectorAll('.tab-content');
+
+    const tabList = new Tabs(btnsWrap, tabsWrap, tabs);
     
-    tabsWrap.querySelector('.active').classList.remove('active');
-    tabsWrap.querySelector(`.tab-${tabIndex}`).classList.add('active');
 })
-
-
-function createTab(btnsWrap, tabsWrap) {
-    const nextIndex = btnsWrap.children.length + 1;
-
-    const btn = document.createElement('button');
-    const tab = document.createElement('article');
-    const tabHeader = document.createElement('h3');
-    const tabContent = document.createElement('p');
-
-    btn.classList.add('tab-btn');
-    btn.dataset.value = nextIndex;
-    tab.classList.add('tab-content');
-    tab.classList.add(`tab-${nextIndex}`);
-
-    btn.innerHTML = `Tab btn ${nextIndex}`
-    tabHeader.innerHTML = `TAB ${nextIndex}`;
-    tabContent.innerHTML = `${nextIndex}. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum provident consequuntur deleniti dignissimos architecto amet totam necessitatibus veritatis odit hic ad corporis modi placeat nesciunt reprehenderit, asperiores maiores iste quia.`;
-
-    tab.appendChild(tabHeader);
-    tab.appendChild(tabContent);
-
-    btnsWrap.appendChild(btn);
-    tabsWrap.appendChild(tab);
-}
-
-/*------------------------------------------------*/
-// class TabList {
-//     constructor(buttonsContainer, tabs) {
-//       this.buttonsContainer = buttonsContainer;
-//       this.tabs = tabs;
-      
-//       this.buttonsContainer.addEventListener('click', event => {
-//         const index = event.target.closest('.button').dataset.value;
-        
-//         this.openTab(index);
-//       });
-//     }
-    
-//     openTab(index) {
-//       this.tabs.querySelector('.active').classList.remove('active');
-//       this.tabs.querySelector(`.tab--${index}`).classList.add('active');
-//     }
-//   }
-  
-//   document.addEventListener('DOMContentLoaded', ()=>{
-//     const buttonsContainer = document.querySelector('.buttons');
-//     const tabs             = document.querySelector('.tabs');
-    
-//     const tabList = new TabList(buttonsContainer, tabs);
-//   })
