@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Klee One", cursive;
+  font-size: 12px;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  margin-top: 200px;
+  /* height: 500px; */
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-basis: 0;
+
+  margin: 15px;
+  padding: 10px;
+
+  background-color: rgb(229, 214, 231);
+
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+.btns-wrap {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.tab-btn {
+  padding: 1rem 2rem;
+  margin: 0 5px;
+
+  background-color: rgb(220, 199, 223);
+
+  border: 2px solid transparent;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  white-space: nowrap;
+}
+
+.tabs,
+.tab-btn:hover {
+  border-color: rgb(217, 164, 224);
+}
+
+.tab-content {
+  display: none;
+  flex-direction: column;
+
+  padding: 10px;
+  width: 100%;
+}
+
+.active {
+  display: flex;
+}
+
+.tab-btn:active,
+.tab-btn:focus {
+  color: "#ffffff";
+  background-color: rgb(217, 164, 224);
+}
+
+h3 {
+  align-self: center;
+}
