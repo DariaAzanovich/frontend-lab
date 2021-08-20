@@ -25,7 +25,7 @@ So, if you're ready to work hard, go to [Getting Started](./materials/getting_st
 - [x] [Landing Page - Working With Third-Party Services](./materials/landing_page_with_data.md)
 - [x] [Javascript - Custom Moment.js](./materials/js/custom_moment_js.md)
 - [x] [Javascript - Cacher](./materials/js/cacher.md)
-- [ ] [Javascript - Tabs](./materials/js/tabs.md)
+- [x] [Javascript - Tabs](./materials/js/tabs.md)
 - [ ] [Javascript - JSON Visualizer](./materials/js/json_visualizer.md)
 - [ ] [Project](./materials/react_project.md)
 
