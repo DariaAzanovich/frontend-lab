@@ -56,11 +56,12 @@ class Tabs {
     }
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-    const btnsWrap = document.querySelector('.btns-wrap');
-    const tabsWrap = document.querySelector('.content-wrap');
-    const tabs = document.querySelectorAll('.tab-content');
 
-    const tabList = new Tabs(btnsWrap, tabsWrap, tabs);
-    
-})
+const btnsWrap = document.querySelector('.btns-wrap');
+const tabsWrap = document.querySelector('.content-wrap');
+const tabs = document.querySelectorAll('.tab-content');
+
+
+const tabList = new Tabs(btnsWrap, tabsWrap, tabs);
+
+tabList.createTab();
