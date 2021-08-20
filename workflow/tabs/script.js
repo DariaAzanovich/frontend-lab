@@ -4,7 +4,7 @@ class Tabs {
         this.tabsWrap = tabsWrap;
         this.tabs = tabs;
 
-        this.defaultTab(0);
+        this.setDefaultTab(0);
 
         this.btnsWrap.addEventListener('click', (event) => {
             const btn = event.target.closest('.tab-btn');
@@ -22,7 +22,7 @@ class Tabs {
         this.tabsWrap.querySelector(`.tab-${tabIndex}`).classList.add('active');
     }
 
-    defaultTab(index) {
+    setDefaultTab(index) {
         this.btnsWrap.children[index].classList.add('active');
         this.tabs[index].classList.add('active');
     }
