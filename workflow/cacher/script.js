@@ -17,11 +17,9 @@ function stopwatch(func, val, calcType) {
 
 calcBtn.addEventListener('click', function() {
   const inputVal = input[0].value;
+  const value = Number(inputVal);
 
   let resultVal = null;
-  let calcType = '';
-
-  const value = Number(inputVal);
 
   if(chb.checked) {
     const fibCache = Cacher.withCache(fib);
@@ -36,18 +34,16 @@ calcBtn.addEventListener('click', function() {
 
 
 class Cacher {
-  // constructor() {}
-
   static withCache(func) {
-    let cache = new Map();
+    const cache = new Map();
   
     return function(...args) {
-      let key = Cacher.hash(args);
+      const key = Cacher.hash(args);
       if (cache.has(key)) {  
         return cache.get(key);
       }
   
-      let result = func.apply(this, args);
+      const result = func.apply(this, args);
   
       cache.set(key, result); 
       return result;
