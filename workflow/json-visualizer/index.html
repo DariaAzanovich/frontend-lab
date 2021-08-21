@@ -5,19 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>JSON visualizer</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../../../_Images/magic-box.png" type="image/x-icon">
+
     <script defer src="script.js"></script>
 </head>
 <body>
     <div class="wrap">
         <h1>JSON visualizer</h1>
-        
+
         <div class="validator-wrap">
-            <section class="json-data"></section>
+            <section class="json-data">
+                <h3>Write your code here</h3>
+                
+                <textarea class="data-area" name="" id="" cols="30" rows="10"></textarea>
+
+                <button class="tree-btn">Build tree data</button>
+            </section>
     
-            <section class="btns-bar"></section>
-    
-            <section class="json-tree"></section>
+            <section class="json-tree">
+                <h3>Tree data</h3>
+
+                <div class="tree">
+
+                </div>
+            </section>
         </div>
 
     </div>
