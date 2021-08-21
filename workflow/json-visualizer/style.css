@@ -91,3 +91,7 @@ h3 {
 .json-format {
   margin-bottom: 20px;
 }
+
+.error-message {
+  color: rgb(226, 103, 103);
+}
