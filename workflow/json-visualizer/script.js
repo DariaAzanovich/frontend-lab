@@ -6,8 +6,20 @@ const jsonFormatExmpl = document.querySelector('.json-format');
 
 const exampData = '{"number": 123, "string": "Hello!", "array": [1, 3, 4, 123], "obj": {"name": "Kate", "age": 23} }';
 
+const jsonFormat = `JSON format: <br>
+{
+    "key": value, 
+    "key": value
+} 
+<br> OR <br>
+[
+    "key": value, 
+    "key": value
+]`;
+
 document.addEventListener('DOMContentLoaded', () => {
     dataArea.value = exampData;
+    jsonFormatExmpl.innerHTML = jsonFormat;
 })
 
 
@@ -21,6 +33,10 @@ treeBtn.addEventListener('click', function() {
         tree.innerHTML = obj;
         console.log(obj);
     } catch(err) {
-        alert('Your code doesn\'t match the JSON format!');
+        if (err.name == "SyntaxError") {
+            alert( `Your code doesn\'t match the JSON format! Error: ${err.message}`);
+          } else {
+            throw err;
+        }
     }
 })
