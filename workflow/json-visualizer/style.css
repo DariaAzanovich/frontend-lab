@@ -95,3 +95,30 @@ h3 {
 .error-message {
   color: rgb(226, 103, 103);
 }
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: none;
+
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.show {
+  display: block;
+}
+
+ul::before {
+  content: "+";
+
+  margin-right: 5px;
+}
+
+li::before {
+  content: "-";
+
+  margin-right: 5px;
+}

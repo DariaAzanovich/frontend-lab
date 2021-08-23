@@ -8,6 +8,7 @@ const tree = document.querySelector('.tree');
 const jsonFormatExmpl = document.querySelector('.json-format');
 const jsonData = document.querySelector('.json-data');
 const errMessage = document.querySelector('.error-message');
+const ul = document.getElementsByTagName('ul');
 
 
 const exampData = '{"number": 123, "string": "Hello!", "array": [1, 3, 4, 123], "obj": {"name": "Kate", "age": 23} }';
@@ -21,51 +22,66 @@ const jsonFormat = `JSON format: <br>
 [
     "key": value, 
     "key": value
-]`;
+]
+<br> OR <br> string/number.`;
 
-
-function appendTree(container, obj) {
-    container.appendChild(createTreeDom(obj));
-}
+/*--------------------- Functions ------------------*/
 
 function createTreeDom(obj) {
-    // если нет дочерних элементов, то вызов возвращает undefined
-    // и элемент <ul> не будет создан
     if (!Object.keys(obj).length) {
-        console.log(obj);
-
         return;
     }
 
     let ul = document.createElement('ul');
-    ul.innerHTML += 'obj';
+    ul.innerHTML += 'JSON data';
 
     for (let key in obj) {
         let li = document.createElement('li');
 
-        if(typeof key !== 'object') {
+        if(typeof obj[key] !== 'object') {
             li.innerHTML = key + ': ' + obj[key];
-        } else if(typeof key !== 'object') {
-
+            
+            if(Array.isArray(obj)) {
+                li.innerHTML = obj[key];
+            }
         } else {
-            li.innerHTML = key;
+            let childrenUl = createTreeDom(obj[key]);
+
+            if (childrenUl) {
+                li.append(childrenUl);
+            }
         }
 
-        // let childrenUl = appendTree(obj[key]);
-
-        // if (childrenUl) {
-        //     li.append(childrenUl);
-        // }
         ul.append(li);
     }
     return ul;
 }
 
 
+function appendTree(container, obj) {
+    container.appendChild(createTreeDom(obj));
+    // console.log(ul[0]);
+    for(let item of ul) {
+        item.addEventListener('click', function(event) {
+            // let childrenList = event.target.parentNode.querySelector('ul');
+            let childrenList = event.target.children;
+    
+            console.log(event.target);
+            console.log(childrenList);
+
+            for(item of childrenList) {
+                item.classList.toggle('show');
+            }
+        })
+    }
+}
+
+/*----------------- Event listeners -----------------*/
 document.addEventListener('DOMContentLoaded', () => {
     dataArea.value = exampData;
     jsonFormatExmpl.innerHTML = jsonFormat;
 })
+
 
 treeBtn.addEventListener('click', function() {
     const data = dataArea.value;
@@ -73,18 +89,14 @@ treeBtn.addEventListener('click', function() {
 
     try {
         const parsedJson = JSON.parse(data);
-        console.log(typeof parsedJson);
 
         if(typeof parsedJson === 'object') {
-            createTree(tree, parsedJson);
+            appendTree(tree, parsedJson);
         } else {
             tree.innerHTML = parsedJson;
             errMessage.innerHTML = '';
         }
 
-
-        /*------------*/
-        console.log(parsedJson);
     } catch(err) {
         if (err.name == "SyntaxError") {
             const message = `Your code doesn\'t match the JSON format! Error: ${err.message}`;
@@ -108,3 +120,4 @@ dataArea.addEventListener('input', function() {
     //     console.log(err.message);
     // }
 })
+
