@@ -1,6 +1,13 @@
 const NUMBER_COLOR = 'red';
 const STRING_COLOR = 'green';
 const BOOLEAN_COLOR = 'purple';
+const EXAMP_DATA = '{"number": 123, "string": "Hello!", "array": [1, 3, 4, 123], "obj": {"name": "Kate", "age": 23}, "bool": true }';
+const JSON_FORMAT = `JSON format: <br>
+{
+    "key": value, 
+    "key": value
+} 
+<br> OR <br> []/string/number.`;
 
 const treeBtn = document.querySelector('.tree-btn');
 const dataArea = document.getElementById('d-area');
@@ -10,14 +17,6 @@ const jsonData = document.querySelector('.json-data');
 const errMessage = document.querySelector('.error-message');
 const ul = document.getElementsByTagName('ul');
 
-
-const exampData = '{"number": 123, "string": "Hello!", "array": [1, 3, 4, 123], "obj": {"name": "Kate", "age": 23}, "bool": true }';
-const jsonFormat = `JSON format: <br>
-{
-    "key": value, 
-    "key": value
-} 
-<br> OR <br> []/string/number.`;
 
 /*--------------------- Functions ------------------*/
 
@@ -78,8 +77,8 @@ function appendTree(container, obj) {
 /*----------------- Event listeners -----------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
-    dataArea.value = exampData;
-    jsonFormatExmpl.innerHTML = jsonFormat;
+    dataArea.value = EXAMP_DATA;
+    jsonFormatExmpl.innerHTML = JSON_FORMAT;
 })
 
 
