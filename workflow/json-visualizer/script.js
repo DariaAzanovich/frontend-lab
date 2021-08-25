@@ -21,12 +21,16 @@ const ul = document.getElementsByTagName('ul');
 /*--------------------- Functions ------------------*/
 
 function setSpanColorizedData(span, data) {
-    if(typeof data === 'string') {
-        span.style.color = STRING_COLOR;
-    } else if(typeof data === 'number') {
-        span.style.color = NUMBER_COLOR;
-    } else if(typeof data === 'boolean') {
-        span.style.color = BOOLEAN_COLOR;
+    switch(typeof data) {
+        case 'number':  
+            span.style.color = NUMBER_COLOR;
+            break;
+        case 'string': 
+            span.style.color = STRING_COLOR;
+            break;
+        case 'boolean':
+            span.style.color = BOOLEAN_COLOR;
+            break;
     }
 
     span.innerHTML = data;
@@ -115,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
 treeBtn.addEventListener('click', jsonDataHandling);
 
 tree.addEventListener('click', function(event) {
-    console.log(event.target.tagName);
     if (event.target.tagName != "SPAN") {
         return;
     }
