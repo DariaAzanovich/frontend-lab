@@ -120,14 +120,7 @@ tree.addEventListener('click', function(event) {
     if (event.target.tagName != "SPAN") return;
 
     const childrenList = event.target.parentNode.querySelector("ul");
+    
     if (!childrenList) return;
     childrenList.hidden = !childrenList.hidden;
-  
-    if (childrenList.hidden) {
-      event.target.classList.add("hide");
-      event.target.classList.remove("show");
-    } else {
-      event.target.classList.add("show");
-      event.target.classList.remove("hide");
-    }
 })
