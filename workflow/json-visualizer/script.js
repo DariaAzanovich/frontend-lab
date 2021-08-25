@@ -46,12 +46,10 @@ function createTreeDom(obj) {
         const span = document.createElement('span');
 
         if(typeof obj[key] !== 'object') {
-            if(Array.isArray(obj)) {
-                li.appendChild(setSpanColorizedData(span, obj[key]));
-            } else {
+            if(!Array.isArray(obj)) {
                 li.innerHTML = key + ': ';
-                li.appendChild(setSpanColorizedData(span, obj[key]));
             }
+            li.appendChild(setSpanColorizedData(span, obj[key]));
         } else {
             span.innerHTML += key;
             span.classList.add('show');
