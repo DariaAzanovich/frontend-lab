@@ -72,15 +72,8 @@ function appendTree(container, obj) {
     container.appendChild(createTreeDom(obj));
 }
 
-/*----------------- Event listeners -----------------*/
 
-document.addEventListener('DOMContentLoaded', () => {
-    dataArea.value = EXAMP_DATA;
-    jsonFormatExmpl.innerHTML = JSON_FORMAT;
-})
-
-
-treeBtn.addEventListener('click', function() {
+function jsonDataHandling() {
     const data = dataArea.value;
     tree.innerHTML = '';
     errMessage.innerHTML = '';
@@ -109,7 +102,17 @@ treeBtn.addEventListener('click', function() {
             throw err;
         }
     }
+}
+
+/*----------------- Event listeners -----------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    dataArea.value = EXAMP_DATA;
+    jsonFormatExmpl.innerHTML = JSON_FORMAT;
 })
+
+
+treeBtn.addEventListener('click', jsonDataHandling);
 
 tree.addEventListener('click', function(event) {
     console.log(event.target.tagName);
