@@ -45,7 +45,6 @@ h3 {
 .json-tree {
   display: flex;
   flex-direction: column;
-  overflow: scroll;
 
   width: 40%;
   height: 500px;
@@ -97,6 +96,10 @@ h3 {
 
 .error-message {
   color: rgb(226, 103, 103);
+}
+
+.tree {
+  overflow: scroll;
 }
 
 ul li {
