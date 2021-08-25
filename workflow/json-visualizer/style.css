@@ -99,7 +99,27 @@ h3 {
   color: rgb(226, 103, 103);
 }
 
+ul li {
+  list-style: none;
+}
+
 li {
   margin-left: 10px;
   padding: 5px;
+}
+
+.hide::before {
+  content: "→";
+
+  margin-right: 10px;
+}
+
+.show::before {
+  content: "↓";
+
+  margin-right: 10px;
+}
+
+span {
+  cursor: pointer;
 }

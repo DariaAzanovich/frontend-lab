@@ -55,6 +55,7 @@ function createTreeDom(obj) {
             }
         } else {
             span.innerHTML += key;
+            span.classList.add('show');
             li.appendChild(span);
 
             const childrenUl = createTreeDom(obj[key]);
@@ -95,6 +96,7 @@ treeBtn.addEventListener('click', function() {
             appendTree(tree, parsedJson);
             
             span.innerHTML = 'JSON data';
+            span.classList.add('show');
 
             tree.insertAdjacentElement('afterbegin', span);
         } else {
@@ -113,10 +115,22 @@ treeBtn.addEventListener('click', function() {
 })
 
 tree.addEventListener('click', function(event) {
-    if (event.target.tagName != "SPAN") return;
+    console.log(event.target.tagName);
+    if (event.target.tagName != "SPAN") {
+        return;
+    }
 
     const childrenList = event.target.parentNode.querySelector("ul");
 
     if (!childrenList) return;
     childrenList.hidden = !childrenList.hidden;
+
+
+    if (childrenList.hidden) {
+        event.target.classList.add("hide");
+        event.target.classList.remove("show");
+    } else {
+        event.target.classList.add("show");
+        event.target.classList.remove("hide");
+    }
 })
