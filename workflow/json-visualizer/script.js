@@ -19,6 +19,19 @@ const errMessage = document.querySelector('.error-message');
 
 /*--------------------- Functions ------------------*/
 
+function typeBrackets(data) {
+    let keyBrackets = '';
+
+    if(Array.isArray(data)) {
+        keyBrackets = ' []';
+    } else {
+        keyBrackets = ' {}';
+    }
+    
+    return keyBrackets;
+}
+
+
 function setSpanColorizedData(span, data) {
     switch(typeof data) {
         case 'number':  
@@ -55,7 +68,8 @@ function createTreeDom(obj) {
             li.appendChild(setSpanColorizedData(span, obj[key]));
         } else {
             const childrenUl = createTreeDom(obj[key]);
-            childrenUl.insertAdjacentHTML('afterbegin', key);
+
+            childrenUl.insertAdjacentHTML('afterbegin', key + typeBrackets(obj[key]));
 
             if (childrenUl) {
                 li.append(childrenUl);
@@ -88,7 +102,7 @@ function collapseExpand(event) {
 
 function appendTree(container, obj) {
     container.appendChild(createTreeDom(obj));
-    container.firstChild.insertAdjacentHTML('afterbegin', 'JSON data')
+    container.firstChild.insertAdjacentHTML('afterbegin', 'JSON data' + typeBrackets(obj));
 }
 
 
