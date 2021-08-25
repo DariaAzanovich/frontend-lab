@@ -86,16 +86,17 @@ function createTreeDom(obj) {
 
 function collapseExpand(event) {
     event.stopPropagation();
-    const childrenList = event.target.children;
-
-    if (!childrenList) {
-        return;
-    }
-    for(child of childrenList) {
-        child.classList.toggle('collapsed');
-    }
 
     if(event.target.tagName === "UL") {
+        const childrenList = event.target.children;
+
+        if (!childrenList) {
+            return;
+        }
+        for(child of childrenList) {
+            child.classList.toggle('collapsed');
+        }
+
         event.target.classList.toggle("active");
     }
 }
