@@ -12,7 +12,6 @@ const ul = document.getElementsByTagName('ul');
 
 
 const exampData = '{"number": 123, "string": "Hello!", "array": [1, 3, 4, 123], "obj": {"name": "Kate", "age": 23}, "bool": true }';
-
 const jsonFormat = `JSON format: <br>
 {
     "key": value, 
@@ -57,6 +56,7 @@ function createTreeDom(obj) {
         } else {
             span.innerHTML += key;
             li.appendChild(span);
+
             const childrenUl = createTreeDom(obj[key]);
 
             if (childrenUl) {
