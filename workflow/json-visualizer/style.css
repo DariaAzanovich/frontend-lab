@@ -24,31 +24,33 @@ h3 {
 }
 
 .validator-wrap {
-  width: 100%;
-  height: 1000px;
-  /*---------------------*/
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
+  width: 100%;
+  height: 1000px;
 }
 
 .json-data {
-  width: 40%;
-  height: 500px;
-  background-color: rgb(228, 173, 233);
-  /*---------------------*/
   display: flex;
   flex-direction: column;
+
+  width: 40%;
+  height: 500px;
+
+  background-color: rgb(228, 173, 233);
 }
 
 .json-tree {
-  width: 40%;
-  height: 500px;
-  background-color: rgb(240, 197, 168);
-  /*---------------------*/
   display: flex;
   flex-direction: column;
   overflow: scroll;
+
+  width: 40%;
+  height: 500px;
+
+  background-color: rgb(240, 197, 168);
 }
 
 .json-data,
@@ -97,14 +99,7 @@ h3 {
   color: rgb(226, 103, 103);
 }
 
-ul {
-  /* list-style: none; */
-  /* display: flex; */
-}
-
 li {
-  /* display: none; */
-
   margin-left: 10px;
   padding: 5px;
 }
@@ -112,23 +107,3 @@ li {
 .show {
   display: block;
 }
-
-/* ul::before {
-  content: "+";
-
-  margin-right: 5px;
-}
-
-li::before {
-  content: "-";
-
-  margin-right: 5px;
-} */
-
-/* .hide::before {
-  content: "+";
-}
-
-.show::before {
-  content: "-";
-} */

@@ -18,12 +18,7 @@ const jsonFormat = `JSON format: <br>
     "key": value, 
     "key": value
 } 
-<br> OR <br>
-[
-    "key": value, 
-    "key": value
-]
-<br> OR <br> string/number.`;
+<br> OR <br> []/string/number.`;
 
 /*--------------------- Functions ------------------*/
 
@@ -46,14 +41,11 @@ function createTreeDom(obj) {
         return;
     }
 
-    let ul = document.createElement('ul');
-    // ul.innerHTML += 'JSON data';
+    const ul = document.createElement('ul');
 
     for (let key in obj) {
         const li = document.createElement('li');
         const span = document.createElement('span');
-
-        console.log(typeof obj[key]);
 
         if(typeof obj[key] !== 'object') {
             if(Array.isArray(obj)) {
@@ -63,7 +55,10 @@ function createTreeDom(obj) {
                 li.appendChild(setSpanColorizedData(span, obj[key]));
             }
         } else {
-            let childrenUl = createTreeDom(obj[key]);
+            const spanObjArrNAme = document.createElement('span');
+            span.innerHTML += key;
+            li.appendChild(span);
+            const childrenUl = createTreeDom(obj[key]);
 
             if (childrenUl) {
                 li.append(childrenUl);
@@ -77,25 +72,11 @@ function createTreeDom(obj) {
 
 
 function appendTree(container, obj) {
-    container.innerHTML = 'JSON data'
     container.appendChild(createTreeDom(obj));
-    // console.log(ul[0]);
-    for(let item of ul) {
-        item.addEventListener('click', function(event) {
-            // let childrenList = event.target.parentNode.querySelector('ul');
-            let childrenList = event.target.children;
-    
-            // console.log(event.target);
-            // console.log(childrenList);
-
-            for(item of childrenList) {
-                item.classList.toggle('show');
-            }  
-        })
-    }
 }
 
 /*----------------- Event listeners -----------------*/
+
 document.addEventListener('DOMContentLoaded', () => {
     dataArea.value = exampData;
     jsonFormatExmpl.innerHTML = jsonFormat;
@@ -112,6 +93,12 @@ treeBtn.addEventListener('click', function() {
 
         if(typeof parsedJson === 'object') {
             appendTree(tree, parsedJson);
+            
+            const span = document.createElement('span');
+            span.innerHTML = 'JSON data';
+
+            tree.insertAdjacentElement('afterbegin', span);
+            tree.firstElementChild.classList.add('tree-ul');
         } else {
             const span = document.createElement('span');
 
@@ -129,29 +116,18 @@ treeBtn.addEventListener('click', function() {
     }
 })
 
-// for (let li of list.querySelectorAll("li")) {
-//   let span = document.createElement("span");
-//   span.classList.add("show");
-//   li.prepend(span);
-//   span.append(span.nextSibling);
-// }
+tree.addEventListener('click', function(event) {
+    if (event.target.tagName != "SPAN") return;
 
-// const list = ul.querySelectorAll("li");
-// console.log(list);
-
-// list.addEventListener('click', function (event) {
-//     console.log(event.target);
-// //   if (event.target.tagName != "SPAN") return;
-
-//   let childrenList = event.target.parentNode.querySelector("ul");
-//   if (!childrenList) return;
-//   childrenList.hidden = !childrenList.hidden;
-
-//   if (childrenList.hidden) {
-//     event.target.classList.add("hide");
-//     event.target.classList.remove("show");
-//   } else {
-//     event.target.classList.add("show");
-//     event.target.classList.remove("hide");
-//   }
-// });
+    const childrenList = event.target.parentNode.querySelector("ul");
+    if (!childrenList) return;
+    childrenList.hidden = !childrenList.hidden;
+  
+    if (childrenList.hidden) {
+      event.target.classList.add("hide");
+      event.target.classList.remove("show");
+    } else {
+      event.target.classList.add("show");
+      event.target.classList.remove("hide");
+    }
+})
