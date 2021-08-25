@@ -27,7 +27,7 @@ const jsonFormat = `JSON format: <br>
 
 /*--------------------- Functions ------------------*/
 
-function setDataTypeColor(span, data) {
+function setSpanColorizedData(span, data) {
     if(typeof data === 'string') {
         span.style.color = STRING_COLOR;
     } else if(typeof data === 'number') {
@@ -53,15 +53,16 @@ function createTreeDom(obj) {
         const li = document.createElement('li');
         const span = document.createElement('span');
 
+        console.log(typeof obj[key]);
+
         if(typeof obj[key] !== 'object') {
-            li.innerHTML = key + ': ';
-            li.appendChild(setDataTypeColor(span, obj[key]));
-            
             if(Array.isArray(obj)) {
-                li.appendChild(setDataTypeColor(span, obj));
+                li.appendChild(setSpanColorizedData(span, obj[key]));
+            } else {
+                li.innerHTML = key + ': ';
+                li.appendChild(setSpanColorizedData(span, obj[key]));
             }
         } else {
-            // ul.innerHTML += key;
             let childrenUl = createTreeDom(obj[key]);
 
             if (childrenUl) {
@@ -84,8 +85,8 @@ function appendTree(container, obj) {
             // let childrenList = event.target.parentNode.querySelector('ul');
             let childrenList = event.target.children;
     
-            console.log(event.target);
-            console.log(childrenList);
+            // console.log(event.target);
+            // console.log(childrenList);
 
             for(item of childrenList) {
                 item.classList.toggle('show');
@@ -114,7 +115,7 @@ treeBtn.addEventListener('click', function() {
         } else {
             const span = document.createElement('span');
 
-            tree.appendChild(setDataTypeColor(span, parsedJson));
+            tree.appendChild(setSpanColorizedData(span, parsedJson));
         }
 
     } catch(err) {
@@ -128,3 +129,29 @@ treeBtn.addEventListener('click', function() {
     }
 })
 
+// for (let li of list.querySelectorAll("li")) {
+//   let span = document.createElement("span");
+//   span.classList.add("show");
+//   li.prepend(span);
+//   span.append(span.nextSibling);
+// }
+
+// const list = ul.querySelectorAll("li");
+// console.log(list);
+
+// list.addEventListener('click', function (event) {
+//     console.log(event.target);
+// //   if (event.target.tagName != "SPAN") return;
+
+//   let childrenList = event.target.parentNode.querySelector("ul");
+//   if (!childrenList) return;
+//   childrenList.hidden = !childrenList.hidden;
+
+//   if (childrenList.hidden) {
+//     event.target.classList.add("hide");
+//     event.target.classList.remove("show");
+//   } else {
+//     event.target.classList.add("show");
+//     event.target.classList.remove("hide");
+//   }
+// });
