@@ -11,11 +11,10 @@ const JSON_FORMAT = `JSON format: <br>
 
 const treeBtn = document.querySelector('.tree-btn');
 const dataArea = document.getElementById('d-area');
-const tree = document.querySelector('.tree');
+const treeUl = document.querySelector('.tree-ul');
 const jsonFormatExmpl = document.querySelector('.json-format');
 const jsonData = document.querySelector('.json-data');
 const errMessage = document.querySelector('.error-message');
-const ul = document.getElementsByTagName('ul');
 
 
 /*--------------------- Functions ------------------*/
@@ -71,15 +70,16 @@ function createTreeDom(obj) {
     return ul;
 }
 
-
 function appendTree(container, obj) {
-    container.appendChild(createTreeDom(obj));
+    const li = document.createElement('li');
+    li.appendChild(createTreeDom(obj));
+    container.appendChild(li);
 }
 
 
 function jsonDataHandling() {
     const data = dataArea.value;
-    tree.innerHTML = '';
+    treeUl.innerHTML = '';
     errMessage.innerHTML = '';
 
     try {
@@ -87,14 +87,14 @@ function jsonDataHandling() {
         const span = document.createElement('span');
 
         if(typeof parsedJson === 'object') {
-            appendTree(tree, parsedJson);
+            appendTree(treeUl, parsedJson);
             
             span.innerHTML = 'JSON data';
             span.classList.add('show');
 
-            tree.insertAdjacentElement('afterbegin', span);
+            treeUl.insertAdjacentElement('afterbegin', span);
         } else {
-            tree.appendChild(setSpanColorizedData(span, parsedJson));
+            treeUl.appendChild(setSpanColorizedData(span, parsedJson));
         }
 
     } catch(err) {
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 treeBtn.addEventListener('click', jsonDataHandling);
 
-tree.addEventListener('click', function(event) {
+treeUl.addEventListener('click', function(event) {
     if (event.target.tagName != "SPAN") {
         return;
     }
