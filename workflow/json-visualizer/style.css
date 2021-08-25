@@ -48,6 +48,7 @@ h3 {
   /*---------------------*/
   display: flex;
   flex-direction: column;
+  overflow: scroll;
 }
 
 .json-data,
@@ -85,7 +86,7 @@ h3 {
 
   font-size: large;
 
-  /* resize: none; */
+  resize: none;
 }
 
 .json-format {
@@ -97,7 +98,8 @@ h3 {
 }
 
 ul {
-  list-style-type: none;
+  list-style: none;
+  /* display: flex; */
 }
 
 li {
