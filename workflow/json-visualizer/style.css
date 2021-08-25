@@ -103,23 +103,35 @@ ul li {
   list-style: none;
 }
 
-li {
-  margin-left: 10px;
-  padding: 5px;
-}
-
-.hide::before {
+ul::before {
   content: "→";
 
   margin-right: 10px;
 }
 
-.show::before {
+.active::before {
   content: "↓";
 
   margin-right: 10px;
 }
 
-span {
+li {
+  /* display: none; */
+
+  margin-left: 10px;
+  padding: 5px;
+
+  cursor: default;
+}
+
+ul {
   cursor: pointer;
+}
+
+.expanded {
+  display: block;
+}
+
+.collapsed {
+  display: none;
 }

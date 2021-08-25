@@ -11,7 +11,7 @@ const JSON_FORMAT = `JSON format: <br>
 
 const treeBtn = document.querySelector('.tree-btn');
 const dataArea = document.getElementById('d-area');
-const treeUl = document.querySelector('.tree-ul');
+const tree = document.querySelector('.tree');
 const jsonFormatExmpl = document.querySelector('.json-format');
 const jsonData = document.querySelector('.json-data');
 const errMessage = document.querySelector('.error-message');
@@ -54,11 +54,8 @@ function createTreeDom(obj) {
             }
             li.appendChild(setSpanColorizedData(span, obj[key]));
         } else {
-            span.innerHTML += key;
-            span.classList.add('show');
-            li.appendChild(span);
-
             const childrenUl = createTreeDom(obj[key]);
+            childrenUl.insertAdjacentHTML('afterbegin', key);
 
             if (childrenUl) {
                 li.append(childrenUl);
@@ -66,20 +63,38 @@ function createTreeDom(obj) {
         }
 
         ul.append(li);
+        ul.classList.add('active');
     }
+
+    ul.addEventListener('click', collapseExpand);
     return ul;
 }
 
+function collapseExpand(event) {
+    event.stopPropagation();
+    const childrenList = event.target.children;
+
+    if (!childrenList) {
+        return;
+    }
+    for(child of childrenList) {
+        child.classList.toggle('collapsed');
+    }
+
+    if(event.target.tagName === "UL") {
+        event.target.classList.toggle("active");
+    }
+}
+
 function appendTree(container, obj) {
-    const li = document.createElement('li');
-    li.appendChild(createTreeDom(obj));
-    container.appendChild(li);
+    container.appendChild(createTreeDom(obj));
+    container.firstChild.insertAdjacentHTML('afterbegin', 'JSON data')
 }
 
 
 function jsonDataHandling() {
     const data = dataArea.value;
-    treeUl.innerHTML = '';
+    tree.innerHTML = '';
     errMessage.innerHTML = '';
 
     try {
@@ -87,14 +102,9 @@ function jsonDataHandling() {
         const span = document.createElement('span');
 
         if(typeof parsedJson === 'object') {
-            appendTree(treeUl, parsedJson);
-            
-            span.innerHTML = 'JSON data';
-            span.classList.add('show');
-
-            treeUl.insertAdjacentElement('afterbegin', span);
+            appendTree(tree, parsedJson);
         } else {
-            treeUl.appendChild(setSpanColorizedData(span, parsedJson));
+            tree.appendChild(setSpanColorizedData(span, parsedJson));
         }
 
     } catch(err) {
@@ -116,24 +126,4 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-treeBtn.addEventListener('click', jsonDataHandling);
-
-treeUl.addEventListener('click', function(event) {
-    if (event.target.tagName != "SPAN") {
-        return;
-    }
-
-    const childrenList = event.target.parentNode.querySelector("ul");
-
-    if (!childrenList) return;
-    childrenList.hidden = !childrenList.hidden;
-
-
-    if (childrenList.hidden) {
-        event.target.classList.add("hide");
-        event.target.classList.remove("show");
-    } else {
-        event.target.classList.add("show");
-        event.target.classList.remove("hide");
-    }
-})
+treeBtn.addEventListener('click', jsonDataHandling);  
