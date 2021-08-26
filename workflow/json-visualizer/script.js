@@ -69,15 +69,13 @@ function createTreeDom(obj) {
         } else {
             const childrenUl = createTreeDom(obj[key]);
 
-            childrenUl.insertAdjacentHTML('afterbegin', key + typeBrackets(obj[key]));
-
             if (childrenUl) {
                 li.append(childrenUl);
+                li.insertAdjacentElement('afterbegin', createClickableSpan(key + typeBrackets(obj[key])));
             }
         }
 
         ul.append(li);
-        ul.classList.add('active');
     }
 
     ul.addEventListener('click', collapseExpand);
@@ -87,23 +85,27 @@ function createTreeDom(obj) {
 function collapseExpand(event) {
     event.stopPropagation();
 
-    if(event.target.tagName === "UL") {
-        const childrenList = event.target.children;
-
-        if (!childrenList) {
-            return;
-        }
-        for(child of childrenList) {
-            child.classList.toggle('collapsed');
-        }
+    if(event.target.tagName === "SPAN") {
+        const ulSibl = event.target.nextSibling;
+        ulSibl.classList.toggle('collapsed');
 
         event.target.classList.toggle("active");
     }
 }
 
+function createClickableSpan(content) {
+    const span = document.createElement('span');
+    span.classList.add('clickable');
+    span.classList.add('active');
+    span.addEventListener('click', collapseExpand);
+    span.innerHTML = content;
+
+    return span;
+}
+
 function appendTree(container, obj) {
     container.appendChild(createTreeDom(obj));
-    container.firstChild.insertAdjacentHTML('afterbegin', 'JSON data' + typeBrackets(obj));
+    container.firstChild.insertAdjacentElement('beforebegin', createClickableSpan('JSON data' + typeBrackets(obj)));
 }
 
 

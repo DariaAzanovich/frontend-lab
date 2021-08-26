@@ -29,7 +29,7 @@ h3 {
   flex-wrap: wrap;
 
   width: 100%;
-  height: 1000px;
+  height: 600px;
 }
 
 .json-data {
@@ -99,14 +99,18 @@ h3 {
 }
 
 .tree {
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 ul li {
   list-style: none;
 }
 
-ul::before {
+.clickable {
+  cursor: pointer;
+}
+
+.clickable::before {
   content: "→";
 
   margin-right: 10px;
@@ -123,10 +127,6 @@ li {
   padding: 5px;
 
   cursor: default;
-}
-
-ul {
-  cursor: pointer;
 }
 
 .collapsed {
