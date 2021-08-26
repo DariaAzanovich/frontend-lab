@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Josefin Sans", sans-serif;
+  color: rgb(75, 67, 77);
+}
+
+h1 {
+  margin: 20px;
+}
+
+h3 {
+  align-self: center;
+
+  margin: 10px 0 20px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.validator-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  width: 100%;
+  height: 600px;
+}
+
+.json-data {
+  display: flex;
+  flex-direction: column;
+
+  width: 40%;
+  height: 500px;
+
+  background-color: rgb(228, 173, 233);
+}
+
+.json-tree {
+  display: flex;
+  flex-direction: column;
+
+  width: 40%;
+  height: 500px;
+
+  background-color: rgb(240, 197, 168);
+}
+
+.json-data,
+.json-tree {
+  padding: 20px;
+}
+
+.tree-btn {
+  align-self: center;
+
+  padding: 0.7rem;
+  margin: 20px;
+
+  background-color: rgb(151, 151, 206);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  white-space: nowrap;
+
+  font-size: large;
+}
+
+.tree-btn:active {
+  background-color: rgb(140, 140, 187);
+}
+
+.data-area {
+  padding: 10px;
+
+  background-color: rgb(228, 173, 233);
+
+  border: 2px solid rgb(177, 167, 182);
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+
+  font-size: large;
+
+  resize: none;
+}
+
+.json-format {
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: rgb(226, 103, 103);
+}
+
+.tree {
+  overflow-y: auto;
+}
+
+ul li {
+  list-style: none;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable::before {
+  content: "→";
+
+  margin-right: 10px;
+}
+
+.active::before {
+  content: "↓";
+
+  margin-right: 10px;
+}
+
+li {
+  margin-left: 10px;
+  padding: 5px;
+
+  cursor: default;
+}
+
+.collapsed {
+  display: none;
+}
