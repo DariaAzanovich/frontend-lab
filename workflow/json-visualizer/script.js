@@ -77,20 +77,16 @@ function createTreeDom(obj) {
 
         ul.append(li);
     }
-
-    ul.addEventListener('click', collapseExpand);
     return ul;
 }
 
 function collapseExpand(event) {
     event.stopPropagation();
 
-    if(event.target.tagName === "SPAN") {
-        const ulSibl = event.target.nextSibling;
-        ulSibl.classList.toggle('collapsed');
+    const ulSibl = event.target.nextSibling;
+    ulSibl.classList.toggle('collapsed');
 
-        event.target.classList.toggle("active");
-    }
+    event.target.classList.toggle("active");
 }
 
 function createClickableSpan(content) {
