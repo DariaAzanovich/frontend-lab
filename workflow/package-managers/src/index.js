@@ -1,4 +1,3 @@
-import logo from './img/magic-box.png';
 import './styles/style.css';
 
 const NUMBER_COLOR = 'red';
@@ -76,13 +75,13 @@ function createTreeDom(obj) {
 
     const ul = document.createElement('ul');
 
-    for (let key in obj) {
+    for (const key in obj) {
         const li = document.createElement('li');
         const span = document.createElement('span');
 
         if (typeof obj[key] !== 'object') {
             if (!Array.isArray(obj)) {
-                li.innerHTML = key + ': ';
+                li.innerHTML = `${key}: `;
             }
             li.appendChild(setSpanColorizedData(span, obj[key]));
         } else {
@@ -102,7 +101,7 @@ function createTreeDom(obj) {
 
 function appendTree(container, obj) {
     container.appendChild(createTreeDom(obj));
-    container.firstChild.insertAdjacentElement('beforebegin', createClickableSpan('JSON data' + typeBrackets(obj)));
+    container.firstChild.insertAdjacentElement('beforebegin', createClickableSpan(`JSON data${typeBrackets(obj)}`));
 }
 
 function jsonDataHandling() {
