@@ -1,0 +1,30 @@
+{
+  "name": "package-managers",
+  "version": "1.0.0",
+  "description": "make some magic with JSON Visualizer code to make it looks more like a project with some basic setups",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --mode development --watch"
+  },
+  "keywords": [
+    "js",
+    "json",
+    "javascript",
+    "webpack"
+  ],
+  "author": "Darya",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^6.2.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {}
+}

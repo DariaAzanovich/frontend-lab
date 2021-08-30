@@ -13,6 +13,24 @@
         "indent": ["off", "tab"],
         "no-alert": "warn",
         "comma-dangle": "off",
-        "prefer-destructuring": "warn"
+        "prefer-destructuring": "warn",
+        "spaced-comment": ["error", "always", {
+            "line": {
+                "markers": ["/"],
+                "exceptions": ["-", "+"]
+            },
+            "block": {
+                "markers": ["!"],
+                "exceptions": ["*"],
+                "balanced": true
+            }
+        }],
+        "no-useless-escape": "warn",
+        "consistent-return": "warn",
+        "no-param-reassign": "warn",
+        "prefer-template": "warn",
+        "default-case": "off",
+        "no-restricted-syntax": "off",
+        "guard-for-in": "off"
     }
 }
