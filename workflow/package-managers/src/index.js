@@ -1,4 +1,5 @@
 import './styles/style.scss';
+import _ from 'lodash';
 
 const NUMBER_COLOR = 'red';
 const STRING_COLOR = 'green';
@@ -20,15 +21,7 @@ const errMessage = document.querySelector('.error-message');
 /* --------------------- Functions ------------------ */
 
 function typeBrackets(data) {
-    let keyBrackets = '';
-
-    if (Array.isArray(data)) {
-        keyBrackets = ' []';
-    } else {
-        keyBrackets = ' {}';
-    }
-
-    return keyBrackets;
+    return Array.isArray(data) ? ' []' : ' {}';
 }
 
 function setSpanColorizedData(span, data) {
@@ -75,26 +68,26 @@ function createTreeDom(obj) {
 
     const ul = document.createElement('ul');
 
-    for (const key in obj) {
+    _.each(obj, (value, key) => {
         const li = document.createElement('li');
         const span = document.createElement('span');
 
-        if (typeof obj[key] !== 'object') {
+        if (typeof value !== 'object') {
             if (!Array.isArray(obj)) {
                 li.innerHTML = `${key}: `;
             }
-            li.appendChild(setSpanColorizedData(span, obj[key]));
+            li.appendChild(setSpanColorizedData(span, value));
         } else {
-            const childrenUl = createTreeDom(obj[key]);
+            const childrenUl = createTreeDom(value);
 
             if (childrenUl) {
                 li.append(childrenUl);
-                li.insertAdjacentElement('afterbegin', createClickableSpan(key + typeBrackets(obj[key])));
+                li.insertAdjacentElement('afterbegin', createClickableSpan(key + typeBrackets(value)));
             }
         }
 
         ul.append(li);
-    }
+    });
 
     return ul;
 }
