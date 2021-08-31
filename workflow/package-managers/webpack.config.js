@@ -25,6 +25,24 @@ const optimization = () => {
     return config;
 }
 
+const filename = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`;
+
+const cssLoaders = extra => {
+    const loaders = [
+        {
+            loader: MiniCssExtractPlugin.loader,
+            options: {}
+        },
+        'css-loader'
+    ];
+
+    if (extra) {
+        loaders.push(extra);
+    }
+
+    return loaders;
+}
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
@@ -32,7 +50,7 @@ module.exports = {
         main: './index.js'
     },
     output: {
-        filename: '[name].[contenthash].js',
+        filename: filename('js'),
         path: path.resolve(__dirname, 'dist')
     },
     optimization: optimization(),
@@ -57,34 +75,24 @@ module.exports = {
             ]
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
+            filename: filename('css'),
         })
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: [
-                {
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {}
-                },
-                'css-loader']
+                use: cssLoaders()
+            },
+            {
+                test: /\.s[ac]ss$/,
+                use: cssLoaders('sass-loader')
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
                 use: ['file-loader']
             },
-            // {
-            //     test: /\.s[ac]ss$/,
-            //     use: [
-            //         {
-            //             loader: 
-            //         }
-            //         'css-loader',
-            //         'sass-loader'
-            //     ]
-            // }
+            
             // {
             //     test: /\.(ttf|woff|woff2|eot)$/,
             //     use: ['file-loader']

@@ -1,4 +1,4 @@
-import './styles/style.css';
+import './styles/style.scss';
 
 const NUMBER_COLOR = 'red';
 const STRING_COLOR = 'green';
