@@ -1,0 +1,32 @@
+{
+  "name": "frontend-lab",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">   <img src=\"./assets/work-process.svg\" width=\"500\"> </div> Hi there, we're glad to congratulate you 🎉 on passing interview and becoming much closer to be a real frontend dev.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./workflow",
+    "lint:fix": "eslint ./workflow --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DariaAzanovich/frontend-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DariaAzanovich/frontend-lab/issues"
+  },
+  "homepage": "https://github.com/DariaAzanovich/frontend-lab#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.1",
+    "prettier": "^2.3.2"
+  }
+}
