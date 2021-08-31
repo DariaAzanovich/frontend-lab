@@ -7,4 +7,4 @@
 - [x] Make it possible to create 2 variants of bundle: development and production (set enviroment varibale for this). Production build should be optimized;
 - [x] To run scripts we should able to write `npm run` + command;
 - [x] Rewrite your css file/files to scss;
-- [ ] Load [Lodash](https://lodash.com/docs/4.17.15) libarary to toy project, use it where it'll help/minimize code.
+- [x] Load [Lodash](https://lodash.com/docs/4.17.15) libarary to toy project, use it where it'll help/minimize code.
