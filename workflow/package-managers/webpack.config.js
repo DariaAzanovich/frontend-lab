@@ -47,7 +47,7 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
-        main: './index.js'
+        main: ['@babel/polyfill', './index.js']
     },
     output: {
         filename: filename('js'),
@@ -92,11 +92,16 @@ module.exports = {
                 test: /\.(png|jpg|svg|gif)$/,
                 use: ['file-loader']
             },
-            
-            // {
-            //     test: /\.(ttf|woff|woff2|eot)$/,
-            //     use: ['file-loader']
-            // }
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
+                }
+            }
         ]
     }
 }
