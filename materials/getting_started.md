@@ -26,6 +26,8 @@ If you decided that everything is done, commit you work in the task branch and y
 If you have some notes/questions to your PR/MR you can attach them to it (in comments).
 Once reviewer check your PR/MR you'll see if there're some places you need to fix. Fixes have to be commited at the same task branch and push to remote repo. After resolving all issues and PR/MR is approved you can merge it to `dev` and go forward.
 
+Once a feature branch is merged to `dev` delete this branch.
+
 If you're not familiar with git workflow, PR/MR and other git stuff, have a look to this [Article](https://www.freecodecamp.org/news/practical-git-and-git-workflows/).
 
 🍀 Good luck 🍀
