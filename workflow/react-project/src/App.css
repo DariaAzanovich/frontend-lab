@@ -43,71 +43,14 @@
   justify-content: center;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
 
-  padding: 10px 30px;
-
-  background-color: #4CAF50;
-  color: #CDD6CF;
-}
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-title {
-  align-self: center;
-
-  margin: 10px;
-
-  font-size: 3rem;
-}
-
-.navbar-btn {
-  display: flex;
-  align-items: center;
-
-  padding: 16px 32px;
-
-  font-size: 16px;
-  line-height: 18px;
-
-  border: 1px solid #CDD6CF;
-  border-radius: 10px;
-  background-color: transparent;
-  color: #FFFFFF;
-
-  text-decoration: none;
-}
-
-.navbar-logo,
-.navbar-title,
-.navbar-btn {
+.App .open-modal-btn {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background-color: cornflowerblue;
+  color: white;
   cursor: pointer;
 }
 
-.navbar-btn:active {
-  border-color: aquamarine;
-}
-
-.navbar-title:active,
-.navbar-btn:active {
-  color: aquamarine;
-}
-
-.navbar-title,
-.homepage-title {
-  font-family: 'Rochester';
-  font-weight: 400;
-  font-style: normal;
-}
-
-.homepage-title {
-  font-size: 100px;
-  color: #4CAF50;
-}

@@ -1,4 +1,6 @@
 import React, {Fragment} from 'react';
+import { Quote } from '../components/Quote';
+import './Home.css';
 
 export const Home = () => {
     return (
@@ -7,8 +9,13 @@ export const Home = () => {
                 <h1 className="homepage-title">Cocktail App</h1>
 
                 <section className="content">
-                    <div className="content-quotes"></div>
-                    <div className="content-img"></div>
+                    <div className="content-quotes">
+                        <Quote />
+                    </div>
+                    <div className="content-cocktail">
+                        <img className="content-img" alt="Green cocktail" src="./green-cocktail.png"></img>
+                        <p className="content-prompt">Press on glass to get a random cocktail</p>
+                    </div>
                 </section>
             </div>
         </Fragment>

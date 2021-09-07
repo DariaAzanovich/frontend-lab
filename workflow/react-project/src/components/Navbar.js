@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import "./Navbar.css";
 import logo from '../cocktail-logo.png';
 
 export const Navbar = () => (
