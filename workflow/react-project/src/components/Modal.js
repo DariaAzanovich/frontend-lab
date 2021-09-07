@@ -1,0 +1,34 @@
+import React from "react";
+import "./Modal.css";
+
+function Modal({ closeModal }) {
+  return (
+      <React.Fragment>
+        <div 
+            className="modal-bg"
+            onClick={() => {closeModal(false)}}
+        >
+            <div 
+                className="modal-container"
+                onClick={event => event.stopPropagation()}
+            >
+                <div className="modal-close-btn">
+                    <button
+                        onClick={() => closeModal(false)}
+                    >
+                        X
+                    </button>
+                </div>
+                <div className="title">
+                    <h1>Modal title</h1>
+                </div>
+                <div className="body">
+                    <p>Modal content</p>
+                </div>
+            </div>
+        </div>
+    </React.Fragment>
+  );
+}
+
+export default Modal;
