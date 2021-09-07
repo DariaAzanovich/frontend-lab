@@ -1,11 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import "./Navbar.css";
 import logo from '../cocktail-logo.png';
-import Modal from './Modal';
 
-export const Navbar = () => {
-    const [openModal, setOpenModal] = useState(false);
-
+export const Navbar = ({ closeModal }) => {
     return (
         <React.Fragment>
             <nav className="navbar">
@@ -15,7 +12,7 @@ export const Navbar = () => {
                         src={logo} 
                         alt="Logo"
                         onClick={() => {
-                            setOpenModal(true)
+                            closeModal(true)
                         }}
                     ></img>
                     <div className="navbar-title">
@@ -26,14 +23,12 @@ export const Navbar = () => {
                 <button 
                 className="navbar-btn"
                     onClick={() => {
-                            setOpenModal(true)
+                            closeModal(true)
                         }}
                 >
                     Get Started
                 </button>
             </nav>
-
-            {openModal && <Modal closeModal={setOpenModal}/>}
         </React.Fragment>
     );
 }
