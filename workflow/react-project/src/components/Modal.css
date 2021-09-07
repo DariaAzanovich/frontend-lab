@@ -13,20 +13,23 @@
 }
   
 .modal-container {
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px;
     width: 500px;
     height: 500px;
+
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
 }
 
 .modal-container .title {
     display: inline-block;
-    text-align: center;
     margin-top: 10px;
+
+    text-align: center;
 }
 
 .modal-close-btn {
@@ -35,9 +38,11 @@
 }
 
 .modal-close-btn button {
+    font-size: 25px;
+
     background-color: transparent;
     border: none;
-    font-size: 25px;
+
     cursor: pointer;
 }
 
@@ -46,6 +51,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
     font-size: 1.7rem;
     text-align: center;
 }
