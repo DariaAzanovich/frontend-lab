@@ -6,6 +6,8 @@
 
 .homepage-title {
     align-self: center;
+    margin-top: 60px;
+    margin-bottom: 0;
 
     font-size: 100px;
     color: #4CAF50;
@@ -46,4 +48,8 @@
     color: #555555;
 
     transform: rotate(-15.81deg);
+}
+
+.content-quotes {
+    justify-self: center;
 }
