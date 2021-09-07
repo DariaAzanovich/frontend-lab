@@ -8,8 +8,6 @@ export const Navbar = () => {
 
     return (
         <React.Fragment>
-            {openModal && <Modal closeModal={setOpenModal}/>}
-            
             <nav className="navbar">
                 <div className="navbar-brand">
                     <img 
@@ -34,6 +32,8 @@ export const Navbar = () => {
                     Get Started
                 </button>
             </nav>
+
+            {openModal && <Modal closeModal={setOpenModal}/>}
         </React.Fragment>
     );
 }
