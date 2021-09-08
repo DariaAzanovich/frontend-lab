@@ -1,20 +1,21 @@
-import React from 'react';
 import "./Navbar.css";
-import logo from '../cocktail-logo.png';
+import React, { Fragment } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 
 export const Navbar = ({ closeModal }) => {
     return (
-        <React.Fragment>
+        <Fragment>
             <nav className="navbar">
                 <div className="navbar-brand">
-                    <img 
-                        className="navbar-logo" 
-                        src={logo} 
-                        alt="Logo"
+                    <FontAwesomeIcon 
+                        icon={faCocktail} 
+                        size="3x"
+                        className="navbar-logo"
                         onClick={() => {
                             closeModal(true)
                         }}
-                    ></img>
+                    />
                     <div className="navbar-title">
                         Coctail App
                     </div>
@@ -29,6 +30,6 @@ export const Navbar = ({ closeModal }) => {
                     Get Started
                 </button>
             </nav>
-        </React.Fragment>
+        </Fragment>
     );
 }

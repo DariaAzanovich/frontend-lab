@@ -49,7 +49,8 @@
 .navbar-btn:active {
     border-color: aquamarine;
 }
-  
+ 
+.navbar-logo:active,
 .navbar-title:active,
 .navbar-btn:active {
     color: aquamarine;
