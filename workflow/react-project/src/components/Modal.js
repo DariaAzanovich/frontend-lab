@@ -1,6 +1,7 @@
 import "./Modal.css";
 import "./media.css";
 import React, { Fragment } from "react";
+import PropTypes from 'prop-types';
 
 function Modal({ closeModal }) {
   return (
@@ -31,5 +32,9 @@ function Modal({ closeModal }) {
     </Fragment>
   );
 }
+
+Modal.propTypes = {
+    closeModal: PropTypes.func.isRequired
+};
 
 export default Modal;

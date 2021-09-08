@@ -3,6 +3,7 @@ import './pagesMedia.css'
 import QuotesCarousel from '../components/QuotesCarousel';
 import qoutesArr from '../components/quotesArr';
 import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
 
 export const Home = ({ closeModal }) => {
     return (
@@ -28,3 +29,7 @@ export const Home = ({ closeModal }) => {
         </Fragment>
     )
 }
+
+Home.propTypes = {
+    closeModal: PropTypes.func.isRequired
+};

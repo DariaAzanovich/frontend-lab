@@ -1,6 +1,7 @@
 import "./Navbar.css";
 import "./media.css";
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 
@@ -31,3 +32,7 @@ export const Navbar = ({ closeModal }) => {
         </Fragment>
     );
 }
+
+Navbar.propTypes = {
+    closeModal: PropTypes.func.isRequired
+};
