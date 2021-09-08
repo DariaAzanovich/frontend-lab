@@ -1,16 +1,16 @@
 @media screen and (max-width: 992px) {
     /*--------------------- Quotes ------------------*/
 
-    .quote {
+    .carousel-item {
         flex-grow: 1;
 
         font-size: 2rem;
     }
 
-    .quotes-wrapper {
+    .carousel {
         order: 4;
         max-width: 90%;
-        margin: 50px 0;
+        margin-top: 50px;
     }
 
     .content-prompt {
@@ -30,12 +30,12 @@
     }
     /*--------------------- Quotes ------------------*/
 
-    .quote {
+    .carousel-item {
         flex-grow: 1;
         font-size: 1rem;
     }
 
-    .quotes-wrapper {
+    .carousel {
         order: 4;
         max-width: 90%;
     }

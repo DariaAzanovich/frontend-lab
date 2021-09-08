@@ -1,6 +1,7 @@
 import './Home.css';
 import './pagesMedia.css'
-import { Quote } from '../components/Quote';
+import QuotesCarousel from '../components/QuotesCarousel';
+import qoutesArr from '../components/quotesArr';
 import React, {Fragment} from 'react';
 
 export const Home = ({ closeModal }) => {
@@ -10,9 +11,7 @@ export const Home = ({ closeModal }) => {
                 <h1 className="homepage-title">Cocktail App</h1>
 
                 <section className="content">
-                    {/* <div className="content-quotes"> */}
-                        <Quote />
-                    {/* </div> */}
+                        <QuotesCarousel data={qoutesArr}/>
                     <div className="content-cocktail">
                         <img 
                             className="content-img" 

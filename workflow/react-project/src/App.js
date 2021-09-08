@@ -7,24 +7,24 @@ import { Navbar } from './components/Navbar';
 import Modal from './components/Modal';
 
 function App() {
-  const [openModal, setOpenModal] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
 
-  return (
-      <BrowserRouter>
-        {openModal && <Modal closeModal={setOpenModal}/>}
-        
-        <Navbar closeModal={setOpenModal}/>
+    return (
+        <BrowserRouter>
+            {openModal && <Modal closeModal={setOpenModal}/>}
+            
+            <Navbar closeModal={setOpenModal}/>
 
-        <div className="container">
-          <Switch>
-            <Route exact path={'/'}>
-              <Home closeModal={setOpenModal} />
-            </Route>
-            <Route path={'/sp'} component={Sp}/>
-          </Switch>
-        </div>
-      </BrowserRouter>   
-  );
+            <div className="container">
+                <Switch>
+                    <Route exact path={'/'}>
+                        <Home closeModal={setOpenModal} />
+                    </Route>
+                    <Route path={'/sp'} component={Sp}/>
+                </Switch>
+            </div>
+        </BrowserRouter>   
+    );
 }
 
 export default App;

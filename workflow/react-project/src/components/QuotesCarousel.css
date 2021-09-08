@@ -1,0 +1,33 @@
+.carousel {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40%;
+    height: 300px;
+
+    overflow: hidden;
+}
+  
+.carousel-item {
+    position: absolute;
+
+    padding: 0;
+    margin: 0;
+
+    height: 50px;
+
+    font-size: 32px;
+    text-align: center;
+    color: #1B5E20;
+
+    opacity: 0;
+
+    transition: transform 1s ease, opacity 1s ease;
+}
+  
+.carousel-item.visible {
+    opacity: 1;
+}
