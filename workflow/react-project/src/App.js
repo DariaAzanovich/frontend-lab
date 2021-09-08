@@ -17,7 +17,7 @@ function App() {
 
         <div className="container">
           <Switch>
-            <Route path={'/'}>
+            <Route exact path={'/'}>
               <Home closeModal={setOpenModal} />
             </Route>
             <Route path={'/sp'} component={Sp}/>
