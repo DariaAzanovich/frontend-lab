@@ -1,4 +1,5 @@
 import "./Modal.css";
+import "./media.css";
 import React, { Fragment } from "react";
 
 function Modal({ closeModal }) {

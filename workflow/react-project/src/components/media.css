@@ -1,0 +1,83 @@
+@media screen and (max-width: 992px) {
+    /*--------------------- Home page ------------------*/
+
+    .content {
+        flex-wrap: wrap;
+    }
+
+    .content-img {
+        order: -1;
+        width: 500px;
+    }
+
+    /*--------------------- Quotes ------------------*/
+
+    .quote {
+        flex-grow: 1;
+
+        font-size: 2rem;
+    }
+
+    .quotes-wrapper {
+        order: 4;
+        max-width: 90%;
+        margin: 50px 0;
+    }
+
+    .content-prompt {
+        position: absolute;
+        bottom: 5px;
+        right: 90px;
+
+        max-width: 150px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    /*--------------------- Navbar ----------------------*/
+    .navbar-title {
+        display: none;
+    }
+
+    /*--------------------- Home page ------------------*/
+
+    .homepage-title {
+        font-size: 4rem;
+        margin-bottom: 50px;
+    }
+
+    .content {
+        flex-wrap: wrap;
+    }
+
+    .content-img {
+        order: -1;
+        width: 300px;
+    }
+
+    /*--------------------- Quotes ------------------*/
+
+    .quote {
+        flex-grow: 1;
+        font-size: 1rem;
+    }
+
+    .quotes-wrapper {
+        order: 4;
+        max-width: 90%;
+    }
+
+
+    .content-prompt {
+        position: absolute;
+        bottom: 0;
+        right: 40px;
+
+        max-width: 120px;
+        margin: 40px 0;
+    
+        font-size: .7rem;
+    
+    }
+}

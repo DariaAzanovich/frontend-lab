@@ -16,6 +16,7 @@
 }
   
 .navbar-title {
+    /* display: block; */
     align-self: center;
   
     margin: 10px;
