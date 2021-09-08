@@ -11,7 +11,7 @@ const QuotesCarousel = ({ data }) => {
     const halfwayIndex = Math.ceil(data.length / 2);
   
     // Usd to determine the height/spacing of each item
-    const itemHeight = 400;
+    const itemHeight = 240;
   
     // Used to determine at what point an item is moved from the top to the bottom
     const shuffleThreshold = halfwayIndex * itemHeight;
