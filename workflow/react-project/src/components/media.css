@@ -1,15 +1,4 @@
 @media screen and (max-width: 992px) {
-    /*--------------------- Home page ------------------*/
-
-    .content {
-        flex-wrap: wrap;
-    }
-
-    .content-img {
-        order: -1;
-        width: 500px;
-    }
-
     /*--------------------- Quotes ------------------*/
 
     .quote {
@@ -39,23 +28,6 @@
     .navbar-title {
         display: none;
     }
-
-    /*--------------------- Home page ------------------*/
-
-    .homepage-title {
-        font-size: 4rem;
-        margin-bottom: 50px;
-    }
-
-    .content {
-        flex-wrap: wrap;
-    }
-
-    .content-img {
-        order: -1;
-        width: 300px;
-    }
-
     /*--------------------- Quotes ------------------*/
 
     .quote {

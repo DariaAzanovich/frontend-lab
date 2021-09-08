@@ -1,4 +1,5 @@
 import './Home.css';
+import './pagesMedia.css'
 import { Quote } from '../components/Quote';
 import React, {Fragment} from 'react';
 

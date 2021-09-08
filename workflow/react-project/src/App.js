@@ -21,7 +21,6 @@ function App() {
               <Home closeModal={setOpenModal} />
             </Route>
             <Route path={'/sp'} component={Sp}/>
-
           </Switch>
         </div>
       </BrowserRouter>   
