@@ -43,7 +43,7 @@
 
     .content-prompt {
         position: absolute;
-        bottom: 0;
+        bottom: -30px;
         right: 40px;
 
         max-width: 120px;
