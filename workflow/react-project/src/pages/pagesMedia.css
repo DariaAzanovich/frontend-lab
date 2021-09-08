@@ -28,3 +28,9 @@
         width: 300px;
     }
 }
+
+@media screen and (min-width: 1028px) {
+    .content {
+        width: 70%;
+    }
+}

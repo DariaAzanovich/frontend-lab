@@ -1,6 +1,5 @@
-.wrap {
-    display: flex;
-    justify-content: center;
+.container {
+    box-sizing: border-box;
 }
 
 
