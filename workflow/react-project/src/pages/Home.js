@@ -1,6 +1,6 @@
-import React, {Fragment} from 'react';
-import { Quote } from '../components/Quote';
 import './Home.css';
+import { Quote } from '../components/Quote';
+import React, {Fragment} from 'react';
 
 export const Home = ({ closeModal }) => {
     return (

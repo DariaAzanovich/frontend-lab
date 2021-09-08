@@ -1,9 +1,9 @@
-import React from "react";
 import "./Modal.css";
+import React, { Fragment } from "react";
 
 function Modal({ closeModal }) {
   return (
-      <React.Fragment>
+      <Fragment>
         <div 
             className="modal-bg"
             onClick={() => {closeModal(false)}}
@@ -27,7 +27,7 @@ function Modal({ closeModal }) {
                 </div>
             </div>
         </div>
-    </React.Fragment>
+    </Fragment>
   );
 }
 
