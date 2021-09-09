@@ -1,11 +1,11 @@
 import "./Modal.css";
 import "./media.css";
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 
 function Modal({ modalState }) {
   return (
-      <Fragment>
+      <>
         <div 
             className="modal-bg"
             onClick={() => {modalState(false)}}
@@ -29,7 +29,7 @@ function Modal({ modalState }) {
                 </div>
             </div>
         </div>
-    </Fragment>
+    </>
   );
 }
 

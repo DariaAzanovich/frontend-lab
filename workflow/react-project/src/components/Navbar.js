@@ -1,13 +1,13 @@
 import "./Navbar.css";
 import "./media.css";
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 
 export const Navbar = ({ modalState }) => {
     return (
-        <Fragment>
+        <>
             <nav className="navbar">
                 <div className="navbar-brand">
                     <FontAwesomeIcon 
@@ -29,7 +29,7 @@ export const Navbar = ({ modalState }) => {
                     Get Started
                 </button>
             </nav>
-        </Fragment>
+        </>
     );
 }
 

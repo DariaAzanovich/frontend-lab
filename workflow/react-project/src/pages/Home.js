@@ -2,14 +2,14 @@ import './Home.css';
 import './pagesMedia.css'
 import QuotesCarousel from '../components/QuotesCarousel';
 import qoutesArr from '../components/quotesArr';
-import React, {useState, Fragment} from 'react';
+import React, { useState } from 'react';
 import { Navbar } from '../components/Navbar';
 import Modal from '../components/Modal';
 
 export const Home = () => {
     const [openModal, setOpenModal] = useState(false);
     return (
-        <Fragment>
+        <>
             <div className="wrap">
                 {openModal && <Modal modalState={setOpenModal}/>}
 
@@ -31,6 +31,6 @@ export const Home = () => {
                     </div>
                 </section>
             </div>
-        </Fragment>
+        </>
     )
 }

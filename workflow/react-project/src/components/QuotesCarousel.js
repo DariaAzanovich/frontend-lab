@@ -1,6 +1,6 @@
 import './QuotesCarousel.css';
 import './media.css';
-import React, { Fragment } from 'react';
+import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import qoutesArr from './quotesArr';
@@ -23,14 +23,14 @@ const ReactCarousel = () => {
             className="carousel-wrap"
         >
              {qoutesArr.map((item, i) => (
-                <Fragment>
+                <>
                     <p
                         className="quote"
                         key={i}
                     >
                         {item}
                     </p>
-                </Fragment>
+                </>
                 ))}
         </Carousel>
     )
