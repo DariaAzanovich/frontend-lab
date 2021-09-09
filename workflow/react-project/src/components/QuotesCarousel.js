@@ -18,7 +18,8 @@ const ReactCarousel = () => {
             showThumbs={false} 
             showIndicators={false} 
             showStatus={false} 
-            // transitionTime={5000}
+            interval={7000}
+            transitionTime={3000}
             className="carousel-wrap"
         >
              {qoutesArr.map((item, i) => (
