@@ -3,7 +3,6 @@ import './pagesMedia.css'
 import QuotesCarousel from '../components/QuotesCarousel';
 import qoutesArr from '../components/quotesArr';
 import React, { useState } from 'react';
-import { Navbar } from '../components/Navbar';
 import Modal from '../components/Modal';
 
 export const Home = () => {
@@ -13,7 +12,6 @@ export const Home = () => {
             <div className="wrap">
                 {openModal && <Modal modalState={setOpenModal}/>}
 
-                <Navbar modalState={setOpenModal}/>
                 <h1 className="homepage-title">Cocktail App</h1>
 
                 <section className="content">
