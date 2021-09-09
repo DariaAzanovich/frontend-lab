@@ -16,7 +16,7 @@ Since the project is not a small thing, let's track progress of it here (on this
 
 - [x] Read the [Official Tutorial](https://ru.reactjs.org/docs/getting-started.html) and try it out
 - [x] [Init Project](./init.md)
-- [ ] [First steps](./first_steps.md)
+- [x] [First steps](./first_steps.md)
 - [ ] [Data Management](./data-management.md)
 
 ## Links you'll definitely use
