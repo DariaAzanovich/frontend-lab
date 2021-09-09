@@ -1,9 +1,8 @@
 import './Home.css';
 import './pagesMedia.css'
-import QuotesCarousel from '../components/QuotesCarousel';
-import qoutesArr from '../components/quotesArr';
 import React, { useState } from 'react';
 import Modal from '../components/Modal';
+import QuotesCarousel from '../components/QuotesCarousel';
 
 export const Home = () => {
     const [openModal, setOpenModal] = useState(false);
@@ -15,7 +14,7 @@ export const Home = () => {
                 <h1 className="homepage-title">Cocktail App</h1>
 
                 <section className="content">
-                        <QuotesCarousel data={qoutesArr}/>
+                        <QuotesCarousel></QuotesCarousel>
                     <div className="content-cocktail">
                         <img 
                             className="content-img" 
