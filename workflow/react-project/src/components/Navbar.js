@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 
-export const Navbar = ({ closeModal }) => {
+export const Navbar = ({ modalState }) => {
     return (
         <Fragment>
             <nav className="navbar">
@@ -23,8 +23,8 @@ export const Navbar = ({ closeModal }) => {
                 <button 
                 className="navbar-btn"
                     onClick={() => {
-                            closeModal(true)
-                        }}
+                        modalState(true)
+                    }}
                 >
                     Get Started
                 </button>
@@ -34,5 +34,5 @@ export const Navbar = ({ closeModal }) => {
 }
 
 Navbar.propTypes = {
-    closeModal: PropTypes.func.isRequired
+    modalState: PropTypes.func.isRequired
 };

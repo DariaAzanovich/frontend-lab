@@ -3,12 +3,12 @@ import "./media.css";
 import React, { Fragment } from "react";
 import PropTypes from 'prop-types';
 
-function Modal({ closeModal }) {
+function Modal({ modalState }) {
   return (
       <Fragment>
         <div 
             className="modal-bg"
-            onClick={() => {closeModal(false)}}
+            onClick={() => {modalState(false)}}
         >
             <div 
                 className="modal-container"
@@ -16,7 +16,7 @@ function Modal({ closeModal }) {
             >
                 <div className="modal-close-btn">
                     <button
-                        onClick={() => closeModal(false)}
+                        onClick={() => modalState(false)}
                     >
                         X
                     </button>
@@ -34,7 +34,7 @@ function Modal({ closeModal }) {
 }
 
 Modal.propTypes = {
-    closeModal: PropTypes.func.isRequired
+    modalState: PropTypes.func.isRequired
 };
 
 export default Modal;

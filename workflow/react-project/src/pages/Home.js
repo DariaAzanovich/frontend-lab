@@ -2,13 +2,18 @@ import './Home.css';
 import './pagesMedia.css'
 import QuotesCarousel from '../components/QuotesCarousel';
 import qoutesArr from '../components/quotesArr';
-import React, {Fragment} from 'react';
-import PropTypes from 'prop-types';
+import React, {useState, Fragment} from 'react';
+import { Navbar } from '../components/Navbar';
+import Modal from '../components/Modal';
 
-export const Home = ({ closeModal }) => {
+export const Home = () => {
+    const [openModal, setOpenModal] = useState(false);
     return (
         <Fragment>
             <div className="wrap">
+                {openModal && <Modal modalState={setOpenModal}/>}
+
+                <Navbar modalState={setOpenModal}/>
                 <h1 className="homepage-title">Cocktail App</h1>
 
                 <section className="content">
@@ -19,7 +24,7 @@ export const Home = ({ closeModal }) => {
                             alt="Green cocktail" 
                             src="./green-cocktail.png"
                             onClick={() => {
-                                closeModal(true)
+                                setOpenModal(true)
                             }}
                         />
                         <p className="content-prompt">Press on glass to get a random cocktail</p>
@@ -29,7 +34,3 @@ export const Home = ({ closeModal }) => {
         </Fragment>
     )
 }
-
-Home.propTypes = {
-    closeModal: PropTypes.func.isRequired
-};
