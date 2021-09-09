@@ -1,33 +1,25 @@
-.carousel {
-    position: relative;
-
+.carousel-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
 
     width: 40%;
     height: 300px;
-
+    
     overflow: hidden;
 }
-  
-.carousel-item {
-    position: absolute;
 
-    padding: 0;
-    margin: 0;
+.quote {
+    display: flex;
+    align-items: center;
 
-    height: 120px;
+    height: 200px;
 
     font-size: 32px;
     text-align: center;
-    color: #1B5E20;
-
-    opacity: 0;
-
-    transition: transform 1s ease, opacity 1s ease;
+    color: #1B5E20;    
 }
-  
-.carousel-item.visible {
-    opacity: 1;
+
+p {
+    margin: 0;
 }
