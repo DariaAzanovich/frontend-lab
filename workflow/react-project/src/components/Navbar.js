@@ -1,13 +1,15 @@
 import "./Navbar.css";
 import "./media.css";
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail } from '@fortawesome/free-solid-svg-icons';
+import Modal from "./Modal";
 
-export const Navbar = ({ modalState }) => {
+export const Navbar = () => {
+    const [openModal, setOpenModal] = useState(false);
     return (
         <>
+            {openModal && <Modal modalState={setOpenModal}/>}
             <nav className="navbar">
                 <div className="navbar-brand">
                     <FontAwesomeIcon 
@@ -23,7 +25,7 @@ export const Navbar = ({ modalState }) => {
                 <button 
                 className="navbar-btn"
                     onClick={() => {
-                        modalState(true)
+                        setOpenModal(true)
                     }}
                 >
                     Get Started
@@ -32,7 +34,3 @@ export const Navbar = ({ modalState }) => {
         </>
     );
 }
-
-Navbar.propTypes = {
-    modalState: PropTypes.func.isRequired
-};
