@@ -29,3 +29,40 @@
 .selected {
     filter: blur(0);
 }
+
+/*---------------------- MEDIA -------------------------*/
+@media screen and (max-width: 992px) {
+    .carousel-wrap {
+        order: 4;
+        width: 90%;
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+    
+    .carousel-wrap > .quote {
+        flex-grow: 1;
+        width: 100%;
+
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .carousel-wrap {
+        height: 200px;
+    }
+
+    .carousel-wrap > .quote {
+        flex-grow: 1;
+        height: 100px;
+        width: 100%;
+
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .carousel-wrap {
+        width: 540px;
+    }
+}
