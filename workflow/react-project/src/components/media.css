@@ -1,0 +1,29 @@
+@media screen and (max-width: 992px) {
+    .content-prompt {
+        position: absolute;
+        bottom: 5px;
+        right: 90px;
+
+        max-width: 150px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    /*--------------------- Navbar ----------------------*/
+    .navbar-title {
+        display: none;
+    }
+
+    .content-prompt {
+        position: absolute;
+        bottom: -30px;
+        right: 40px;
+
+        max-width: 120px;
+        margin: 40px 0;
+    
+        font-size: .7rem;
+    
+    }
+}
