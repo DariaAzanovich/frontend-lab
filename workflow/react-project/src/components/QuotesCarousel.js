@@ -25,7 +25,7 @@ function Carousel() {
                     className={i === currQuote ? "quote selected" : "quote"}
                     key={i}
                     style={{
-                        transform: `translate3d(0, -${(currQuote) * 100}%, 0)`,
+                        transform: `translateY(-${(currQuote) * 100}%)`,
                         transition: 'all 2s'
                     }}
                 >
