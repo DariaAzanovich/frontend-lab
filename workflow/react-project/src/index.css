@@ -29,6 +29,13 @@ code {
   font-weight: normal;
 }
 
+@font-face {
+  font-family: 'Quicksand';
+  src: local('Quicksand-Regular'),
+   url("./fonts/Quicksand-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
 .font-face-asap {
   font-family: 'Asap';
 }
