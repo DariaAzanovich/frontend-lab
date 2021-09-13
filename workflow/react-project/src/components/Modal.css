@@ -52,7 +52,7 @@
 }
 
 .modal-container .body {
-    flex: 50%;
+    /* flex: 50%; */
     display: flex;
     justify-content: center;
     align-items: center;
