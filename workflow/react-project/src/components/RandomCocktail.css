@@ -1,0 +1,35 @@
+.random-cocktail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: normal;
+}
+
+.cocktail-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cocktail-liked {
+    justify-self: flex-end;
+    color: #1B5E20;
+
+    cursor: pointer;
+}
+
+.cocktail-name {
+    font-family: 'Rochester';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+}
+
+p {
+    margin: 0;
+}
