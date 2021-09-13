@@ -4,6 +4,7 @@
     justify-content: center;
 
     width: 100%;
+    padding: 30px 20px;
 
     font-family: 'Quicksand';
     font-style: normal;
@@ -13,17 +14,24 @@
 .cocktail-header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+
+    /* margin: 30px 0; */
+    width: 100%;
 }
 
 .cocktail-liked {
-    justify-self: flex-end;
+    flex-grow: 0;
+    flex-basis: 0;
     color: #1B5E20;
 
     cursor: pointer;
 }
 
 .cocktail-name {
+    flex-grow: 2;
+    margin-left: 30px;
+
     font-family: 'Rochester';
     font-style: normal;
     font-weight: normal;

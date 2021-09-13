@@ -38,7 +38,7 @@ const RandomCocktail = () => {
                     <p className="cocktail-name">Name</p>
                     <FontAwesomeIcon
                         icon={faStar} 
-                            size="2x"
+                            size="lg"
                             className="cocktail-liked"
                     />
                 </div>
