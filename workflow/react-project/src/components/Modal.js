@@ -30,6 +30,7 @@ function Modal({ modalState = false, title, content}) {
                             <div className="body">
                                 {content}
                             </div>
+                            {/* {content} */}
                         </div>
                     </div>
                 </>, document.getElementById('modal-root')
