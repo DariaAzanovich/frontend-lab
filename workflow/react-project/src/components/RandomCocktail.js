@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { /*useSelector, useDispatch,*/ connect } from 'react-redux';
 import Loader from './Loader';
 import './RandomCocktail.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,19 +7,21 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 import Ingredients from './Ingredients';
 import { fetchRandomCocktail } from '../redux/actions';
 
-const RandomCocktail = () => {
-    const {loader, drinks, error} = useSelector(state => {
-        return { 
-            loader: state.randomCocktail.loader,
-            drinks: state.randomCocktail.cocktail[0],
-            error: state.randomCocktail.error
-        }    
-    });
+const RandomCocktail = (props) => {
+    // const {loader, drinks, error} = useSelector(state => {
+    //     return { 
+    //         loader: state.randomCocktail.loader,
+    //         drinks: state.randomCocktail.cocktail[0],
+    //         error: state.randomCocktail.error
+    //     }    
+    // });
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
+
+    const {loader, drinks, error, fetchRandomCocktail} = props; 
 
     useEffect(() => {
-        dispatch(fetchRandomCocktail());
+        fetchRandomCocktail();
     }, [])
     
     if(loader) {
@@ -69,4 +71,20 @@ const RandomCocktail = () => {
     }
 }
 
-export default RandomCocktail;
+
+
+
+const mapStateToProps = state => {
+    return {
+        loader: state.randomCocktail.loader,
+        drinks: state.randomCocktail.cocktail[0],
+        error: state.randomCocktail.error 
+    };
+    
+};
+
+const mapDispatchToProps = { fetchRandomCocktail };
+
+export default connect(mapStateToProps, mapDispatchToProps)(RandomCocktail);
+
+// export default RandomCocktail;
