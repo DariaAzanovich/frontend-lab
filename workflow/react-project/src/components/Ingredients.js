@@ -10,7 +10,7 @@ const Ingredients = () => {
     const createTr = (i, ingredient, qnty, measure) => {
         return (
             <tr>
-                <td results="all">{i}</td>
+                <td>{i}</td>
                 <td>{ingredient}</td>
                 <td>{qnty}</td>
                 <td>{measure}</td>
@@ -25,7 +25,7 @@ const Ingredients = () => {
         let qnty = '';
 
         if(measure) {
-            qnty = measure.replace(/\D+$/, '');
+            qnty = measure.replace(/(^\D+) |(\D+$)/, '');
             measure = measure.replace(qnty, '');
         }
 
@@ -36,9 +36,7 @@ const Ingredients = () => {
         }
     }
 
-    return (
-        result
-    )
+    return result;
 }
 
 export default Ingredients;
