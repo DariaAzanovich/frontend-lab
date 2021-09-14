@@ -1,10 +1,13 @@
 import React from 'react';
+import './Loader.css';
 
 const Loader = () => {
     return (
-        <div class="spinner-border text-secondary" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+        <div class="loader" 
+            style={{
+                    marginTop: '35%'
+                }}
+        ></div>
     )
 }
 
