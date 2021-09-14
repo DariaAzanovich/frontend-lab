@@ -19,7 +19,7 @@ function Modal({ modalState = false, title, content}) {
                             className="modal-container"
                             onClick={event => event.stopPropagation()}
                         >
-                            <div className="modal-close-btn">
+                            <div className="modal-header">
                                 <div className="title">{title}</div>
                                 <FontAwesomeIcon 
                                     icon={faTimes} 

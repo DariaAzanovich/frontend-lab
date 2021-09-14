@@ -17,20 +17,16 @@
     flex-direction: column;
 
     /* padding: 25px; */
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 750px;
 
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    overflow: hidden;
+    /* overflow-y: auto; */
 }
 
 .modal-container .title {
-    /* display: inline-block;
-    margin-top: 10px;
-
-    text-align: center; */
     color: #CDD6CF;
 
     font-size: 32px;
@@ -39,24 +35,30 @@
     font-weight: normal;
 }
 
-.modal-close-btn {
+.modal-header {
     display: flex;
     justify-content: space-between;
 
     padding: 26px;
+    height: 80px;
 
     color: #CDD6CF;
     background-color: #4CAF50;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 
     cursor: pointer;
 }
 
 .modal-container .body {
-    /* flex: 50%; */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+
+    height: calc(100% - 80px);
     
     font-size: 1.7rem;
     text-align: center;
+
+    overflow-y: scroll;
 }
