@@ -7,11 +7,12 @@ const Ingredients = () => {
     let strMeasure = 'strMeasure';
     console.log(state);
 
-    const createTr = (i, ingredient, measure) => {
+    const createTr = (i, ingredient, qnty, measure) => {
         return (
             <tr>
                 <td results="all">{i}</td>
                 <td>{ingredient}</td>
+                <td>{qnty}</td>
                 <td>{measure}</td>
             </tr>
         )
@@ -20,13 +21,16 @@ const Ingredients = () => {
     for(let i = 1; i < 16; i++) {
         const ingredient = state.fetchRandomCocktail.cocktail[0][strIngredient + i];
 
-        const measure = state.fetchRandomCocktail.cocktail[0][strMeasure + i];
+        let measure = state.fetchRandomCocktail.cocktail[0][strMeasure + i];
+        let qnty = '';
 
-        console.log('ing', ingredient);
-        console.log('measure', measure);
+        if(measure) {
+            qnty = measure.replace(/\D+$/, '');
+            measure = measure.replace(qnty, '');
+        }
 
         if(ingredient) {
-            result.push(createTr(i, ingredient, measure));
+            result.push(createTr(i, ingredient, qnty, measure));
         } else {
             break;
         }

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -9,9 +10,10 @@ import './fonts/Asap-Regular.ttf'
 import './fonts/Rochester-Regular.ttf'
 import { rootReducer } from './redux/reducers/rootReducer';
 
-const store = createStore(rootReducer, 
+const store = createStore(rootReducer, compose(
+  applyMiddleware(thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
-);
+));
 
 const app = (
   <Provider store={store}>

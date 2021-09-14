@@ -28,7 +28,7 @@ export const Home = () => {
                             src="./green-cocktail.png"
                             onClick={() => {
                                 setOpenModal(true);
-                                fetchRandomCocktail()(dispatch);
+                                dispatch(fetchRandomCocktail());
                             }}
                         />
                         <p className="content-prompt">Press on glass to get a random cocktail</p>
