@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { /*useSelector, useDispatch,*/ connect } from 'react-redux';
+import { connect } from 'react-redux';
 import Loader from './Loader';
 import './RandomCocktail.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,16 +8,6 @@ import Ingredients from './Ingredients';
 import { fetchRandomCocktail } from '../redux/actions';
 
 const RandomCocktail = (props) => {
-    // const {loader, drinks, error} = useSelector(state => {
-    //     return { 
-    //         loader: state.randomCocktail.loader,
-    //         drinks: state.randomCocktail.cocktail[0],
-    //         error: state.randomCocktail.error
-    //     }    
-    // });
-
-    // const dispatch = useDispatch();
-
     const {loader, drinks, error, fetchRandomCocktail} = props; 
 
     useEffect(() => {
@@ -86,5 +76,3 @@ const mapStateToProps = state => {
 const mapDispatchToProps = { fetchRandomCocktail };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RandomCocktail);
-
-// export default RandomCocktail;
