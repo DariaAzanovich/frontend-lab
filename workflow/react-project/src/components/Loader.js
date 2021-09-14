@@ -3,11 +3,7 @@ import './Loader.css';
 
 const Loader = () => {
     return (
-        <div className="loader" 
-            style={{
-                    marginTop: '35%'
-                }}
-        ></div>
+        <div className="loader"></div>
     )
 }
 
