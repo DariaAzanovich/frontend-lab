@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
 
-function Modal({ modalState = false, title, content}) {
+function Modal({ modalState = false, title, children}) {
     return (
         <>
             {createPortal(
@@ -28,9 +28,8 @@ function Modal({ modalState = false, title, content}) {
                                 />
                             </div>
                             <div className="body">
-                                {content}
+                                {children}
                             </div>
-                            {/* {content} */}
                         </div>
                     </div>
                 </>, document.getElementById('modal-root')

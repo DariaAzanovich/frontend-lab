@@ -1,19 +1,20 @@
 import './Home.css';
 import './pagesMedia.css'
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import Modal from '../components/Modal';
 import QuotesCarousel from '../components/QuotesCarousel';
 import RandomCocktail from '../components/RandomCocktail';
 
 export const Home = () => {
     const [openModal, setOpenModal] = useState(false);
-    const dispatch = useDispatch();
 
     return (
         <>
             <div className="wrap">
-                {openModal && <Modal modalState={setOpenModal} title="Random Cocktail" content={<RandomCocktail/>}/>}
+                {openModal && 
+                <Modal modalState={setOpenModal} title="Random Cocktail">
+                    <RandomCocktail/>
+                </Modal>}
 
                 <h1 className="homepage-title">Cocktail App</h1>
 
