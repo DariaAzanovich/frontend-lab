@@ -9,7 +9,7 @@ const Ingredients = () => {
 
     const createTr = (i, ingredient, qnty, measure) => {
         return (
-            <tr>
+            <tr key={i}>
                 <td>{i}</td>
                 <td>{ingredient}</td>
                 <td>{qnty}</td>

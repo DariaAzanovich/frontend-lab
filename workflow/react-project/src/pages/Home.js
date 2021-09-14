@@ -1,7 +1,7 @@
 import './Home.css';
 import './pagesMedia.css'
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Modal from '../components/Modal';
 import QuotesCarousel from '../components/QuotesCarousel';
 import { fetchRandomCocktail } from '../redux/actions';
@@ -10,7 +10,6 @@ import RandomCocktail from '../components/RandomCocktail';
 export const Home = () => {
     const [openModal, setOpenModal] = useState(false);
     const dispatch = useDispatch();
-    // const cocktail = useSelector(state => state.posts.cocktail);
 
     return (
         <>
