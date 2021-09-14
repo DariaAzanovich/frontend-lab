@@ -15,7 +15,7 @@ export const Home = () => {
     return (
         <>
             <div className="wrap">
-                {openModal && <Modal modalState={setOpenModal} content={<RandomCocktail/>}/>}
+                {openModal && <Modal modalState={setOpenModal} title="Random Cocktail" content={<RandomCocktail/>}/>}
 
                 <h1 className="homepage-title">Cocktail App</h1>
 
