@@ -62,3 +62,15 @@
 
     overflow-y: scroll;
 }
+
+
+/*----------------------- Media -----------------*/
+@media screen and (max-height: 700px) {
+    .modal-container {
+        height: 500px;
+    }
+
+    .modal-container .title {
+        font-size: 25px;
+    }
+}
