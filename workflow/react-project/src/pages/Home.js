@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Modal from '../components/Modal';
 import QuotesCarousel from '../components/QuotesCarousel';
-import { fetchRandomCocktail } from '../redux/actions';
 import RandomCocktail from '../components/RandomCocktail';
 
 export const Home = () => {
@@ -27,7 +26,6 @@ export const Home = () => {
                             src="./green-cocktail.png"
                             onClick={() => {
                                 setOpenModal(true);
-                                dispatch(fetchRandomCocktail());
                             }}
                         />
                         <p className="content-prompt">Press on glass to get a random cocktail</p>

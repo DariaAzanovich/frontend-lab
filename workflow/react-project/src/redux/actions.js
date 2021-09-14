@@ -18,7 +18,7 @@ export const fetchRandomCocktail = () => {
         .catch(error => {
             dispatch({
                 type: FETCH_COCKTAIL_FAIL,
-                payload: error.message
+                payload: error
             });
         })
     }

@@ -1,18 +1,34 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Loader from './Loader';
 import './RandomCocktail.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import Ingredients from './Ingredients';
+import { fetchRandomCocktail } from '../redux/actions';
 
 const RandomCocktail = () => {
-    const loader = useSelector(state => state.fetchRandomCocktail.loader);
+    const {loader, drinks, error} = useSelector(state => {
+        return { 
+            loader: state.randomCocktail.loader,
+            drinks: state.randomCocktail.cocktail[0],
+            error: state.randomCocktail.error
+        }    
+    });
 
-    const drinks = useSelector(state => state.fetchRandomCocktail.cocktail[0]);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchRandomCocktail());
+    }, [])
     
     if(loader) {
         return <Loader />
+    } else if(error)
+    {
+        return (
+            <p className="fetch-error">Sorry, smth wrong with server!</p>
+        )
     } else {
         return(
             <div className="random-cocktail">

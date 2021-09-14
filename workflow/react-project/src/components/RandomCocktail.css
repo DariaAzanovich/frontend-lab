@@ -81,3 +81,9 @@ table td {
 tr:not(:first-child) td:nth-child(2) {
     text-align: left;
 }
+
+.fetch-error {
+    align-self: center;
+    
+    color: #91353a;
+}

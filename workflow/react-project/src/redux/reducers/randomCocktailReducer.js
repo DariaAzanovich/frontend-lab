@@ -22,7 +22,7 @@ export const randomCocktailReducer = (state = initialState, action) => {
         case FETCH_COCKTAIL_FAIL:
             return {
                 ...state,
-                error: action.payload.error,
+                error: action.payload,
                 loader: false
             };
         default: return state;
