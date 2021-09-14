@@ -6,29 +6,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
 
-function Modal({ modalState = false, title, children}) {
+function Modal( props ) {
     return (
         <>
             {createPortal(
                 <>
                     <div 
                         className="modal-bg"
-                        onClick={() => {modalState(false)}}
+                        onClick={() => {props.modalState(false)}}
                     >
                         <div 
                             className="modal-container"
                             onClick={event => event.stopPropagation()}
                         >
                             <div className="modal-header">
-                                <div className="title">{title}</div>
+                                <div className="title">{props.title}</div>
                                 <FontAwesomeIcon 
                                     icon={faTimes} 
                                     size="2x"
-                                    onClick={() => modalState(false)}
+                                    onClick={() => props.modalState(false)}
                                 />
                             </div>
                             <div className="body">
-                                {children}
+                                {props.children}
                             </div>
                         </div>
                     </div>
