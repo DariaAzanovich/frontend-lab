@@ -1,5 +1,24 @@
 import { api } from "./api";
-import { FETCH_COCKTAIL_SUCCESS, FETCH_COCKTAIL_FAIL, FETCH_LOADING } from "./types";
+import { FETCH_COCKTAIL_SUCCESS, FETCH_LOADING, SHOW_ERROR, HIDE_ERROR } from "./types";
+
+export function showError(text) {
+    return dispatch => {
+        dispatch({
+            type: SHOW_ERROR,
+            payload: text
+        })
+
+        setTimeout(() => {
+            dispatch(hideError());
+        }, 3000);
+    }
+}
+
+export function hideError() {
+    return {
+        type: HIDE_ERROR
+    }
+}
 
 export const fetchRandomCocktail = () => {
     return dispatch => {
@@ -16,10 +35,7 @@ export const fetchRandomCocktail = () => {
             });
         })
         .catch(error => {
-            dispatch({
-                type: FETCH_COCKTAIL_FAIL,
-                payload: error
-            });
+            dispatch(showError(error));
         })
     }
 };

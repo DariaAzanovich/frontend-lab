@@ -18,7 +18,7 @@ function Modal( props ) {
                         className="modal-bg"
                         onClick={() => {props.modalState(false)}}
                     >
-                        <ErrorToast errors={[props.cocktailError]}/>
+                        <ErrorToast errors={[props.error]}/>
 
                         <div 
                             className="modal-container"
@@ -33,7 +33,7 @@ function Modal( props ) {
                                 />
                             </div>
                             <div className="body">
-                                {!props.cocktailError && props.children}
+                                {!props.error && props.children}
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ Modal.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    cocktailError: state.randomCocktail.error
+    error: state.app.error
 });
 
 export default connect(mapStateToProps, null)(Modal);

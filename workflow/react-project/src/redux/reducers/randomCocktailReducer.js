@@ -1,8 +1,7 @@
-import { FETCH_COCKTAIL_FAIL, FETCH_COCKTAIL_SUCCESS, FETCH_LOADING } from "../types";
+import { FETCH_COCKTAIL_SUCCESS, FETCH_LOADING } from "../types";
 
 const initialState = {
     cocktail: {},
-    error: null,
     loader: true
 };
 
@@ -17,12 +16,6 @@ export const randomCocktailReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cocktail: action.payload,
-                loader: false
-            };
-        case FETCH_COCKTAIL_FAIL:
-            return {
-                ...state,
-                error: action.payload,
                 loader: false
             };
         default: return state;
