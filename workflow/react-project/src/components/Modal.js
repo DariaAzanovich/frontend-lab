@@ -5,6 +5,9 @@ import { createPortal } from 'react-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
+import { connect } from "react-redux";
+import { ErrorToast } from "./ErrorToast";
+
 
 function Modal( props ) {
     return (
@@ -15,6 +18,8 @@ function Modal( props ) {
                         className="modal-bg"
                         onClick={() => {props.modalState(false)}}
                     >
+                        {props.cocktailError && <ErrorToast text={props.cocktailError.toString()}/>}
+
                         <div 
                             className="modal-container"
                             onClick={event => event.stopPropagation()}
@@ -28,7 +33,7 @@ function Modal( props ) {
                                 />
                             </div>
                             <div className="body">
-                                {props.children}
+                                {!props.cocktailError && props.children}
                             </div>
                         </div>
                     </div>
@@ -42,4 +47,8 @@ Modal.propTypes = {
     modalState: PropTypes.func.isRequired
 };
 
-export default Modal;
+const mapStateToProps = state => ({
+    cocktailError: state.randomCocktail.error
+});
+
+export default connect(mapStateToProps, null)(Modal);
