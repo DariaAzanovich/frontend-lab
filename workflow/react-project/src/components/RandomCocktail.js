@@ -19,7 +19,7 @@ const RandomCocktail = (props) => {
         return <Loader />
     } 
 
-    return(
+    return (
         <div className="random-cocktail">
             <div className="cocktail-header">
                 <p className="cocktail-name">{drinks.strDrink}</p>

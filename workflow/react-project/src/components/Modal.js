@@ -18,7 +18,7 @@ function Modal( props ) {
                         className="modal-bg"
                         onClick={() => {props.modalState(false)}}
                     >
-                        {props.cocktailError && <ErrorToast text={props.cocktailError.toString()}/>}
+                        <ErrorToast errors={[props.cocktailError]}/>
 
                         <div 
                             className="modal-container"
