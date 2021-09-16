@@ -2,33 +2,39 @@ import "./Modal.css";
 import "./media.css";
 import React from "react";
 import { createPortal } from 'react-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
+import { connect } from "react-redux";
+import { ErrorToast } from "./ErrorToast";
 
-function Modal({ modalState = false}) {
+
+function Modal( props ) {
+
     return (
         <>
             {createPortal(
                 <>
                     <div 
                         className="modal-bg"
-                        onClick={() => {modalState(false)}}
+                        onClick={() => {props.modalState(false)}}
                     >
+                        <ErrorToast />
+
                         <div 
                             className="modal-container"
                             onClick={event => event.stopPropagation()}
                         >
-                            <div className="modal-close-btn">
-                                <button
-                                    onClick={() => modalState(false)}
-                                >
-                                    X
-                                </button>
-                            </div>
-                            <div className="title">
-                                <h1>Modal title</h1>
+                            <div className="modal-header">
+                                <div className="title">{props.title}</div>
+                                <FontAwesomeIcon 
+                                    icon={faTimes} 
+                                    size="2x"
+                                    onClick={() => props.modalState(false)}
+                                />
                             </div>
                             <div className="body">
-                                <p>Modal content</p>
+                                {props.children}
                             </div>
                         </div>
                     </div>
@@ -42,4 +48,8 @@ Modal.propTypes = {
     modalState: PropTypes.func.isRequired
 };
 
-export default Modal;
+const mapStateToProps = state => ({
+    error: state.randomCocktail.error
+});
+
+export default connect(mapStateToProps, null)(Modal);

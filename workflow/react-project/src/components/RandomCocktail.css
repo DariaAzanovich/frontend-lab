@@ -1,0 +1,89 @@
+.random-cocktail {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* width: 100%; */
+    margin: 30px;
+
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: normal;
+
+    font-size: 16px;
+}
+
+.cocktail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.cocktail-liked {
+    flex-grow: 0;
+    flex-basis: 0;
+    color: #1B5E20;
+
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.cocktail-name {
+    flex-grow: 5;
+    margin-left: 30px;
+
+    font-family: 'Rochester';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    text-align: center;
+}
+
+.cocktail-img {
+    align-self: center;
+
+    height: 200px;
+    width: 200px;
+
+    margin: 45px 0;
+}
+
+.cocktail-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+p {
+    margin: 0;
+    text-align: left;
+}
+
+table {
+    align-self: stretch;
+    flex-grow: 1;
+    flex-basis: 1;
+    margin: 20px 0;
+    width: 100%;
+
+    border-collapse: collapse;
+    border-style: hidden;
+}
+
+table td {
+    border: 1px solid black;
+    margin: 10px;
+}
+
+tr:not(:first-child) td:nth-child(2) {
+    text-align: left;
+}
+
+.fetch-error {
+    align-self: center;
+    
+    color: #91353a;
+}
