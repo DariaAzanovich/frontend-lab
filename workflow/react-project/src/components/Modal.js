@@ -10,7 +10,7 @@ import { ErrorToast } from "./ErrorToast";
 
 
 function Modal( props ) {
-    console.log(props.error);
+
     return (
         <>
             {createPortal(

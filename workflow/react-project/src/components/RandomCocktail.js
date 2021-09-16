@@ -19,42 +19,46 @@ const RandomCocktail = (props) => {
         return <Loader />
     } 
 
-    return (
-        <div className="random-cocktail">
-            <div className="cocktail-header">
-                <p className="cocktail-name">{drinks.strDrink}</p>
-                <FontAwesomeIcon
-                    icon={faStar} 
-                    size="lg"
-                    className="cocktail-liked"
+    if(drinks) {
+        return (
+            <div className="random-cocktail">
+                <div className="cocktail-header">
+                    <p className="cocktail-name">{drinks.strDrink}</p>
+                    <FontAwesomeIcon
+                        icon={faStar} 
+                        size="lg"
+                        className="cocktail-liked"
+                    />
+                </div>
+    
+                <img 
+                        className="cocktail-img" 
+                        alt="Cocktail" 
+                        src={drinks.strDrinkThumb}
                 />
+    
+                <div className="cocktail-body">
+                    <p style={{
+                        fontSize: "22px"
+                    }}>Recipe</p>
+                    <table cellPadding="10">
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td>Ingredient</td>
+                            <td>Qnty</td>
+                            <td></td>
+                        </tr>
+                        <Ingredients />
+                        </tbody>
+                    </table>
+                    <p>{drinks.strInstructions}</p>
+                </div>
             </div>
+        )
+    }
 
-            <img 
-                    className="cocktail-img" 
-                    alt="Cocktail" 
-                    src={drinks.strDrinkThumb}
-            />
-
-            <div className="cocktail-body">
-                <p style={{
-                    fontSize: "22px"
-                }}>Recipe</p>
-                <table cellPadding="10">
-                    <tbody>
-                    <tr>
-                        <td></td>
-                        <td>Ingredient</td>
-                        <td>Qnty</td>
-                        <td></td>
-                    </tr>
-                    <Ingredients />
-                    </tbody>
-                </table>
-                <p>{drinks.strInstructions}</p>
-            </div>
-        </div>
-    )
+    return null;
 }
 
 const mapStateToProps = state => {
