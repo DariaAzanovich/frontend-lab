@@ -1,0 +1,40 @@
+.authentication-wrap {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 30px;
+
+    font-size: 16px;
+}
+
+.sign-form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, label {
+    font-family: 'Quicksand';
+}
+
+label {
+    font-size: 14px;
+}
+
+.auth-title {
+    font-family: 'Rochester';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+
+    text-align: center;
+}
+
+.change-in-up {
+    align-self: center;
+}
+
+.change-in-up-btn {
+    color: #4d944f;
+}

@@ -4,12 +4,17 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 import Modal from "./Modal";
+import Authentication from "./Authentication";
 
 export const Navbar = () => {
     const [openModal, setOpenModal] = useState(false);
     return (
         <>
-            {openModal && <Modal modalState={setOpenModal}/>}
+            {openModal && 
+                <Modal modalState={setOpenModal} title = 'Authentication'>
+                    <Authentication />
+                </Modal>
+            }
             <nav className="navbar">
                 <div className="navbar-brand">
                     <FontAwesomeIcon 

@@ -5,7 +5,6 @@ import { createPortal } from 'react-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
-import { connect } from "react-redux";
 import { ErrorToast } from "./ErrorToast";
 
 
@@ -48,8 +47,5 @@ Modal.propTypes = {
     modalState: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-    error: state.randomCocktail.error
-});
 
-export default connect(mapStateToProps, null)(Modal);
+export default Modal;
