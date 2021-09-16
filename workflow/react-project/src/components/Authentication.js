@@ -6,7 +6,8 @@ const Authentication = () => {
 
     return (
         <div className="authentication-wrap">
-            <p className="auth-title">
+        <div className="auth">
+        <p className="auth-title">
                 {singIn ? 'Sign In' : 'Sign Up'}
             </p>
             <form className="sign-form">
@@ -37,8 +38,10 @@ const Authentication = () => {
                     {singIn ? 'Sign up' : 'Go to login'}
                 </span>
             </p>
+        </div>
+            
 
-            <button>
+            <button className="log-btn">
                 {singIn ? 'Sign In' : 'Sign Up'}
             </button>
         </div>
