@@ -10,6 +10,7 @@ import { ErrorToast } from "./ErrorToast";
 
 
 function Modal( props ) {
+    console.log(props.error);
     return (
         <>
             {createPortal(
@@ -18,7 +19,7 @@ function Modal( props ) {
                         className="modal-bg"
                         onClick={() => {props.modalState(false)}}
                     >
-                        <ErrorToast errors={[props.error]}/>
+                        <ErrorToast />
 
                         <div 
                             className="modal-container"
@@ -33,7 +34,7 @@ function Modal( props ) {
                                 />
                             </div>
                             <div className="body">
-                                {!props.error && props.children}
+                                {props.children}
                             </div>
                         </div>
                     </div>
@@ -48,7 +49,7 @@ Modal.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    error: state.app.error
+    error: state.randomCocktail.error
 });
 
 export default connect(mapStateToProps, null)(Modal);

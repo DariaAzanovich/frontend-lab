@@ -1,24 +1,6 @@
 import { api } from "./api";
-import { FETCH_COCKTAIL_SUCCESS, FETCH_LOADING, SHOW_ERROR, HIDE_ERROR } from "./types";
-
-export function showError(text) {
-    return dispatch => {
-        dispatch({
-            type: SHOW_ERROR,
-            payload: text
-        })
-
-        setTimeout(() => {
-            dispatch(hideError());
-        }, 3000);
-    }
-}
-
-export function hideError() {
-    return {
-        type: HIDE_ERROR
-    }
-}
+import { FETCH_COCKTAIL_SUCCESS, FETCH_LOADING, FETCH_COCKTAIL_FAIL } from "./types";
+import { toast } from "react-toastify";
 
 export const fetchRandomCocktail = () => {
     return dispatch => {
@@ -35,7 +17,11 @@ export const fetchRandomCocktail = () => {
             });
         })
         .catch(error => {
-            dispatch(showError(error));
+            toast.error(error.toString());
+
+            dispatch({
+                type: FETCH_COCKTAIL_FAIL
+            })
         })
     }
 };
