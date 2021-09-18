@@ -20,7 +20,6 @@ function Carousel() {
     return (
         <section className="carousel-wrap">
             {qoutesArr.map((item, i) => (
-            <>
                 <p
                     className={i === currQuote ? "quote selected" : "quote"}
                     key={i}
@@ -31,7 +30,6 @@ function Carousel() {
                 >
                     {item}
                 </p>
-            </>
             ))}
         </section>
     )
