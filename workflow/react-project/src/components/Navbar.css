@@ -72,7 +72,7 @@
 
 /*------------------- USER BAR ------------------*/
 .user-btns {
-    display: none;
+    /* display: none; */
 }
 
 .navbar-search,

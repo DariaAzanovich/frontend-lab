@@ -6,7 +6,8 @@ import {
     REGISTRATION_SUCCESS,
     REGISTRATION_FAIL,
     AUTHENTICATION_STARTED,
-    ADD_USERNAME
+    ADD_USERNAME,
+    LOG_OUT
 } from '../types';
 
 const headers = {
@@ -32,16 +33,16 @@ export const logIn = data => {
         fetch(`${api.API_URL + api.SIGN_IN}`, {
             method: method,
             body: JSON.stringify(data),
-            headers: headers,
-            // credentials: 'include'
+            headers: headers
         })
+        .then(res => res.json())
         .then(res => {
             dispatch(addUsername(data.name));
 
             dispatch({
                 type: SIGN_IN_SUCCESS,
                 payload: {
-                    ...res.data,
+                    ...res,
                 },
             });
 
@@ -66,28 +67,35 @@ export const registration = data => {
         fetch(`${api.API_URL + api.SIGN_UP}`, {
             method: method,
             body: JSON.stringify(data),
-            headers: headers,
-            // credentials: 'include'
+            headers: headers
         })
-            .then(res => {
-                dispatch(addUsername(data.name));
+        .then(res => res.json())
+        .then(res => {
+            dispatch(addUsername(data.name));
 
-                dispatch({
-                    type: REGISTRATION_SUCCESS,
-                    payload: {
-                        ...res.data,
-                    }
-                });
-
-                toast.success('Registration success!');
-            })
-            .catch(err => {
-                dispatch({
-                    type: REGISTRATION_FAIL
-                });
-
-                toast.error(err.toString());
+            dispatch({
+                type: REGISTRATION_SUCCESS,
+                payload: {
+                    ...res,
+                }
             });
+
+            toast.success('Registration success!');
+        })
+        .catch(err => {
+            dispatch({
+                type: REGISTRATION_FAIL
+            });
+
+            toast.error(err.toString());
+        });
     };
 };
 
+export const logOut = () => {
+    return dispatch => {
+        dispatch({
+            type: LOG_OUT
+        });
+    }
+};

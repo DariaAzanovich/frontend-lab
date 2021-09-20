@@ -102,3 +102,13 @@ input[id="user"] {
 .log-btn:active {
     background-color: aquamarine;
 }
+
+.form-errors {
+    align-self: flex-start;
+    padding-left: 5px;
+
+    font-family: 'Quicksand';
+    font-size: 14px;
+
+    color: red;
+}

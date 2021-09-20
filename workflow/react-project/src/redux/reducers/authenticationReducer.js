@@ -4,7 +4,8 @@ import {
     REGISTRATION_SUCCESS,
     REGISTRATION_FAIL,
     AUTHENTICATION_STARTED,
-    ADD_USERNAME
+    ADD_USERNAME,
+    LOG_OUT
 } from '../types';
 
 const initialState = {
@@ -46,6 +47,11 @@ export const authenticationReducer = (state = initialState, action) => {
                 ...state,
                 username: action.payload.data,
             };
+            case LOG_OUT:
+                return {
+                    ...state,
+                    token: null,
+                };
         default:
             return state;
     }

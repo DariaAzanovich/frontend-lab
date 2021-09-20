@@ -6,9 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
 import { ErrorToast } from "./ErrorToast";
+import { connect } from "react-redux";
 
 
 function Modal( props ) {
+
+    if(props.token) {
+        props.modalState(false);
+    }
 
     return (
         <>
@@ -48,4 +53,15 @@ Modal.propTypes = {
 };
 
 
-export default Modal;
+// export default Modal;
+
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token
+    };
+    
+};
+
+const mapDispatchToProps = { };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
