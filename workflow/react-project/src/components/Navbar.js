@@ -67,7 +67,7 @@ const Navbar = (props) => {
 
                             <ul className="user-btns-dropdown">
                                 <li className="dropdown-logout liked">
-                                    <span onClick={props.logOut}>Liked</span>
+                                    <span>Liked</span>
                                 </li>
                             </ul>
                         </li>

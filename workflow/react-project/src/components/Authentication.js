@@ -207,8 +207,7 @@ const Authentication = (props) => {
 
 const mapStateToProps = state => {
     return {
-        loader: state.auth.loader,
-        user: state.auth.user
+        loader: state.auth.loader
     };
     
 };
