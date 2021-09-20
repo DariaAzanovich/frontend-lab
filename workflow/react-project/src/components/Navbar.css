@@ -71,7 +71,9 @@
 }
 
 /*------------------- USER BAR ------------------*/
-.user-btns {
+.user-btns-list {
+    display: flex;
+    list-style-type: none;
     /* display: none; */
 }
 
@@ -85,13 +87,13 @@
     position: absolute;
     right: 10px;
     top: 90px;
-    display: none;
+    display: flex;
     justify-content: center;
 
     width: 150px;
     padding: 10px;
-    /* visibility: hidden; */
-    opacity: 1;
+    visibility: hidden;
+    opacity: 0;
     background-color: #d3d0d0;
     transition: visibility 0.1s, opacity 0.4s linear;
 
@@ -117,7 +119,7 @@
     cursor: pointer;
 }
 
-.navbar-user:hover .dropdown-logout {
+.user-btns-item:hover .dropdown-logout {
     visibility: visible;
     opacity: 1;
     transition: visibility 0.1s, opacity 0.4s linear;

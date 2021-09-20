@@ -13,6 +13,7 @@ import { logOut } from "../redux/action-creators/authActions";
 
 const Navbar = (props) => {
     const [openModal, setOpenModal] = useState(false);
+
     return (
         <>
             {openModal && 
@@ -32,7 +33,7 @@ const Navbar = (props) => {
                     </div>
                 </div>
 
-                {!props.token ? 
+                {(!props.token) ? 
                     <button 
                         className="navbar-btn"
                         onClick={() => {
@@ -42,24 +43,37 @@ const Navbar = (props) => {
                         Get Started
                     </button>
                 :
-                    <div className="user-btns">
-                    <FontAwesomeIcon 
-                        icon={faSearch} 
-                        size="2x"
-                        className="navbar-search"
-                    />
-                    <FontAwesomeIcon 
-                        icon={faStar} 
-                        size="2x"
-                        className="navbar-liked"
-                    />
-                    <FontAwesomeIcon 
-                        icon={faHouseUser} 
-                        size="2x"
-                        className="navbar-user"
-                        onClick={props.logOut}
-                    />
-                    </div>
+                    <ul className="user-btns-list">
+                        <li className="user-btns-item">
+                            <FontAwesomeIcon 
+                                icon={faSearch} 
+                                size="2x"
+                                className="navbar-search"
+                            />
+                        </li>
+
+                        <li className="user-btns-item">
+                            <FontAwesomeIcon 
+                                icon={faStar} 
+                                size="2x"
+                                className="navbar-liked"
+                            />
+                        </li>
+
+                        <li className="user-btns-item">
+                            <FontAwesomeIcon 
+                                icon={faHouseUser} 
+                                size="2x"
+                                className="navbar-user"
+                            />
+                            <ul className="user-btns-dropdown">
+                                <li className="dropdown-logout">
+                                    <span onClick={props.logOut}>Log out</span>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                    </ul>
                     }
             </nav>
         </>

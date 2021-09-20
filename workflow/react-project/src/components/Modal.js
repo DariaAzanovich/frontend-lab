@@ -10,7 +10,6 @@ import { connect } from "react-redux";
 
 
 function Modal( props ) {
-
     if(props.token) {
         props.modalState(false);
     }
