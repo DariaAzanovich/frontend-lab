@@ -46,7 +46,7 @@ input {
 }
 
 .password-wrap, 
-input[type="text"] {
+input[id="user"] {
     margin: 4px 0;
     margin-bottom: 30px;
     padding: 5px;
@@ -57,6 +57,7 @@ input[type="text"] {
 
 .password-vivsibility {
     cursor: pointer;
+    overflow: hidden;
 }
 
 #passwConfirm,

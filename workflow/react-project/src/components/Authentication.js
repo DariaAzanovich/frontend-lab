@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import Loader from './Loader';
 import Joi from 'joi';
 import './Authentication.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,7 +9,9 @@ import { logIn, registration } from '../redux/action-creators/authActions';
 import { toast } from 'react-toastify';
 
 
-const Authentication = () => {
+const Authentication = (props) => {
+    const {loader, logIn, registration} = props; 
+
     const [signIn, setSignIn] = useState(true);
 
     const [username, setUsername] = useState('');
@@ -18,7 +22,10 @@ const Authentication = () => {
     const [passwordError, setPasswordError] = useState('');
     const [passwordConfirmError, setPasswordConfirmError] = useState('');
 
-   const schema = Joi.object({
+    const [passwVisible, setPasswVisible] = useState(false);
+    const [confirmVisible, setComnfirmVisible] = useState(false);
+
+    const schema = Joi.object({
         username: Joi.string()
             .alphanum()
             .min(3)
@@ -47,33 +54,47 @@ const Authentication = () => {
         if(passwordConfirm !== password) {
             setPasswordConfirmError('Passwords are not identical!');
         }
-    }
+    };
 
     const updateUsername = (event) => {
         setUsernameError();
         setUsername(event.target.value);
-    }
+    };
 
     const updatePassword = (event) => {
         setPasswordError();
         setPassword(event.target.value);
-    }
+    };
 
     const updatePasswordConfirm = (event) => {
         setPasswordConfirmError();
         setPasswordConfirm(event.target.value);
-    }
+    };
 
     const errorToast = (error) => {
         if(error) {
             toast.error(error);
         }
-    }
+    };
+
+    const passwordVisibility = (event) => {
+
+        const field = event.currentTarget.parentElement.firstChild;
+
+        const type = field.getAttribute('type') === 'password' ? 'text' : 'password';
+
+        field.setAttribute('type', type);
+
+        if(field.id === 'passw') {
+            setPasswVisible(!passwVisible);
+        } else {
+            setComnfirmVisible(!confirmVisible);
+        }
+    };
 
     const postData = () => {
         validateData();
         passwordComparison();
-        debugger
 
         if (!usernameError && !passwordError && !passwordConfirmError) {
             const data = { 
@@ -85,12 +106,10 @@ const Authentication = () => {
         }
     };
 
-    // const passwordVisibility = (id, visibility= true) => {
-    //     const field = document.getElementById(id);
-    //     const type = field.getAttribute('type') === 'password' ? 'text' : 'password';
 
-    //     field.setAttribute('type', type);
-    // }
+    if(loader) {
+        return <Loader />
+    } 
 
     return (
         <div className="authentication-wrap">
@@ -120,16 +139,20 @@ const Authentication = () => {
                         onBlur={validateData}
                         onError={errorToast(passwordError)}
                     />
-                    <FontAwesomeIcon
-                            icon={faEye /*faEyeSlash*/} 
-                            size="1x"
-                            className="password-vivsibility"
-                            onClick={() => {}}
-                    />
+                    <span 
+                        className="password-vivsibility"
+                        onClick={passwordVisibility}
+                    >
+                        <FontAwesomeIcon
+                                icon={passwVisible ? faEye : faEyeSlash} 
+                                size="1x"
+                        />
+                    </span>
+                    
                 </div>
                 
 
-                {signIn ?
+                {signIn ?  <></> :
                     <>
                         <label htmlFor="passwConfirm">Confirm Password</label>
                         <div className="password-wrap">
@@ -141,14 +164,17 @@ const Authentication = () => {
                                 onBlur={passwordComparison}
                                 onError={errorToast(passwordConfirmError)}
                             />
-                            <FontAwesomeIcon
-                                icon={faEye} 
-                                size="1x"
+                            <span 
                                 className="password-vivsibility"
-                                onClick={(showPassw = true) => {}}
-                            />
+                                onClick={passwordVisibility}
+                            >
+                                <FontAwesomeIcon
+                                    icon={confirmVisible ? faEye : faEyeSlash} 
+                                    size="1x"
+                                />
+                            </span>
                         </div>
-                    </> : <></>
+                    </>
                 }
             </form>
             
@@ -177,4 +203,13 @@ const Authentication = () => {
     )
 }
 
-export default Authentication;
+const mapStateToProps = state => {
+    return {
+        loader: state.auth.loader
+    };
+    
+};
+
+const mapDispatchToProps = { logIn, registration };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Authentication);
