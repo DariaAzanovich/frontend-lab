@@ -3,6 +3,9 @@ import "./media.css";
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faHouseUser } from '@fortawesome/free-solid-svg-icons';
 import Modal from "./Modal";
 import Authentication from "./Authentication";
 
@@ -35,6 +38,30 @@ export const Navbar = () => {
                 >
                     Get Started
                 </button>
+                <div className="user-btns">
+                <FontAwesomeIcon 
+                    icon={faSearch} 
+                    size="2x"
+                    className="navbar-search"
+                />
+                <FontAwesomeIcon 
+                    icon={faStar} 
+                    size="2x"
+                    className="navbar-liked"
+                />
+                <FontAwesomeIcon 
+                    icon={faHouseUser} 
+                    size="2x"
+                    className="navbar-user"
+                />
+                </div>
+                <div className="dropdown-logout">
+                    <span 
+                        onClick={() => {
+
+                        }}
+                    >Log out</span>
+                </div>
             </nav>
         </>
     );
