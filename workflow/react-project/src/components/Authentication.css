@@ -20,19 +20,48 @@
     flex-direction: column;
 }
 
-input, label {
+input, 
+label {
     font-family: 'Quicksand';
 }
 
 label {
     align-self: flex-start;
+    padding: 5px;
 
     font-size: 14px;
 }
 
 input {
-    margin-top: 4px;
+    border: none;
+    outline: none;
+}
+
+.password-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
+
+.password-wrap, 
+input[type="text"] {
+    margin: 4px 0;
     margin-bottom: 30px;
+    padding: 5px;
+
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.password-vivsibility {
+    cursor: pointer;
+}
+
+#passwConfirm,
+#passw {
+    flex-grow: 1;
 }
 
 .auth-title {
