@@ -9,8 +9,8 @@ import {
 } from '../types';
 
 const initialState = {
-    user: {},
     loader: false,
+    token: null
 };
 
 export const authenticationReducer = (state = initialState, action) => {
@@ -30,7 +30,7 @@ export const authenticationReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loader: false,
-                user: action.payload,
+                // token: action.payload.token
             };
         case REGISTRATION_FAIL:
             return {
