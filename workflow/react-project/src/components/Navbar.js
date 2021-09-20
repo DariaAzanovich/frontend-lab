@@ -50,6 +50,12 @@ const Navbar = (props) => {
                                 size="2x"
                                 className="navbar-search"
                             />
+
+                            <ul className="user-btns-dropdown">
+                                <li className="dropdown-logout search">
+                                    <span>Search</span>
+                                </li>
+                            </ul>
                         </li>
 
                         <li className="user-btns-item">
@@ -58,6 +64,12 @@ const Navbar = (props) => {
                                 size="2x"
                                 className="navbar-liked"
                             />
+
+                            <ul className="user-btns-dropdown">
+                                <li className="dropdown-logout liked">
+                                    <span onClick={props.logOut}>Liked</span>
+                                </li>
+                            </ul>
                         </li>
 
                         <li className="user-btns-item">
@@ -66,8 +78,9 @@ const Navbar = (props) => {
                                 size="2x"
                                 className="navbar-user"
                             />
+
                             <ul className="user-btns-dropdown">
-                                <li className="dropdown-logout">
+                                <li className="dropdown-logout log-out">
                                     <span onClick={props.logOut}>Log out</span>
                                 </li>
                             </ul>
