@@ -100,10 +100,6 @@ const Authentication = (props) => {
             passwordComparison();
         }
 
-        console.log('u: ', usernameError);
-        console.log('p: ', passwordError);
-        console.log('c: ', passwordConfirmError);
-
         if (!usernameError && !passwordError && !passwordConfirmError) {
             const data = { 
                 name: username, 
