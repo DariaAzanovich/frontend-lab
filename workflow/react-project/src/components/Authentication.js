@@ -94,7 +94,15 @@ const Authentication = (props) => {
 
     const postData = () => {
         validateData();
-        passwordComparison();
+        setPasswordConfirmError();
+
+        if(!signIn) {
+            passwordComparison();
+        }
+
+        console.log('u: ', usernameError);
+        console.log('p: ', passwordError);
+        console.log('c: ', passwordConfirmError);
 
         if (!usernameError && !passwordError && !passwordConfirmError) {
             const data = { 
@@ -113,86 +121,85 @@ const Authentication = (props) => {
 
     return (
         <div className="authentication-wrap">
-        <div className="auth">
-        <p className="auth-title">
-                {signIn ? 'Sign In' : 'Sign Up'}
-            </p>
-            <form className="sign-form">
-                <label htmlFor="user">Username</label>
-                <input 
-                    type="text" 
-                    placeholder="Username" 
-                    id="user" 
-                    onChange={updateUsername}
-                    onBlur={validateData}
-                    onError={errorToast(usernameError)}
-                />
-
-                <label htmlFor="passw">Password</label>
-                <div className="password-wrap">
-                    
+            <div className="auth">
+                <p className="auth-title">
+                    {signIn ? 'Sign In' : 'Sign Up'}
+                </p>
+                <form className="sign-form">
+                    <label htmlFor="user">Username</label>
                     <input 
-                        type="password" 
-                        placeholder="Password" 
-                        id="passw" 
-                        onChange={updatePassword}
+                        type="text" 
+                        placeholder="Username" 
+                        id="user" 
+                        onChange={updateUsername}
                         onBlur={validateData}
-                        onError={errorToast(passwordError)}
+                        onError={errorToast(usernameError)}
                     />
-                    <span 
-                        className="password-vivsibility"
-                        onClick={passwordVisibility}
-                    >
-                        <FontAwesomeIcon
-                                icon={passwVisible ? faEye : faEyeSlash} 
-                                size="1x"
+
+                    <label htmlFor="passw">Password</label>
+                    <div className="password-wrap">
+                        
+                        <input 
+                            type="password" 
+                            placeholder="Password" 
+                            id="passw" 
+                            onChange={updatePassword}
+                            onBlur={validateData}
+                            onError={errorToast(passwordError)}
                         />
-                    </span>
-                    
-                </div>
-                
-
-                {signIn ?  <></> :
-                    <>
-                        <label htmlFor="passwConfirm">Confirm Password</label>
-                        <div className="password-wrap">
-                            <input 
-                                type="password" 
-                                placeholder="!Password" 
-                                id="passwConfirm" 
-                                onChange={updatePasswordConfirm}
-                                onBlur={passwordComparison}
-                                onError={errorToast(passwordConfirmError)}
-                            />
-                            <span 
-                                className="password-vivsibility"
-                                onClick={passwordVisibility}
-                            >
-                                <FontAwesomeIcon
-                                    icon={confirmVisible ? faEye : faEyeSlash} 
+                        <span 
+                            className="password-vivsibility"
+                            onClick={passwordVisibility}
+                        >
+                            <FontAwesomeIcon
+                                    icon={passwVisible ? faEye : faEyeSlash} 
                                     size="1x"
-                                />
-                            </span>
-                        </div>
-                    </>
-                }
-            </form>
-            
-            <p className="change-in-up">
-                {signIn ?
-                    'Don\'t have an account? ' :
-                    'Already signed up? '
-                }
-                <span 
-                    className="change-in-up-btn"
-                    onClick={() => setSignIn(!signIn)}    
-                >
-                    {signIn ? 'Sign up' : 'Go to login'}
-                </span>
-            </p>
-        </div>
-            
+                            />
+                        </span>
+                        
+                    </div>
+                    
 
+                    {signIn ?  <></> :
+                        <>
+                            <label htmlFor="passwConfirm">Confirm Password</label>
+                            <div className="password-wrap">
+                                <input 
+                                    type="password" 
+                                    placeholder="!Password" 
+                                    id="passwConfirm" 
+                                    onChange={updatePasswordConfirm}
+                                    onBlur={passwordComparison}
+                                    onError={errorToast(passwordConfirmError)}
+                                />
+                                <span 
+                                    className="password-vivsibility"
+                                    onClick={passwordVisibility}
+                                >
+                                    <FontAwesomeIcon
+                                        icon={confirmVisible ? faEye : faEyeSlash} 
+                                        size="1x"
+                                    />
+                                </span>
+                            </div>
+                        </>
+                    }
+                </form>
+                
+                <p className="change-in-up">
+                    {signIn ?
+                        'Don\'t have an account? ' :
+                        'Already signed up? '
+                    }
+                    <span 
+                        className="change-in-up-btn"
+                        onClick={() => setSignIn(!signIn)}    
+                    >
+                        {signIn ? 'Sign up' : 'Go to login'}
+                    </span>
+                </p>
+            </div>
+                
             <button 
                 className="log-btn"
                 onClick={postData}
