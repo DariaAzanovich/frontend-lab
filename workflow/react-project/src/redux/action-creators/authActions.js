@@ -37,6 +37,11 @@ export const logIn = data => {
         })
         .then(res => res.json())
         .then(res => {
+            if(res.message) {
+                const err = new Error(res.message);
+                throw err;
+            }
+
             dispatch(addUsername(data.name));
 
             dispatch({
@@ -45,6 +50,7 @@ export const logIn = data => {
                     ...res,
                 },
             });
+            localStorage.setItem('token', res.token);
 
             toast.success('Sign in success!');
         })
@@ -71,6 +77,14 @@ export const registration = data => {
         })
         .then(res => res.json())
         .then(res => {
+            console.log('Reg: ', res);
+            debugger
+
+            if(res.error) {
+                const err = new Error(res.error.message);
+                throw err;
+            }
+
             dispatch(addUsername(data.name));
 
             dispatch({
@@ -97,5 +111,7 @@ export const logOut = () => {
         dispatch({
             type: LOG_OUT
         });
+
+        localStorage.removeItem('token');
     }
 };
