@@ -44,7 +44,7 @@ const Authentication = (props) => {
         } else {
             setFormValid(true);
         }
-    }, [usernameError, passwordError, passwordConfirmError]);
+    }, [usernameError, passwordError, passwordConfirmError, signIn, passwordConfirm]);
 
     const blurHandler = (event) => {
         switch(event.target.id) {
@@ -53,12 +53,20 @@ const Authentication = (props) => {
                 break;
             case 'passw':
                 setPasswordDirty(true);
+                passwordComparison();
                 break;
             case 'passwConfirm':
                 setPasswordConfirmDirty(true);
+                passwordComparison();
                 break;
         }
     }
+
+    const passwordComparison = () => {
+        if(passwordConfirm !== password) {
+            setPasswordConfirmError('Passwords are not identical!');
+        }
+    };
 
     const updateUsername = (event) => {
         setUsername(event.target.value);
