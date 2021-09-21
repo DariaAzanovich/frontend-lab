@@ -15,3 +15,11 @@ export const REGISTRATION_FAIL = 'REGISTRATION_FAIL';
 export const ADD_USERNAME = 'ADD_USERNAME';
 
 export const LOG_OUT = 'LOG_OUT';
+
+
+/*----------------------- Modal -------------------------*/
+export const SHOW_COCKTAIL_MODAL = 'SHOW_COCKTAIL_MODAL';
+export const HIDE_COCKTAIL_MODAL = 'HIDE_COCKTAIL_MODAL';
+export const SHOW_REG_MODAL = 'SHOW_REG_MODAL';
+export const HIDE_REG_MODAL = 'HIDE_REG_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';

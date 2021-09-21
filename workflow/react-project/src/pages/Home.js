@@ -1,18 +1,20 @@
 import './Home.css';
 import './pagesMedia.css'
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from '../components/Modal';
 import QuotesCarousel from '../components/QuotesCarousel';
 import RandomCocktail from '../components/RandomCocktail';
+import { connect } from 'react-redux';
+import { showCocktailModal } from '../redux/action-creators/modalActions';
+import { ToastContainer } from 'react-toastify';
 
-export const Home = () => {
-    const [openModal, setOpenModal] = useState(false);
-
+const Home = (props) => {
     return (
         <>
             <div className="wrap">
-                {openModal && 
-                <Modal modalState={setOpenModal} title="Random Cocktail">
+                <ToastContainer />
+                {props.modalState && 
+                <Modal title="Random Cocktail">
                     <RandomCocktail/>
                 </Modal>}
 
@@ -25,9 +27,7 @@ export const Home = () => {
                             className="content-img" 
                             alt="Green cocktail" 
                             src="./green-cocktail.png"
-                            onClick={() => {
-                                setOpenModal(true);
-                            }}
+                            onClick={props.showCocktailModal}
                         />
                         <p className="content-prompt">Press on glass to get a random cocktail</p>
                     </div>
@@ -36,3 +36,16 @@ export const Home = () => {
         </>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        modalState: state.modal.showCocktailModal
+    };
+    
+};
+
+const mapDispatchToProps = { 
+    showCocktailModal
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import "./media.css";
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -10,14 +10,13 @@ import Modal from "./Modal";
 import Authentication from "./Authentication";
 import { connect } from "react-redux";
 import { logOut } from "../redux/action-creators/authActions";
+import { showRegModal } from "../redux/action-creators/modalActions";
 
 const Navbar = (props) => {
-    const [openModal, setOpenModal] = useState(false);
-
     return (
         <>
-            {openModal && 
-                <Modal modalState={setOpenModal} title = 'Authentication'>
+            {props.modalState &&
+                <Modal title = 'Authentication'>
                     <Authentication />
                 </Modal>
             }
@@ -33,12 +32,10 @@ const Navbar = (props) => {
                     </div>
                 </div>
 
-                {(!props.token) ? 
+                {(!localStorage.getItem('token')) ? 
                     <button 
                         className="navbar-btn"
-                        onClick={() => {
-                            setOpenModal(true)
-                        }}
+                        onClick={props.showRegModal}
                     >
                         Get Started
                     </button>
@@ -95,11 +92,15 @@ const Navbar = (props) => {
 
 const mapStateToProps = state => {
     return {
-        token: state.auth.token
+        token: state.auth.token,
+        modalState: state.modal.showRegModal
     };
     
 };
 
-const mapDispatchToProps = { logOut };
+const mapDispatchToProps = { 
+    logOut, 
+    showRegModal
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

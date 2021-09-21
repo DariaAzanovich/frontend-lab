@@ -7,12 +7,11 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
 import { ErrorToast } from "./ErrorToast";
 import { connect } from "react-redux";
+import { hideModal } from "../redux/action-creators/modalActions";
 
 
 function Modal( props ) {
-    if(props.token) {
-        props.modalState(false);
-    }
+    console.log(props.children);
 
     return (
         <>
@@ -20,7 +19,7 @@ function Modal( props ) {
                 <>
                     <div 
                         className="modal-bg"
-                        onClick={() => {props.modalState(false)}}
+                        onClick={props.hideModal}
                     >
                         <ErrorToast />
 
@@ -33,7 +32,7 @@ function Modal( props ) {
                                 <FontAwesomeIcon 
                                     icon={faTimes} 
                                     size="2x"
-                                    onClick={() => props.modalState(false)}
+                                    onClick={props.hideModal}
                                 />
                             </div>
                             <div className="body">
@@ -51,16 +50,12 @@ Modal.propTypes = {
     modalState: PropTypes.func.isRequired
 };
 
-
-// export default Modal;
-
 const mapStateToProps = state => {
     return {
-        token: state.auth.token
+        showModal: state.modal.showModal
     };
-    
 };
 
-const mapDispatchToProps = { };
+const mapDispatchToProps = { hideModal };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

@@ -9,6 +9,7 @@ import {
     ADD_USERNAME,
     LOG_OUT
 } from '../types';
+import { hideModal } from './modalActions';
 
 const headers = {
     'Accept': 'application/json',
@@ -50,6 +51,9 @@ export const logIn = data => {
                     ...res,
                 },
             });
+
+            dispatch(hideModal());
+
             localStorage.setItem('token', res.token);
 
             toast.success('Sign in success!');
@@ -77,9 +81,6 @@ export const registration = data => {
         })
         .then(res => res.json())
         .then(res => {
-            console.log('Reg: ', res);
-            debugger
-
             if(res.error) {
                 const err = new Error(res.error.message);
                 throw err;
@@ -93,6 +94,8 @@ export const registration = data => {
                     ...res,
                 }
             });
+
+            dispatch(hideModal());
 
             toast.success('Registration success!');
         })
