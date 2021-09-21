@@ -32,7 +32,7 @@ const Navbar = (props) => {
                     </div>
                 </div>
 
-                {(!localStorage.getItem('token')) ? 
+                { !props.isAuth ? 
                     <button 
                         className="navbar-btn"
                         onClick={props.showRegModal}
@@ -93,7 +93,8 @@ const Navbar = (props) => {
 const mapStateToProps = state => {
     return {
         token: state.auth.token,
-        modalState: state.modal.showRegModal
+        modalState: state.modal.showRegModal,
+        isAuth: state.auth.isAuth
     };
     
 };

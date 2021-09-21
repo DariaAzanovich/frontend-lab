@@ -6,8 +6,8 @@ import {
     REGISTRATION_SUCCESS,
     REGISTRATION_FAIL,
     AUTHENTICATION_STARTED,
-    ADD_USERNAME,
-    LOG_OUT
+    LOG_OUT,
+    INIT_STATE
 } from '../types';
 import { hideModal } from './modalActions';
 
@@ -17,13 +17,6 @@ const headers = {
 };
 
 const method = 'POST';
-
-const addUsername = data => ({
-    type: ADD_USERNAME,
-    payload: {
-        data,
-    },
-});
 
 export const logIn = data => {
     return dispatch => {
@@ -42,8 +35,6 @@ export const logIn = data => {
                 const err = new Error(res.message);
                 throw err;
             }
-
-            dispatch(addUsername(data.name));
 
             dispatch({
                 type: SIGN_IN_SUCCESS,
@@ -86,8 +77,6 @@ export const registration = data => {
                 throw err;
             }
 
-            dispatch(addUsername(data.name));
-
             dispatch({
                 type: REGISTRATION_SUCCESS,
                 payload: {
@@ -117,4 +106,31 @@ export const logOut = () => {
 
         localStorage.removeItem('token');
     }
+};
+
+const initState = (token, isAuth) => {
+    return dispatch => {
+        dispatch({
+            type: INIT_STATE, 
+            payload: {
+                token: token,
+                isAuth: isAuth,
+            }
+        });
+
+    }
+}
+
+export const getInitialState = () => {
+    return dispatch => {
+        let token = '';
+        let isAuth = false;
+
+        if (localStorage.getItem('token')) {
+            token = localStorage.getItem('token');
+            isAuth = true;
+        }
+
+        dispatch(initState(token, isAuth));
+    };
 };

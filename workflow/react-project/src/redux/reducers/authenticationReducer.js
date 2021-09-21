@@ -4,13 +4,14 @@ import {
     REGISTRATION_SUCCESS,
     REGISTRATION_FAIL,
     AUTHENTICATION_STARTED,
-    ADD_USERNAME,
-    LOG_OUT
+    LOG_OUT,
+    INIT_STATE
 } from '../types';
 
 const initialState = {
     loader: false,
-    token: null
+    token: null, 
+    isAuth: false
 };
 
 export const authenticationReducer = (state = initialState, action) => {
@@ -20,6 +21,7 @@ export const authenticationReducer = (state = initialState, action) => {
                 ...state,
                 loader: false,
                 token: action.payload.token,
+                isAuth: true
             };
         case SIGN_IN_FAIL:
             return {
@@ -29,8 +31,7 @@ export const authenticationReducer = (state = initialState, action) => {
         case REGISTRATION_SUCCESS:
             return {
                 ...state,
-                loader: false,
-                // token: action.payload.token
+                loader: false
             };
         case REGISTRATION_FAIL:
             return {
@@ -42,16 +43,18 @@ export const authenticationReducer = (state = initialState, action) => {
                 ...state,
                 loader: true,
             };
-        case ADD_USERNAME:
+        case LOG_OUT:
             return {
                 ...state,
-                username: action.payload.data,
+                token: null,
+                isAuth: false
             };
-            case LOG_OUT:
-                return {
-                    ...state,
-                    token: null,
-                };
+        case INIT_STATE:
+            return {
+                ...state,
+                token: action.payload.token,
+                isAuth: action.payload.isAuth,
+            };
         default:
             return state;
     }
