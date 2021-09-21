@@ -60,27 +60,28 @@ export const logIn = data => {
 };
 
 export const register = data => {
-    return dispatch => {
-        dispatch({
-            type: AUTHENTICATION_STARTED,
-        });
-        
-        fetch(`${api.API_URL + api.SIGN_UP}`, {
-            method: METHOD,
-            body: JSON.stringify(data),
-            headers: HEADERS
-        })
-        .then(res => res.json())
-        .then(res => {
-            if(res.error) {
-                const err = new Error(res.error.message);
+    return async dispatch => {
+        try {
+            dispatch({
+                type: AUTHENTICATION_STARTED,
+            });
+            
+            const response = await fetch(`${api.API_URL + api.SIGN_UP}`, {
+                method: METHOD,
+                body: JSON.stringify(data),
+                headers: HEADERS
+            });
+            const json = await response.json();
+
+            if(json.error) {
+                const err = new Error(json.error.message);
                 throw err;
             }
-
+            
             dispatch({
                 type: REGISTRATION_SUCCESS,
                 payload: {
-                    ...res,
+                    ...json,
                 }
             });
 
@@ -88,14 +89,14 @@ export const register = data => {
             dispatch(logIn(data));
 
             toast.success('Registration success!');
-        })
-        .catch(err => {
+        }
+        catch(err) {
             dispatch({
                 type: REGISTRATION_FAIL
             });
 
             toast.error(err.toString());
-        });
+        };
     };
 };
 
