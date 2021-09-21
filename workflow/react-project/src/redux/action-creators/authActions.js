@@ -85,6 +85,7 @@ export const registration = data => {
             });
 
             dispatch(hideModal());
+            dispatch(logIn(data));
 
             toast.success('Registration success!');
         })
