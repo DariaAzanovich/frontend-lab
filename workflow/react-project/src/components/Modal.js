@@ -4,7 +4,6 @@ import React from "react";
 import { createPortal } from 'react-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from 'prop-types';
 import { ErrorToast } from "./ErrorToast";
 import { connect } from "react-redux";
 import { hideModal } from "../redux/action-creators/modalActions";
@@ -43,10 +42,6 @@ function Modal( props ) {
         </>
     )
 }
-
-Modal.propTypes = {
-    modalState: PropTypes.func.isRequired
-};
 
 const mapStateToProps = state => {
     return {
