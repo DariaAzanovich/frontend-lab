@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Loader from './Loader';
-import Joi from 'joi';
 import './Authentication.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import { logIn, registration } from '../redux/action-creators/authActions';
-import { toast } from 'react-toastify';
 
 
 const Authentication = (props) => {
@@ -18,62 +16,81 @@ const Authentication = (props) => {
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
 
-    const [usernameError, setUsernameError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
+    const [usernameDirty, setUsernameDirty] = useState(false);
+    const [passwordDirty, setPasswordDirty] = useState(false);
+    const [passwordConfirmDirty, setPasswordConfirmDirty] = useState(false);
+
+    const [usernameError, setUsernameError] = useState('Username can not be empty!');
+    const [passwordError, setPasswordError] = useState('Password can not be empty!');
     const [passwordConfirmError, setPasswordConfirmError] = useState('');
+
+    const [formValid, setFormValid] = useState(false);
 
     const [passwVisible, setPasswVisible] = useState(false);
     const [confirmVisible, setComnfirmVisible] = useState(false);
 
-    const schema = Joi.object({
-        username: Joi.string()
-            .alphanum()
-            .min(3)
-            .max(30)
-            .required(),
-
-        password: Joi.string()
-            .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))      
-    })
-    .with('username', 'password');
-
-    const validateData = () => {
-        const validation = schema.validate({username: username, password: password});
-
-        if (validation.error) {
-            const error = validation.error.details[0];
-
-            error.context.key === 'username' ? 
-                setUsernameError('Username must be at least 3 characters and can only contain letters and/or numbers!') 
-            : 
-                setPasswordError('Password must be at least 3 characters and can only contain letters and/or numbers!');
+    useEffect(() => {
+        if(signIn) {
+            setPasswordConfirmError();
+        } else {
+            if(!passwordConfirm) {
+                setPasswordConfirmError('Passwords are not identical!');
+                return;
+            }
         }
-    };
 
-    const passwordComparison = () => {
-        if(passwordConfirm !== password) {
-            setPasswordConfirmError('Passwords are not identical!');
+        if(usernameError || passwordError || passwordConfirmError) {
+            setFormValid(false);
+        } else {
+            setFormValid(true);
         }
-    };
+    }, [usernameError, passwordError, passwordConfirmError]);
+
+    const blurHandler = (event) => {
+        switch(event.target.id) {
+            case 'user':
+                setUsernameDirty(true);
+                break;
+            case 'passw':
+                setPasswordDirty(true);
+                break;
+            case 'passwConfirm':
+                setPasswordConfirmDirty(true);
+                break;
+        }
+    }
 
     const updateUsername = (event) => {
-        setUsernameError();
         setUsername(event.target.value);
+
+        const re = /^[a-zA-Z0-9]{3,30}$/;
+
+        if(!re.test(String(event.target.value)) || !event.target.value) {
+            setUsernameError('Must be at least 3 characters and can only contain letters and/or numbers!');
+        } else {
+            setUsernameError();
+        }
     };
 
     const updatePassword = (event) => {
-        setPasswordError();
         setPassword(event.target.value);
+
+        const re = /^[a-zA-Z0-9]{3,30}$/;
+
+        if(!re.test(String(event.target.value)) || !event.target.value) {
+            setPasswordError('Must be at least 3 characters and can only contain letters and/or numbers!');
+        } else {
+            setPasswordError();
+        }
     };
 
     const updatePasswordConfirm = (event) => {
-        setPasswordConfirmError();
         setPasswordConfirm(event.target.value);
-    };
 
-    const errorToast = (error) => {
-        if(error) {
-            toast.error(error);
+        if(event.target.value !== password) {
+            setPasswordConfirmError('Passwords are not identical!');
+        } else {
+            setPasswordConfirmError();
         }
     };
 
@@ -93,13 +110,6 @@ const Authentication = (props) => {
     };
 
     const postData = () => {
-        validateData();
-        setPasswordConfirmError();
-
-        if(!signIn) {
-            passwordComparison();
-        }
-
         if (!usernameError && !passwordError && !passwordConfirmError) {
             const data = { 
                 name: username, 
@@ -122,25 +132,31 @@ const Authentication = (props) => {
                 </p>
                 <form className="sign-form">
                     <label htmlFor="user">Username</label>
+
+                    {usernameDirty && usernameError && <span className="form-errors">{usernameError}</span>}
+
                     <input 
                         type="text" 
                         placeholder="Username" 
-                        id="user" 
+                        id="user"
+                        value={username} 
                         onChange={updateUsername}
-                        onBlur={validateData}
-                        onError={errorToast(usernameError)}
+                        onBlur={blurHandler}
                     />
 
                     <label htmlFor="passw">Password</label>
+
+                    {passwordDirty && passwordError && <span className="form-errors">{passwordError}</span>}
+
                     <div className="password-wrap">
                         
                         <input 
                             type="password" 
                             placeholder="Password" 
                             id="passw" 
+                            value={password}
                             onChange={updatePassword}
-                            onBlur={validateData}
-                            onError={errorToast(passwordError)}
+                            onBlur={blurHandler}
                         />
                         <span 
                             className="password-vivsibility"
@@ -158,14 +174,18 @@ const Authentication = (props) => {
                     {signIn ?  <></> :
                         <>
                             <label htmlFor="passwConfirm">Confirm Password</label>
+
+
+                            {passwordConfirmDirty && passwordConfirmError && <span className="form-errors">{passwordConfirmError}</span>}
+
                             <div className="password-wrap">
                                 <input 
                                     type="password" 
                                     placeholder="!Password" 
                                     id="passwConfirm" 
+                                    value={passwordConfirm}
                                     onChange={updatePasswordConfirm}
-                                    onBlur={passwordComparison}
-                                    onError={errorToast(passwordConfirmError)}
+                                    onBlur={blurHandler}
                                 />
                                 <span 
                                     className="password-vivsibility"
@@ -198,6 +218,10 @@ const Authentication = (props) => {
             <button 
                 className="log-btn"
                 onClick={postData}
+                disabled={!formValid}
+                style={!formValid ? {
+                    cursor: 'not-allowed'
+                } : {}}
             >
                 {signIn ? 'Sign In' : 'Sign Up'}
             </button>
