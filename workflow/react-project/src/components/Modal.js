@@ -11,8 +11,6 @@ import { hideModal } from "../redux/action-creators/modalActions";
 
 
 function Modal( props ) {
-    console.log(props.children);
-
     return (
         <>
             {createPortal(
