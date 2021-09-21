@@ -59,7 +59,7 @@ export const logIn = data => {
     };
 };
 
-export const registration = data => {
+export const register = data => {
     return dispatch => {
         dispatch({
             type: AUTHENTICATION_STARTED,

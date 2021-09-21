@@ -4,11 +4,11 @@ import Loader from './Loader';
 import './Authentication.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import { logIn, registration } from '../redux/action-creators/authActions';
+import { logIn, register } from '../redux/action-creators/authActions';
 
 
 const Authentication = (props) => {
-    const {loader, logIn, registration} = props; 
+    const {loader, logIn, register} = props; 
 
     const [signIn, setSignIn] = useState(true);
 
@@ -53,16 +53,16 @@ const Authentication = (props) => {
                 break;
             case 'passw':
                 setPasswordDirty(true);
-                passwordComparison();
+                comparePasswords();
                 break;
             case 'passwConfirm':
                 setPasswordConfirmDirty(true);
-                passwordComparison();
+                comparePasswords();
                 break;
         }
     }
 
-    const passwordComparison = () => {
+    const comparePasswords = () => {
         if(passwordConfirm !== password) {
             setPasswordConfirmError('Passwords are not identical!');
         }
@@ -102,7 +102,7 @@ const Authentication = (props) => {
         }
     };
 
-    const passwordVisibility = (event) => {
+    const handlePasswordVisibilityOnChange = (event) => {
 
         const field = event.currentTarget.parentElement.firstChild;
 
@@ -124,7 +124,7 @@ const Authentication = (props) => {
                 password 
             };
 
-            signIn ? logIn(data) : registration(data);
+            signIn ? logIn(data) : register(data);
         }
     };
 
@@ -168,7 +168,7 @@ const Authentication = (props) => {
                         />
                         <span 
                             className="password-vivsibility"
-                            onClick={passwordVisibility}
+                            onClick={handlePasswordVisibilityOnChange}
                         >
                             <FontAwesomeIcon
                                     icon={passwVisible ? faEye : faEyeSlash} 
@@ -197,7 +197,7 @@ const Authentication = (props) => {
                                 />
                                 <span 
                                     className="password-vivsibility"
-                                    onClick={passwordVisibility}
+                                    onClick={handlePasswordVisibilityOnChange}
                                 >
                                     <FontAwesomeIcon
                                         icon={confirmVisible ? faEye : faEyeSlash} 
@@ -244,6 +244,6 @@ const mapStateToProps = state => {
     
 };
 
-const mapDispatchToProps = { logIn, registration };
+const mapDispatchToProps = { logIn, register };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authentication);
