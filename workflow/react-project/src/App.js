@@ -9,9 +9,7 @@ import { connect } from 'react-redux';
 
 
 function App({ getInitialState }) {
-    useEffect(() => {
-        getInitialState();
-    }, []);
+    useEffect(getInitialState, []);
 
     return (
         <BrowserRouter>

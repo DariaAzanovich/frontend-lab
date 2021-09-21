@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component, Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Loader from './Loader';
 import './Authentication.css';
@@ -121,7 +121,7 @@ const Authentication = (props) => {
         if (!usernameError && !passwordError && !passwordConfirmError) {
             const data = { 
                 name: username, 
-                password: password 
+                password 
             };
 
             signIn ? logIn(data) : registration(data);
@@ -179,7 +179,7 @@ const Authentication = (props) => {
                     </div>
                     
 
-                    {signIn ?  <></> :
+                    {signIn ?  <Fragment/> :
                         <>
                             <label htmlFor="passwConfirm">Confirm Password</label>
 

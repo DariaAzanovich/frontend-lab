@@ -10,30 +10,28 @@ import { ToastContainer } from 'react-toastify';
 
 const Home = (props) => {
     return (
-        <>
-            <div className="wrap">
-                <ToastContainer />
-                {props.modalState && 
-                <Modal title="Random Cocktail">
-                    <RandomCocktail/>
-                </Modal>}
+        <div className="wrap">
+            <ToastContainer />
+            {props.modalState && 
+            <Modal title="Random Cocktail">
+                <RandomCocktail/>
+            </Modal>}
 
-                <h1 className="homepage-title">Cocktail App</h1>
+            <h1 className="homepage-title">Cocktail App</h1>
 
-                <section className="content">
-                        <QuotesCarousel></QuotesCarousel>
-                    <div className="content-cocktail">
-                        <img 
-                            className="content-img" 
-                            alt="Green cocktail" 
-                            src="./green-cocktail.png"
-                            onClick={props.showCocktailModal}
-                        />
-                        <p className="content-prompt">Press on glass to get a random cocktail</p>
-                    </div>
-                </section>
-            </div>
-        </>
+            <section className="content">
+                    <QuotesCarousel></QuotesCarousel>
+                <div className="content-cocktail">
+                    <img 
+                        className="content-img" 
+                        alt="Green cocktail" 
+                        src="./green-cocktail.png"
+                        onClick={props.showCocktailModal}
+                    />
+                    <p className="content-prompt">Press on glass to get a random cocktail</p>
+                </div>
+            </section>
+        </div>
     )
 }
 

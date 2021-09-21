@@ -11,12 +11,12 @@ import {
 } from '../types';
 import { hideModal } from './modalActions';
 
-const headers = {
+const HEADERS = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
 };
 
-const method = 'POST';
+const METHOD = 'POST';
 
 export const logIn = data => {
     return dispatch => {
@@ -25,9 +25,9 @@ export const logIn = data => {
         });
         
         fetch(`${api.API_URL + api.SIGN_IN}`, {
-            method: method,
+            method: METHOD,
             body: JSON.stringify(data),
-            headers: headers
+            headers: HEADERS
         })
         .then(res => res.json())
         .then(res => {
@@ -66,9 +66,9 @@ export const registration = data => {
         });
         
         fetch(`${api.API_URL + api.SIGN_UP}`, {
-            method: method,
+            method: METHOD,
             body: JSON.stringify(data),
-            headers: headers
+            headers: HEADERS
         })
         .then(res => res.json())
         .then(res => {
@@ -114,8 +114,8 @@ const initState = (token, isAuth) => {
         dispatch({
             type: INIT_STATE, 
             payload: {
-                token: token,
-                isAuth: isAuth,
+                token,
+                isAuth,
             }
         });
 
