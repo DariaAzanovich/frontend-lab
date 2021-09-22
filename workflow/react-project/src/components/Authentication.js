@@ -102,7 +102,7 @@ const Authentication = (props) => {
         }
     };
 
-    const handlePasswordVisibilityOnChange = (event) => {
+    const handlePasswordVisibilityChange = (event) => {
 
         const field = event.currentTarget.parentElement.firstChild;
 
@@ -168,7 +168,7 @@ const Authentication = (props) => {
                         />
                         <span 
                             className="password-vivsibility"
-                            onClick={handlePasswordVisibilityOnChange}
+                            onClick={handlePasswordVisibilityChange}
                         >
                             <FontAwesomeIcon
                                     icon={passwVisible ? faEye : faEyeSlash} 
@@ -179,7 +179,7 @@ const Authentication = (props) => {
                     </div>
                     
 
-                    {signIn ?  <Fragment/> :
+                    {!signIn &&
                         <>
                             <label htmlFor="passwConfirm">Confirm Password</label>
 
@@ -197,7 +197,7 @@ const Authentication = (props) => {
                                 />
                                 <span 
                                     className="password-vivsibility"
-                                    onClick={handlePasswordVisibilityOnChange}
+                                    onClick={handlePasswordVisibilityChange}
                                 >
                                     <FontAwesomeIcon
                                         icon={confirmVisible ? faEye : faEyeSlash} 
