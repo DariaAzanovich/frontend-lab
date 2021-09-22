@@ -4,20 +4,19 @@ import React from "react";
 import { createPortal } from 'react-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from 'prop-types';
-import { connect } from "react-redux";
 import { ErrorToast } from "./ErrorToast";
+import { connect } from "react-redux";
+import { hideModal } from "../redux/action-creators/modalActions";
 
 
 function Modal( props ) {
-
     return (
         <>
             {createPortal(
                 <>
                     <div 
                         className="modal-bg"
-                        onClick={() => {props.modalState(false)}}
+                        onClick={props.hideModal}
                     >
                         <ErrorToast />
 
@@ -30,7 +29,7 @@ function Modal( props ) {
                                 <FontAwesomeIcon 
                                     icon={faTimes} 
                                     size="2x"
-                                    onClick={() => props.modalState(false)}
+                                    onClick={props.hideModal}
                                 />
                             </div>
                             <div className="body">
@@ -44,12 +43,12 @@ function Modal( props ) {
     )
 }
 
-Modal.propTypes = {
-    modalState: PropTypes.func.isRequired
+const mapStateToProps = state => {
+    return {
+        showModal: state.modal.showModal
+    };
 };
 
-const mapStateToProps = state => ({
-    error: state.randomCocktail.error
-});
+const mapDispatchToProps = { hideModal };
 
-export default connect(mapStateToProps, null)(Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

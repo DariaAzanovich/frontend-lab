@@ -5,7 +5,7 @@ import './RandomCocktail.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import Ingredients from './Ingredients';
-import { fetchRandomCocktail } from '../redux/actions';
+import { fetchRandomCocktail } from '../redux/action-creators/randomCocktailActions';
 
 
 const RandomCocktail = (props) => {

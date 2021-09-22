@@ -1,0 +1,114 @@
+.authentication-wrap {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 30px;
+    height: 100%;
+
+    font-size: 16px;
+}
+
+.auth {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, 
+label {
+    font-family: 'Quicksand';
+}
+
+label {
+    align-self: flex-start;
+    padding: 5px;
+
+    font-size: 14px;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+.password-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
+
+.password-wrap, 
+input[id="user"] {
+    margin: 4px 0;
+    margin-bottom: 30px;
+    padding: 5px;
+
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.password-vivsibility {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#passwConfirm,
+#passw {
+    flex-grow: 1;
+}
+
+.auth-title {
+    margin-bottom: 45px;
+
+    font-family: 'Rochester';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+
+    text-align: center;
+}
+
+.change-in-up {
+    align-self: center;
+}
+
+.change-in-up-btn {
+    color: #4d944f;
+    cursor: pointer;
+}
+
+.log-btn {
+    align-self: flex-end;
+
+    width: 150px;
+    padding: 16px 32px;
+
+    background: #4CAF50;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #ffffff;
+
+    cursor: pointer;
+}
+
+.log-btn:active {
+    background-color: aquamarine;
+}
+
+.form-errors {
+    align-self: flex-start;
+    padding-left: 5px;
+
+    font-family: 'Quicksand';
+    font-size: 14px;
+
+    color: red;
+}

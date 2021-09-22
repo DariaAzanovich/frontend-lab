@@ -16,7 +16,6 @@
 }
   
 .navbar-title {
-    /* display: block; */
     align-self: center;
   
     margin: 10px;
@@ -43,7 +42,10 @@
   
 .navbar-logo,
 .navbar-title,
-.navbar-btn {
+.navbar-btn,
+.navbar-user,
+.navbar-liked,
+.navbar-search {
     cursor: pointer;
 }
   
@@ -53,7 +55,11 @@
  
 .navbar-logo:active,
 .navbar-title:active,
-.navbar-btn:active {
+.navbar-btn:active,
+.navbar-user:active,
+.navbar-liked:active,
+.navbar-search:active,
+.dropdown-logout span:active {
     color: aquamarine;
 }
   
@@ -61,4 +67,77 @@
     font-family: 'Rochester';
     font-weight: 400;
     font-style: normal;
+}
+
+/*------------------- USER BAR ------------------*/
+.user-btns-list {
+    display: flex;
+    list-style-type: none;
+}
+
+.navbar-search,
+.navbar-liked,
+.navbar-user {
+    margin: 0 10px;
+}
+
+.dropdown-logout {
+    position: absolute;
+    top: 90px;
+    display: flex;
+    justify-content: center;
+
+    width: 150px;
+    padding: 10px;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #d3d0d0;
+    transition: visibility 0.1s, opacity 0.4s linear;
+
+    border-radius: 10px;
+
+    font-family: "Quicksand";
+}
+
+.log-out {
+    right: 10px;
+}
+
+.search {
+    right: 110px;
+}
+
+.liked {
+    right: 65px;
+}
+
+.dropdown-logout::before {
+    content: '';
+    position: absolute;
+
+    top: -10px;
+    right: 40px;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #d3d0d0;
+}
+
+.dropdown-logout span {
+    color: #4CAF50;
+    cursor: pointer;
+}
+
+.user-btns-item:hover .dropdown-logout {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.1s, opacity 0.4s linear;
+}
+
+
+/*---------------------- Media ----------------------*/
+@media screen and (max-width: 992px) {    
+    .dropdown-logout {
+        top: 70px;
+    }
 }

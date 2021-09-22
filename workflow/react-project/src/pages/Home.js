@@ -1,38 +1,49 @@
 import './Home.css';
 import './pagesMedia.css'
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from '../components/Modal';
 import QuotesCarousel from '../components/QuotesCarousel';
 import RandomCocktail from '../components/RandomCocktail';
+import { connect } from 'react-redux';
+import { showCocktailModal } from '../redux/action-creators/modalActions';
+import { ToastContainer } from 'react-toastify';
 
-export const Home = () => {
-    const [openModal, setOpenModal] = useState(false);
-
+const Home = (props) => {
     return (
-        <>
-            <div className="wrap">
-                {openModal && 
-                <Modal modalState={setOpenModal} title="Random Cocktail">
-                    <RandomCocktail/>
-                </Modal>}
+        <div className="wrap">
+            <ToastContainer />
+            {props.modalState && 
+            <Modal title="Random Cocktail">
+                <RandomCocktail/>
+            </Modal>}
 
-                <h1 className="homepage-title">Cocktail App</h1>
+            <h1 className="homepage-title">Cocktail App</h1>
 
-                <section className="content">
-                        <QuotesCarousel></QuotesCarousel>
-                    <div className="content-cocktail">
-                        <img 
-                            className="content-img" 
-                            alt="Green cocktail" 
-                            src="./green-cocktail.png"
-                            onClick={() => {
-                                setOpenModal(true);
-                            }}
-                        />
-                        <p className="content-prompt">Press on glass to get a random cocktail</p>
-                    </div>
-                </section>
-            </div>
-        </>
+            <section className="content">
+                    <QuotesCarousel></QuotesCarousel>
+                <div className="content-cocktail">
+                    <img 
+                        className="content-img" 
+                        alt="Green cocktail" 
+                        src="./green-cocktail.png"
+                        onClick={props.showCocktailModal}
+                    />
+                    <p className="content-prompt">Press on glass to get a random cocktail</p>
+                </div>
+            </section>
+        </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        modalState: state.modal.showCocktailModal
+    };
+    
+};
+
+const mapDispatchToProps = { 
+    showCocktailModal
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

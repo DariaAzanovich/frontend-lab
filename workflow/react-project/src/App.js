@@ -1,11 +1,16 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Home } from './pages/Home';
+import Home from './pages/Home';
 import { Sp } from './pages/Sp';
-import { Navbar } from './components/Navbar';
+import Navbar from './components/Navbar';
+import { getInitialState } from './redux/action-creators/authActions';
+import { connect } from 'react-redux';
 
-function App() {
+
+function App({ getInitialState }) {
+    useEffect(getInitialState, []);
+
     return (
         <BrowserRouter>
             <div className="app-container" id="app">
@@ -21,4 +26,6 @@ function App() {
     );
 }
 
-export default App;
+const mapDispatchToProps = { getInitialState };
+
+export default connect(null, mapDispatchToProps)(App);

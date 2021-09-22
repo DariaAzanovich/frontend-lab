@@ -1,5 +1,5 @@
-import { api } from "./api";
-import { FETCH_COCKTAIL_SUCCESS, FETCH_LOADING, FETCH_COCKTAIL_FAIL } from "./types";
+import { api } from "../api";
+import { FETCH_COCKTAIL_SUCCESS, FETCH_LOADING, FETCH_COCKTAIL_FAIL } from "../types";
 import { toast } from "react-toastify";
 
 export const fetchRandomCocktail = () => {

@@ -18,7 +18,7 @@ Since the project is not a small thing, let's track progress of it here (on this
 - [x] [Init Project](./init.md)
 - [x] [First steps](./first_steps.md)
 - [x] [Data Management](./data-management.md)
-- [ ] [Authentication](./authentication.md)
+- [x] [Authentication](./authentication.md)
 
 ## Links you'll definitely use
 
