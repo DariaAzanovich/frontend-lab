@@ -53,7 +53,7 @@ const RandomCocktail = (props) => {
                             <td>Qnty</td>
                             <td></td>
                         </tr>
-                        <Ingredients key={type && cocktails[props.cocktailKey]}/>
+                        <Ingredients data={type && cocktails[props.cocktailKey]}/>
                         </tbody>
                     </table>
                     <p>{type ? cocktails[props.cocktailKey].strInstructions : drinks.strInstructions}</p>
