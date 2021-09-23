@@ -7,34 +7,38 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 import Ingredients from './Ingredients';
 import { fetchRandomCocktail } from '../redux/action-creators/randomCocktailActions';
 
-
 const RandomCocktail = (props) => {
-    const {loader, drinks, fetchRandomCocktail} = props; 
+    const {loader, drinks, fetchRandomCocktail, type, cocktails} = props; 
 
     useEffect(() => {
-        fetchRandomCocktail();
-    }, [])
+        if(!type) {
+            fetchRandomCocktail();
+        }
+    }, [type]);
     
     if(loader) {
         return <Loader />
     } 
 
-    if(drinks) {
+    if((type && cocktails[props.cocktailKey]) || drinks) {
         return (
             <div className="random-cocktail">
                 <div className="cocktail-header">
-                    <p className="cocktail-name">{drinks.strDrink}</p>
+                    <p className="cocktail-name">{type ? cocktails[props.cocktailKey].strDrink : drinks.strDrink}</p>
                     <FontAwesomeIcon
                         icon={faStar} 
                         size="lg"
                         className="cocktail-liked"
+                        style={props.isAuth ? {
+                            visibility: 'visible'
+                        } : {}}
                     />
                 </div>
     
                 <img 
                         className="cocktail-img" 
                         alt="Cocktail" 
-                        src={drinks.strDrinkThumb}
+                        src={type ? cocktails[props.cocktailKey].strDrinkThumb : drinks.strDrinkThumb}
                 />
     
                 <div className="cocktail-body">
@@ -49,10 +53,10 @@ const RandomCocktail = (props) => {
                             <td>Qnty</td>
                             <td></td>
                         </tr>
-                        <Ingredients />
+                        <Ingredients key={type && cocktails[props.cocktailKey]}/>
                         </tbody>
                     </table>
-                    <p>{drinks.strInstructions}</p>
+                    <p>{type ? cocktails[props.cocktailKey].strInstructions : drinks.strInstructions}</p>
                 </div>
             </div>
         )
@@ -64,7 +68,9 @@ const RandomCocktail = (props) => {
 const mapStateToProps = state => {
     return {
         loader: state.randomCocktail.loader,
-        drinks: state.randomCocktail.cocktail[0]
+        drinks: state.randomCocktail.cocktail[0],
+        isAuth: state.auth.isAuth,
+        cocktails: state.search.cocktails
     };
     
 };
