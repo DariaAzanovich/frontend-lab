@@ -2,7 +2,7 @@ import { FETCH_COCKTAIL_FAIL, FETCH_COCKTAIL_SUCCESS, FETCH_LOADING } from "../t
 
 const initialState = {
     cocktail: {},
-    loader: true
+    loader: false
 };
 
 export const randomCocktailReducer = (state = initialState, action) => {
