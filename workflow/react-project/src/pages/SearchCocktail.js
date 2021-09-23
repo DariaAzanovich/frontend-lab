@@ -1,5 +1,5 @@
 import './SearchCocktail.css';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Modal from '../components/Modal';
 import { connect } from 'react-redux';
 import RandomCocktail from '../components/RandomCocktail';
@@ -8,7 +8,7 @@ import { faCocktail, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { showCocktailModal } from '../redux/action-creators/modalActions';
 import Loader from '../components/Loader';
 import { fetchSearchCocktails } from '../redux/action-creators/searchCocktailActions';
-import { debounce } from 'lodash';
+import _ from 'lodash';
 import { SEARCH_MODAL_TYPE } from '../redux/types';
 
 const SearchCocktail = (props) => {
@@ -19,8 +19,19 @@ const SearchCocktail = (props) => {
         setSearch(event.target.value);
     }
 
-    // console.log(props.cocktails);
-    // const debounced = debounce(() => console.log('Hello'), 3000);
+    const searchInput = useRef(null);
+
+    const debounceSearch = useRef(
+        _.debounce(search => {
+            props.fetchSearchCocktails(search);
+        }, 1000)
+    );
+    
+    useEffect(() => {
+        if (search) {
+            debounceSearch.current(addSearchParams());
+        }
+    },[search]);
 
     const setCardsAmount = (n) => {
         let cards = [];
@@ -69,7 +80,7 @@ const SearchCocktail = (props) => {
         );
     }
 
-    const setSearchParams = () => {
+    const addSearchParams = () => {
         if(!search) {
             return '';
         }
@@ -96,10 +107,10 @@ const SearchCocktail = (props) => {
                     type="text" 
                     placeholder="Type anything..." 
                     id="search" 
+                    ref={searchInput}
                     value={search}
                     onChange={(e) => {
                         updateSearch(e);
-                        // debounced();
                     }}
                     onBlur={() => {}}
                 />
@@ -108,7 +119,7 @@ const SearchCocktail = (props) => {
                     className="search-btn"
                     onClick={() => {
                         props.fetchSearchCocktails(
-                        setSearchParams());
+                        addSearchParams());
                     }}
                 >
                     <FontAwesomeIcon
@@ -128,7 +139,7 @@ const SearchCocktail = (props) => {
                         onChange={() => {
                             search &&
                             props.fetchSearchCocktails(
-                            setSearchParams());
+                            addSearchParams());
                         }}
                     />
                     <span>By drink name</span>
@@ -142,7 +153,7 @@ const SearchCocktail = (props) => {
                         onChange={() => {
                             search &&
                             props.fetchSearchCocktails(
-                            setSearchParams());
+                            addSearchParams());
                         }}
                     />
                     <span>By ingredient name</span>
