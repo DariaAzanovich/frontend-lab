@@ -19,8 +19,6 @@ const SearchCocktail = (props) => {
         setSearch(event.target.value);
     }
 
-    const searchInput = useRef(null);
-
     const debounceSearch = useRef(
         _.debounce(search => {
             props.fetchSearchCocktails(search);
@@ -107,7 +105,6 @@ const SearchCocktail = (props) => {
                     type="text" 
                     placeholder="Type anything..." 
                     id="search" 
-                    ref={searchInput}
                     value={search}
                     onChange={(e) => {
                         updateSearch(e);
