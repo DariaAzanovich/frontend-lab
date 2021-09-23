@@ -8,7 +8,7 @@ export const fetchRandomCocktail = () => {
             type: FETCH_LOADING
         });
         
-        fetch(`${api.API_URL}/cocktails/random`)
+        fetch(`${api.API_URL + api.random}`)
         .then(res => res.json())
         .then(res => {
             dispatch({
