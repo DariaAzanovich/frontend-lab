@@ -1,0 +1,222 @@
+.search-cocktail-wrap {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-top: 75px;
+
+    width: 100%;
+}
+
+/*----------------------- Search input ---------------------*/
+
+.search-input-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 80%;
+    margin: 4px 0;
+    margin-bottom: 30px;
+    padding: 20px;
+
+    border: 1px solid #1B5E20;
+    border-radius: 5px;
+
+}
+
+#search {
+    flex-grow: 1;
+
+    background-color: transparent;
+    font-size: 18px;
+    color: #000000;
+}
+
+.search-btn {
+    color: #1B5E20;
+
+    cursor: pointer;
+}
+
+
+/*--------------------- Radio btn-s ----------------------------*/
+
+.checkbox-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    width: 50%;
+    margin-bottom: 80px;
+
+    font-weight: bolder;
+    color: gray;
+}
+
+.checkbox-wrap label {
+    display: flex;
+
+    font-size: 16px;
+}
+
+label > input[type="radio"] {
+    display: none;
+}
+
+label > input[type="radio"] + * {
+    display: flex;
+    align-items: center;
+}
+
+label > input[type="radio"] + *::before {
+    content: "";
+    display: flex;
+
+    width: 15px;
+    height: 15px;
+
+    margin-right: 0.3rem;
+    
+    border-radius: 50%;
+    border: 3px solid gray;
+}
+
+label > input[type="radio"]:checked + * {
+    color: #1B5E20;
+}
+
+label > input[type="radio"]:checked + *::before {
+    background: radial-gradient(#1B5E20 0%, #1B5E20 40%, transparent 50%, transparent);
+    border-color: #1B5E20;
+}
+
+/*-------------------- Search results ------------------*/
+
+.cocktail-cards-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 90%;
+    padding: 0;
+
+    list-style: none;
+}
+
+.cocktail-card {
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 250px;
+    height: 250px;
+    padding: 25px;
+    margin: 15px;
+
+    background-color: #B6C3B9;
+    border-radius: 10px;
+
+    font-family: "Rochester";
+}
+
+.cocktail-card:hover {
+    box-shadow: 0px 0px 10px 7px rgba(97, 107, 94, 0.2);
+}
+
+.cocktail-search-img {
+    align-self: center;
+
+    width: 100px;
+    height: 100px;
+
+    margin-bottom: 25px;
+
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.cocktail-search-name {
+    cursor: pointer;
+
+    margin-bottom: 35px;
+}
+
+.cocktail-search-icons {
+    display: flex;
+    justify-content: space-between;
+
+    width: 40%;
+
+    color: #1B5E20;
+}
+
+.search-icon-age {
+    position: relative;
+
+    font-family: "Asap";
+    font-weight: 700;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.empty-search {
+    font-size: 30px;
+    font-family: "Quicksand";
+
+    color: #1B5E20;
+}
+
+.search-icon-age .dropdown-prompt {
+    top: 40px;
+    right: -35px;
+}
+
+.search-icon-age:hover .dropdown-prompt {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.1s, opacity 0.4s linear;
+}
+
+.search-icon-age .dropdown-prompt span {
+    color: #1B5E20;
+}
+
+/*------------------------ MEDIA ---------------------------*/
+
+@media screen and (max-width: 992px) {
+    .search-input-wrap {
+        width: 90%;
+    }
+    
+    .checkbox-wrap {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .checkbox-wrap {
+        width: 90%;
+    }
+
+    .search-icon-age .dropdown-prompt {
+        top: 40px;
+        left: -35px;
+    }
+
+    .dropdown-prompt::before {      
+        top: -10px;
+        right: 95px;  
+      }
+}
+
+@media screen and (min-width: 1920px) {
+    .search-cocktail-wrap {
+        max-width: 1700px;
+    }
+}
