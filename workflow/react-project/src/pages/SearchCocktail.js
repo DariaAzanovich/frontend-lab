@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { showCocktailModal } from '../redux/action-creators/modalActions';
 import Loader from '../components/Loader';
-import { fetchSearchCocktails, leaveSearchPage } from '../redux/action-creators/searchCocktailActions';
+import { fetchSearchCocktails, cleanSearchResults } from '../redux/action-creators/searchCocktailActions';
 import _ from 'lodash';
 import { SEARCH_MODAL_TYPE } from '../redux/types';
 
@@ -31,7 +31,7 @@ const SearchCocktail = (props) => {
         }
     },[search]);
 
-    useEffect(props.leaveSearchPage, []);
+    useEffect(props.cleanSearchResults, []);
 
     const setCardsAmount = (n) => {
         let cards = [];
@@ -186,7 +186,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = { 
     showCocktailModal,
     fetchSearchCocktails,
-    leaveSearchPage
+    cleanSearchResults
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchCocktail);

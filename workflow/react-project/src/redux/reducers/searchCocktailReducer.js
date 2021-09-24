@@ -1,7 +1,7 @@
 import { 
     FETCH_SEARCH_COCKTAILS_LOADING, FETCH_SEARCH_COCKTAILS_SUCCESS, 
     FETCH_SEARCH_COCKTAILS_FAIL,
-    LEAVE_SEARCH_PAGE
+    CLEAN_SEARCH_RESULTS
 } from "../types";
 
 const initialState = {
@@ -29,7 +29,7 @@ export const searchCocktailReducer = (state = initialState, action) => {
                 loader: false,
                 cocktails: {}
             };
-        case LEAVE_SEARCH_PAGE:
+        case CLEAN_SEARCH_RESULTS:
             return {
                 ...state,
                 cocktails: {}

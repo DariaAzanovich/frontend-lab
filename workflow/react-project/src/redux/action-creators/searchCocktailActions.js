@@ -1,7 +1,6 @@
 import { api } from "../api";
-import { FETCH_SEARCH_COCKTAILS_SUCCESS, FETCH_SEARCH_COCKTAILS_LOADING, FETCH_SEARCH_COCKTAILS_FAIL, LEAVE_SEARCH_PAGE } from "../types";
+import { FETCH_SEARCH_COCKTAILS_SUCCESS, FETCH_SEARCH_COCKTAILS_LOADING, FETCH_SEARCH_COCKTAILS_FAIL, CLEAN_SEARCH_RESULTS } from "../types";
 import { toast } from "react-toastify";
-import history from "../history";
 
 export const fetchSearchCocktails = (search) => {
     return dispatch => {
@@ -31,10 +30,10 @@ export const fetchSearchCocktails = (search) => {
     }
 };
 
-export const leaveSearchPage = () => {
+export const cleanSearchResults = () => {
     return dispatch => {
         dispatch({
-            type: LEAVE_SEARCH_PAGE
+            type: CLEAN_SEARCH_RESULTS
         });
     }
 }
