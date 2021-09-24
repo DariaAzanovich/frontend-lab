@@ -37,7 +37,7 @@ const Ingredients = (props) => {
         )
     };
 
-    if(props.cocktailKey) {
+    if(typeof props.cocktailKey === 'number') {
         createIngredient(state.search.cocktails, props.cocktailKey);  
     } else {
         createIngredient(state.randomCocktail.cocktails, 0);   
