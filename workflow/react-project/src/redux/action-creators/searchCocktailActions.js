@@ -17,7 +17,7 @@ export const fetchSearchCocktails = (search) => {
         .then(result => {
             dispatch({
                 type: FETCH_SEARCH_COCKTAILS_SUCCESS,
-                payload: [...result.drinks]
+                payload: {...result}
             });
         })
         .catch(error => {

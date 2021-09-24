@@ -6,6 +6,7 @@ import {
 
 const initialState = {
     cocktails: [],
+    ingredients: [],
     loader: false
 };
 
@@ -15,24 +16,28 @@ export const searchCocktailReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loader: true,
-                cocktails: []
+                cocktails: [],
+                ingredients: []
             };
         case FETCH_SEARCH_COCKTAILS_SUCCESS:
             return {
                 ...state,
-                cocktails: action.payload,
+                cocktails: action.payload.drinks || [],
+                ingredients: action.payload.ingredients || [],
                 loader: false
             };
         case FETCH_SEARCH_COCKTAILS_FAIL:
             return {
                 ...state,
                 loader: false,
-                cocktails: []
+                cocktails: [],
+                ingredients: []
             };
         case CLEAN_SEARCH_RESULTS:
             return {
                 ...state,
-                cocktails: []
+                cocktails: [],
+                ingredients: []
             };   
         default: return state;
     }

@@ -167,7 +167,26 @@ const SearchCocktail = (props) => {
                 </ul> 
             }
 
-            {!props.loader && props.cocktails.length === 0 &&
+            {!props.loader && props.ingredients.length !== 0 &&
+                <ul className="cocktail-cards-list">
+                    <li className="ingredient-card">
+                        <p className="bold-text">
+                            {props.ingredients[0]['strIngredient']}
+                        </p>
+                        
+                        <p>
+                           <span className="bold-text">Description: </span> {props.ingredients[0]['strDescription'] || '-'}
+                        </p>
+                        
+                        <p>
+                            <span className="bold-text">Type:</span> {props.ingredients[0]['strType'] || '-'}
+                        </p>
+                    </li>
+
+                </ul> 
+            }
+
+            {!props.loader && props.cocktails.length === 0 &&  props.ingredients.length === 0 &&
                 <span className="empty-search">There will be search results</span>
             }
         </section>
@@ -178,7 +197,8 @@ const mapStateToProps = state => {
     return {
         modalState: state.modal.showCocktailModal,
         loader: state.search.loader,
-        cocktails: state.search.cocktails
+        cocktails: state.search.cocktails,
+        ingredients: state.search.ingredients
     };
     
 };

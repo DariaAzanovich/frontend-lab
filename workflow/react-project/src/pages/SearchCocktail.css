@@ -107,25 +107,46 @@ label > input[type="radio"]:checked + *::before {
 }
 
 .cocktail-card {
+    width: 250px;
+    height: 250px;
+
+    font-family: "Rochester";
+}
+
+.cocktail-card:hover,
+.ingredient-card:hover {
+    box-shadow: 0px 0px 10px 7px rgba(97, 107, 94, 0.2);
+}
+
+.cocktail-card,
+.ingredient-card {
     flex-shrink: 0;
 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 
-    width: 250px;
-    height: 250px;
     padding: 25px;
     margin: 15px;
 
     background-color: #B6C3B9;
     border-radius: 10px;
-
-    font-family: "Rochester";
 }
 
-.cocktail-card:hover {
-    box-shadow: 0px 0px 10px 7px rgba(97, 107, 94, 0.2);
+.ingredient-card  {
+    max-width: 80%;
+    max-height: 250px;
+
+    font-family: "Quicksand";
+    overflow-x: auto;
+}
+
+.ingredient-card p:not(:last-child) {
+    padding-bottom: 10px;
+}
+
+p:first-child {
+    align-self: center;
 }
 
 .cocktail-search-img {
@@ -185,6 +206,10 @@ label > input[type="radio"]:checked + *::before {
 
 .search-icon-age .dropdown-prompt span {
     color: #1B5E20;
+}
+
+.bold-text {
+    font-weight: bolder;
 }
 
 /*------------------------ MEDIA ---------------------------*/
