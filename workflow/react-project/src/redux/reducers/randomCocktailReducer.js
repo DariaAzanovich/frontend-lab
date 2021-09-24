@@ -1,7 +1,7 @@
 import { FETCH_COCKTAIL_FAIL, FETCH_COCKTAIL_SUCCESS, FETCH_LOADING } from "../types";
 
 const initialState = {
-    cocktail: {},
+    cocktails: {},
     loader: false
 };
 
@@ -15,7 +15,7 @@ export const randomCocktailReducer = (state = initialState, action) => {
         case FETCH_COCKTAIL_SUCCESS:
             return {
                 ...state,
-                cocktail: action.payload,
+                cocktails: action.payload,
                 loader: false
             };
         case FETCH_COCKTAIL_FAIL:

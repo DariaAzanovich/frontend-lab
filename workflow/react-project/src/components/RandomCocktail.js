@@ -53,7 +53,7 @@ const RandomCocktail = (props) => {
                             <td>Qnty</td>
                             <td></td>
                         </tr>
-                        <Ingredients data={type && cocktails[props.cocktailKey]}/>
+                        <Ingredients cocktailKey={type && props.cocktailKey}/>
                         </tbody>
                     </table>
                     <p>{type ? cocktails[props.cocktailKey].strInstructions : drinks.strInstructions}</p>
@@ -68,7 +68,7 @@ const RandomCocktail = (props) => {
 const mapStateToProps = state => {
     return {
         loader: state.randomCocktail.loader,
-        drinks: state.randomCocktail.cocktail[0],
+        drinks: state.randomCocktail.cocktails[0],
         isAuth: state.auth.isAuth,
         cocktails: state.search.cocktails
     };

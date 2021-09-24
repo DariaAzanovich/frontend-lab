@@ -6,8 +6,25 @@ const Ingredients = (props) => {
     let strIngredient = 'strIngredient';
     let strMeasure = 'strMeasure';
 
-    // console.log(props.type);
-    // console.log(props.data);
+    const createIngredient = (cocktails, ind) => {
+        for(let i = 1; i < 16; i++) {
+            const ingredient = cocktails[ind][strIngredient + i];
+    
+            let measure = cocktails[ind][strMeasure + i];
+            let qnty = '';
+    
+            if(measure) {
+                qnty = measure.replace(/(^\D+) |(\D+$)/, '');
+                measure = measure.replace(qnty, '');
+            }
+    
+            if(ingredient) {
+                result.push(createTr(i, ingredient, qnty, measure));
+            } else {
+                break;
+            }
+        }
+    }
 
     const createTr = (i, ingredient, qnty, measure) => {
         return (
@@ -19,43 +36,11 @@ const Ingredients = (props) => {
             </tr>
         )
     };
-    
-    if(props.data) {
-        for(let i = 1; i < 16; i++) {
-            const ingredient = props.data[strIngredient + i];
-    
-            let measure = props.data[strMeasure + i];
-            let qnty = '';
-    
-            if(measure) {
-                qnty = measure.replace(/(^\D+) |(\D+$)/, '');
-                measure = measure.replace(qnty, '');
-            }
-    
-            if(ingredient) {
-                result.push(createTr(i, ingredient, qnty, measure));
-            } else {
-                break;
-            }
-        }
+
+    if(props.cocktailKey) {
+        createIngredient(state.search.cocktails, props.cocktailKey);  
     } else {
-        for(let i = 1; i < 16; i++) {
-            const ingredient = state.randomCocktail.cocktail[0][strIngredient + i];
-    
-            let measure = state.randomCocktail.cocktail[0][strMeasure + i];
-            let qnty = '';
-    
-            if(measure) {
-                qnty = measure.replace(/(^\D+) |(\D+$)/, '');
-                measure = measure.replace(qnty, '');
-            }
-    
-            if(ingredient) {
-                result.push(createTr(i, ingredient, qnty, measure));
-            } else {
-                break;
-            }
-        }
+        createIngredient(state.randomCocktail.cocktails, 0);   
     }
 
     return result;
