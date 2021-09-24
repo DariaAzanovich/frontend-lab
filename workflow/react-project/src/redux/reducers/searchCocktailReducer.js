@@ -5,7 +5,7 @@ import {
 } from "../types";
 
 const initialState = {
-    cocktails: {},
+    cocktails: [],
     loader: false
 };
 
@@ -15,7 +15,7 @@ export const searchCocktailReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loader: true,
-                cocktails: {}
+                cocktails: []
             };
         case FETCH_SEARCH_COCKTAILS_SUCCESS:
             return {
@@ -27,12 +27,12 @@ export const searchCocktailReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loader: false,
-                cocktails: {}
+                cocktails: []
             };
         case CLEAN_SEARCH_RESULTS:
             return {
                 ...state,
-                cocktails: {}
+                cocktails: []
             };   
         default: return state;
     }

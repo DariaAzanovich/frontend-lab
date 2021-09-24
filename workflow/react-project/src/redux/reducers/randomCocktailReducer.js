@@ -1,7 +1,7 @@
 import { FETCH_COCKTAIL_FAIL, FETCH_COCKTAIL_SUCCESS, FETCH_LOADING } from "../types";
 
 const initialState = {
-    cocktails: {},
+    cocktails: [],
     loader: false
 };
 
