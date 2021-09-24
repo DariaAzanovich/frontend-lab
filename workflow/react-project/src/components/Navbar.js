@@ -11,7 +11,6 @@ import Authentication from './Authentication';
 import { connect } from 'react-redux';
 import { logOut } from '../redux/action-creators/authActions';
 import { showRegModal } from '../redux/action-creators/modalActions';
-import { leaveSearchPage } from '../redux/action-creators/searchCocktailActions';
 import history from '../redux/history';
 
 const Navbar = (props) => {
@@ -30,14 +29,12 @@ const Navbar = (props) => {
                         className="navbar-logo"
                         onClick={() => {
                             history.push('/');
-                            props.leaveSearchPage();
                         }}
                     />
                     <div 
                         className="navbar-title"
                         onClick={() => {
                             history.push('/');
-                            props.leaveSearchPage();
                         }}
                     >
                         Coctail App
@@ -88,8 +85,7 @@ const Navbar = (props) => {
                             <div className="dropdown-prompt log-out">
                                 <span onClick={() => {
                                         props.logOut();
-                                        history.push('/');
-                                        props.leaveSearchPage();
+                                        history.push('/');;
                                     }}
                                 >
                                     Log out
@@ -115,8 +111,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = { 
     logOut, 
-    showRegModal,
-    leaveSearchPage
+    showRegModal
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

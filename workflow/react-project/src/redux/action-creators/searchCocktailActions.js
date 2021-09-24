@@ -32,11 +32,9 @@ export const fetchSearchCocktails = (search) => {
 };
 
 export const leaveSearchPage = () => {
-    if(history.location.pathname !== '/search') {
-        return dispatch => {
-            dispatch({
-                type: LEAVE_SEARCH_PAGE
-            });
-        }
+    return dispatch => {
+        dispatch({
+            type: LEAVE_SEARCH_PAGE
+        });
     }
 }
