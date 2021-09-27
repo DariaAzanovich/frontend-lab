@@ -39,14 +39,18 @@ const SearchCocktail = (props) => {
         for(let i = 0; i < n; i++) {
             const src = props.cocktails[i].strDrinkThumb;
             const cocktailName = props.cocktails[i].strDrink;
+            let isAlco = false;
+            if (props.cocktails[i].strAlcoholic === 'Alcoholic') {
+                isAlco = true;
+            }
             
-            cards.push(addSearchCard(i, src, cocktailName));
+            cards.push(addSearchCard(i, src, cocktailName, isAlco));
         }
 
         return cards;
     }
 
-    const addSearchCard = (i, src, name) => {
+    const addSearchCard = (i, src, name, isAlco) => {
         return (
             <li className="cocktail-card" key={i}>
                 <img className="cocktail-search-img" src={src} alt={name} />
@@ -63,9 +67,9 @@ const SearchCocktail = (props) => {
 
                 <div className="cocktail-search-icons">
                     <span className="search-icon-age">
-                        18+
+                        {isAlco ? '18+' : '0+'}
                         <div className="dropdown-prompt">
-                            <span>Contain alcohol</span>
+                            <span>{isAlco ? 'Contain alcohol' : 'No alcohol'}</span>
                         </div>
                     </span>
 
