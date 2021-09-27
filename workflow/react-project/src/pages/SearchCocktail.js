@@ -10,6 +10,7 @@ import Loader from '../components/Loader';
 import { fetchSearchCocktails, cleanSearchResults } from '../redux/action-creators/searchCocktailActions';
 import _ from 'lodash';
 import { ALCOHOLIC } from '../redux/types';
+import IngredientCard from '../components/IngredientCard';
 
 const SearchCocktail = (props) => {
     const [search, setSearch] = useState('');
@@ -110,33 +111,6 @@ const SearchCocktail = (props) => {
         return 'i=' + search;
     }
 
-    const addIngredientCard = () => {
-        const strIngredient = 'strIngredient';
-        const strDescription = 'strDescription';
-        const strType = 'strType';
-
-        const ingredientName = props.ingredients[0][strIngredient];
-        const ingredientDescr = props.ingredients[0][strDescription];
-        const ingredientType = props.ingredients[0][strType];
-        const noInfo = '-';
-
-        return (
-            <li className="ingredient-card">
-                <p className="bold-text">
-                    {ingredientName}
-                </p>
-                
-                <p>
-                <span className="bold-text">Description: </span> {ingredientDescr || noInfo}
-                </p>
-                
-                <p>
-                    <span className="bold-text">Type:</span> {ingredientType || noInfo}
-                </p>
-            </li>
-        )
-    }
-
     return (
         <section className="search-cocktail-wrap">
             {props.modalState && 
@@ -198,7 +172,7 @@ const SearchCocktail = (props) => {
 
             {!props.loader && props.ingredients.length !== 0 &&
                 <ul className="cocktail-cards-list">
-                    {addIngredientCard()}
+                    <IngredientCard />
                 </ul> 
             }
 
