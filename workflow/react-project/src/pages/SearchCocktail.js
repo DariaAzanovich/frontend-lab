@@ -94,6 +94,28 @@ const SearchCocktail = (props) => {
         return 'i=' + search;
     }
 
+    const addIngredientCard = () => {
+        const strIngredient = 'strIngredient';
+        const strDescription = 'strDescription';
+        const strType = 'strType';
+
+        return (
+            <li className="ingredient-card">
+                <p className="bold-text">
+                    {props.ingredients[0][strIngredient]}
+                </p>
+                
+                <p>
+                <span className="bold-text">Description: </span> {props.ingredients[0][strDescription] || '-'}
+                </p>
+                
+                <p>
+                    <span className="bold-text">Type:</span> {props.ingredients[0][strType] || '-'}
+                </p>
+            </li>
+        )
+    }
+
     return (
         <section className="search-cocktail-wrap">
             {props.modalState && 
@@ -169,20 +191,7 @@ const SearchCocktail = (props) => {
 
             {!props.loader && props.ingredients.length !== 0 &&
                 <ul className="cocktail-cards-list">
-                    <li className="ingredient-card">
-                        <p className="bold-text">
-                            {props.ingredients[0]['strIngredient']}
-                        </p>
-                        
-                        <p>
-                           <span className="bold-text">Description: </span> {props.ingredients[0]['strDescription'] || '-'}
-                        </p>
-                        
-                        <p>
-                            <span className="bold-text">Type:</span> {props.ingredients[0]['strType'] || '-'}
-                        </p>
-                    </li>
-
+                    {addIngredientCard()}
                 </ul> 
             }
 
