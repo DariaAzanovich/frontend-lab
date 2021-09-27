@@ -11,6 +11,7 @@ import { fetchSearchCocktails, cleanSearchResults } from '../redux/action-creato
 import _ from 'lodash';
 import { ALCOHOLIC } from '../redux/types';
 import IngredientCard from '../components/IngredientCard';
+import SearchCard from '../components/SearchCard';
 
 const SearchCocktail = (props) => {
     const [search, setSearch] = useState('');
@@ -30,7 +31,7 @@ const SearchCocktail = (props) => {
         if (search) {
             debounceSearch.current(addSearchParams());
         }
-    },[search]);
+    }, [search]);
 
     useEffect(props.cleanSearchResults, []);
 
@@ -42,7 +43,15 @@ const SearchCocktail = (props) => {
             
             const isAlco = props.cocktails[i].strAlcoholic === ALCOHOLIC;
             
-            cards.push(addSearchCard(i, cardImgSrc, cocktailName, isAlco));
+            cards.push(
+                <SearchCard 
+                    cardIndex={i} 
+                    cardImgSrc={cardImgSrc} 
+                    cocktailName={cocktailName} 
+                    isAlco={isAlco} 
+                    setCardKey={setKey}
+                />
+            );
         }
 
         return cards;
@@ -51,50 +60,6 @@ const SearchCocktail = (props) => {
     const searchCocktail = () => {
         return search && props.fetchSearchCocktails(
             addSearchParams());
-    }
-
-    const addSearchCard = (cardIndex, cardImgSrc, name, isAlco) => {
-        const ageLimit = {
-            alco: '18+',
-            noAlco: '0+'
-        };
-        const agePrompt = {
-            alco: 'Contain alcohol',
-            noAlco: 'No alcohol'
-        }
-
-        return (
-            <li className="cocktail-card" key={cardIndex}>
-                <img className="cocktail-search-img" src={cardImgSrc} alt={name} />
-
-                <span 
-                    className="cocktail-search-name"
-                    onClick={() => {
-                        setKey(cardIndex);
-                        props.showCocktailModal();
-                        }}
-                >
-                    {name}
-                </span>
-
-                <div className="cocktail-search-icons">
-                    <span className="search-icon-age">
-                        {isAlco ? ageLimit.alco : ageLimit.noAlco}
-                        <div className="dropdown-prompt">
-                            <span>{isAlco ? agePrompt.alco : agePrompt.noAlco}</span>
-                        </div>
-                    </span>
-
-                    
-
-                    <FontAwesomeIcon 
-                        icon={faCocktail} 
-                        size="1x"
-                        className="search-icon-logo"
-                    />
-                </div>
-            </li>
-        );
     }
 
     const addSearchParams = () => {
