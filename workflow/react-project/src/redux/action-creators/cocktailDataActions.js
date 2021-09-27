@@ -10,19 +10,20 @@ export const fetchCocktail = (id = null) => {
             type: FETCH_LOADING
         });
 
-        let url ='';
+        let urlTo ='';
         let headers = {};
 
         if(id !== null) {
-            url = `${api.API_URL + api.lookup}`;
+            urlTo = api.lookup;
             headers = {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             };
         } else {
-            url = `${api.API_URL + api.random}`;
+            urlTo = api.random;
         }
         
-        axios.get(url, {
+        axios.get(urlTo, {
+            baseURL: api.API_URL,
             headers: headers,
             params: {
                 i: id
