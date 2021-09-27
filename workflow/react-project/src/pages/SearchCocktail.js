@@ -24,8 +24,6 @@ const SearchCocktail = (props) => {
             props.fetchSearchCocktails(search);
         }, 1000)
     );
-
-    console.log(props.cocktails);
     
     useEffect(() => {
         if (search) {
