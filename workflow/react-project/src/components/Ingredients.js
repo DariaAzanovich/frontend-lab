@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 const Ingredients = () => {
     const state = useSelector(state => state);
     const result = [];
-    let strIngredient = 'strIngredient';
-    let strMeasure = 'strMeasure';
+    const strIngredient = 'strIngredient';
+    const strMeasure = 'strMeasure';
 
     const createIngredient = (cocktails, ind) => {
         for(let i = 1; i < 16; i++) {
