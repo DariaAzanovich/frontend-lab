@@ -1,10 +1,10 @@
 import './SearchCocktail.css';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from '../components/Modal';
 import { connect } from 'react-redux';
 import RandomCocktail from '../components/RandomCocktail';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCocktail, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { showCocktailModal } from '../redux/action-creators/modalActions';
 import Loader from '../components/Loader';
 import { fetchSearchCocktails, cleanSearchResults } from '../redux/action-creators/searchCocktailActions';
