@@ -21,15 +21,14 @@ const SearchCocktail = (props) => {
         setSearch(event.target.value);
     }
 
-    const debounceSearch = useRef(
+    const debounceSearch = 
         _.debounce(search => {
             props.fetchSearchCocktails(search);
-        }, 1000)
-    );
+        }, 1000);
     
     useEffect(() => {
         if (search) {
-            debounceSearch.current(addSearchParams());
+            debounceSearch(addSearchParams());
         }
     }, [search]);
 
