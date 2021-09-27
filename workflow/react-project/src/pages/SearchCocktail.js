@@ -50,6 +50,15 @@ const SearchCocktail = (props) => {
     }
 
     const addSearchCard = (cardIndex, cardImgSrc, name, isAlco) => {
+        const ageLimit = {
+            alco: '18+',
+            noAlco: '0+'
+        };
+        const agePrompt = {
+            alco: 'Contain alcohol',
+            noAlco: 'No alcohol'
+        }
+
         return (
             <li className="cocktail-card" key={cardIndex}>
                 <img className="cocktail-search-img" src={cardImgSrc} alt={name} />
@@ -66,9 +75,9 @@ const SearchCocktail = (props) => {
 
                 <div className="cocktail-search-icons">
                     <span className="search-icon-age">
-                        {isAlco ? '18+' : '0+'}
+                        {isAlco ? ageLimit.alco : ageLimit.noAlco}
                         <div className="dropdown-prompt">
-                            <span>{isAlco ? 'Contain alcohol' : 'No alcohol'}</span>
+                            <span>{isAlco ? agePrompt.alco : agePrompt.noAlco}</span>
                         </div>
                     </span>
 
