@@ -3,30 +3,36 @@ import { FETCH_SEARCH_COCKTAILS_SUCCESS, FETCH_SEARCH_COCKTAILS_LOADING, FETCH_S
 import { toast } from "react-toastify";
 
 export const fetchSearchCocktails = (search) => {
-    return dispatch => {
-        dispatch({
-            type: FETCH_SEARCH_COCKTAILS_LOADING
-        });
-        
-        fetch(`${api.API_URL + api.search + search}`, {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+    return async dispatch => {
+        try {
+            dispatch({
+                type: FETCH_SEARCH_COCKTAILS_LOADING
+            });
+            
+            const response = await fetch(`${api.API_URL + api.search + search}`, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+
+            const json = await response.json();
+
+            if(json.error) {
+                const err = new Error(json.error.message);
+                throw err;
             }
-        })
-        .then(res => res.json())
-        .then(result => {
+            
             dispatch({
                 type: FETCH_SEARCH_COCKTAILS_SUCCESS,
-                payload: {...result}
+                payload: {...json}
             });
-        })
-        .catch(error => {
+        } catch(error) {
             toast.error(error.toString());
 
             dispatch({
                 type: FETCH_SEARCH_COCKTAILS_FAIL
             })
-        })
+        }
     }
 };
 
