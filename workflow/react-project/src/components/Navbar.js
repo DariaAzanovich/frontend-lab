@@ -37,7 +37,7 @@ const Navbar = (props) => {
                             history.push('/');
                         }}
                     >
-                        Coctail App
+                        Cocktail App
                     </div>
                 </div>
 
@@ -85,7 +85,7 @@ const Navbar = (props) => {
                             <div className="dropdown-prompt log-out">
                                 <span onClick={() => {
                                         props.logOut();
-                                        history.push('/');;
+                                        history.push('/');
                                     }}
                                 >
                                     Log out
