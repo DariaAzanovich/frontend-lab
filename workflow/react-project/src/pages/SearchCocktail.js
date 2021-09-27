@@ -103,18 +103,23 @@ const SearchCocktail = (props) => {
         const strDescription = 'strDescription';
         const strType = 'strType';
 
+        const ingredientName = props.ingredients[0][strIngredient];
+        const ingredientDescr = props.ingredients[0][strDescription];
+        const ingredientType = props.ingredients[0][strType];
+        const noInfo = '-';
+
         return (
             <li className="ingredient-card">
                 <p className="bold-text">
-                    {props.ingredients[0][strIngredient]}
+                    {ingredientName}
                 </p>
                 
                 <p>
-                <span className="bold-text">Description: </span> {props.ingredients[0][strDescription] || '-'}
+                <span className="bold-text">Description: </span> {ingredientDescr || noInfo}
                 </p>
                 
                 <p>
-                    <span className="bold-text">Type:</span> {props.ingredients[0][strType] || '-'}
+                    <span className="bold-text">Type:</span> {ingredientType || noInfo}
                 </p>
             </li>
         )
