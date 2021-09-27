@@ -9,6 +9,7 @@ import { showCocktailModal } from '../redux/action-creators/modalActions';
 import Loader from '../components/Loader';
 import { fetchSearchCocktails, cleanSearchResults } from '../redux/action-creators/searchCocktailActions';
 import _ from 'lodash';
+import { ALCOHOLIC } from '../redux/types';
 
 const SearchCocktail = (props) => {
     const [search, setSearch] = useState('');
@@ -39,10 +40,8 @@ const SearchCocktail = (props) => {
         for(let i = 0; i < n; i++) {
             const src = props.cocktails[i].strDrinkThumb;
             const cocktailName = props.cocktails[i].strDrink;
-            let isAlco = false;
-            if (props.cocktails[i].strAlcoholic === 'Alcoholic') {
-                isAlco = true;
-            }
+            
+            const isAlco = props.cocktails[i].strAlcoholic === ALCOHOLIC;
             
             cards.push(addSearchCard(i, src, cocktailName, isAlco));
         }
