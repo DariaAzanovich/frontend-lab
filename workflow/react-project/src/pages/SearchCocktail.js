@@ -9,7 +9,6 @@ import { showCocktailModal } from '../redux/action-creators/modalActions';
 import Loader from '../components/Loader';
 import { fetchSearchCocktails, cleanSearchResults } from '../redux/action-creators/searchCocktailActions';
 import _ from 'lodash';
-import { SEARCH_MODAL_TYPE } from '../redux/types';
 
 const SearchCocktail = (props) => {
     const [search, setSearch] = useState('');
@@ -24,6 +23,8 @@ const SearchCocktail = (props) => {
             props.fetchSearchCocktails(search);
         }, 1000)
     );
+
+    console.log(props.cocktails);
     
     useEffect(() => {
         if (search) {
@@ -120,7 +121,7 @@ const SearchCocktail = (props) => {
         <section className="search-cocktail-wrap">
             {props.modalState && 
                 <Modal title="Cocktail">
-                    <RandomCocktail type={SEARCH_MODAL_TYPE} cocktailKey={key}/>
+                    <RandomCocktail cocktailKey={key}/>
                 </Modal>
             }
 
