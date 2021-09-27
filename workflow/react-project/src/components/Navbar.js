@@ -14,6 +14,10 @@ import { showRegModal } from '../redux/action-creators/modalActions';
 import history from '../redux/history';
 
 const Navbar = (props) => {
+    const goTo = (pagePath = '') => {
+        pagePath ? history.push(`/${pagePath}`) : history.push('/');
+    }
+
     return (
         <>
             {props.modalState &&
@@ -27,15 +31,11 @@ const Navbar = (props) => {
                         icon={faCocktail} 
                         size="3x"
                         className="navbar-logo"
-                        onClick={() => {
-                            history.push('/');
-                        }}
+                        onClick={() => {goTo()}}
                     />
                     <div 
                         className="navbar-title"
-                        onClick={() => {
-                            history.push('/');
-                        }}
+                        onClick={() => {goTo()}}
                     >
                         Cocktail App
                     </div>
@@ -55,7 +55,7 @@ const Navbar = (props) => {
                                 icon={faSearch} 
                                 size="2x"
                                 className="navbar-search"
-                                onClick={() => history.push('/search')}
+                                onClick={() => goTo('search')}
                             />
 
                             <div className="dropdown-prompt search">
@@ -85,7 +85,7 @@ const Navbar = (props) => {
                             <div className="dropdown-prompt log-out">
                                 <span onClick={() => {
                                         props.logOut();
-                                        history.push('/');
+                                        goTo();
                                     }}
                                 >
                                     Log out
