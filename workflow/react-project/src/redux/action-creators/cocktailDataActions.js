@@ -11,7 +11,7 @@ export const fetchCocktail = (id = null) => {
         let url ='';
         let headers = {};
 
-        if(id) {
+        if(id !== null) {
             url = `${api.API_URL + api.lookup}i=${id}`;
             headers = {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
