@@ -1,5 +1,5 @@
 import './SearchCocktail.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Modal from '../components/Modal';
 import { connect } from 'react-redux';
 import RandomCocktail from '../components/RandomCocktail';
@@ -21,14 +21,15 @@ const SearchCocktail = (props) => {
         setSearch(event.target.value);
     }
 
-    const debounceSearch = 
+    const debounceSearch = useRef(
         _.debounce(search => {
             props.fetchSearchCocktails(search);
-        }, 1000);
+        }, 1000)
+    );
     
     useEffect(() => {
         if (search) {
-            debounceSearch(addSearchParams());
+            debounceSearch.current(addSearchParams());
         }
     }, [search]);
 
