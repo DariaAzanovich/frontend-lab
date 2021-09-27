@@ -135,10 +135,7 @@ const SearchCocktail = (props) => {
                     placeholder="Type anything..." 
                     id="search" 
                     value={search}
-                    onChange={(e) => {
-                        updateSearch(e);
-                    }}
-                    onBlur={() => {}}
+                    onChange={updateSearch}
                 />
 
                 <span 
