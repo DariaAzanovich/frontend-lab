@@ -3,5 +3,6 @@ export const api = {
     SIGN_IN: '/sign-in',
     SIGN_UP: '/sign-up',
     random: '/cocktails/random',
-    search: '/cocktails/search?'
+    search: '/cocktails/search?',
+    lookup: '/cocktails/lookup?'
 };
