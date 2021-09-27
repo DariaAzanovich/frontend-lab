@@ -2,6 +2,8 @@ import { api } from "../api";
 import { FETCH_COCKTAIL_SUCCESS, FETCH_LOADING, FETCH_COCKTAIL_FAIL } from "../types";
 import { toast } from "react-toastify";
 
+const axios = require('axios');
+
 export const fetchCocktail = (id = null) => {
     return dispatch => {
         dispatch({
@@ -12,22 +14,24 @@ export const fetchCocktail = (id = null) => {
         let headers = {};
 
         if(id !== null) {
-            url = `${api.API_URL + api.lookup}i=${id}`;
+            url = `${api.API_URL + api.lookup}`;
             headers = {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             };
         } else {
             url = `${api.API_URL + api.random}`;
         }
         
-        fetch(url, {
-            headers: headers
+        axios.get(url, {
+            headers: headers,
+            params: {
+                i: id
+            }
         })
-        .then(res => res.json())
         .then(res => {
             dispatch({
                 type: FETCH_COCKTAIL_SUCCESS,
-                payload: {...res.drinks}
+                payload: {...res.data.drinks}
             });
         })
         .catch(error => {
