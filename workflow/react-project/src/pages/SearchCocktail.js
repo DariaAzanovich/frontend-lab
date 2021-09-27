@@ -38,26 +38,26 @@ const SearchCocktail = (props) => {
     const setCardsAmount = (n) => {
         let cards = [];
         for(let i = 0; i < n; i++) {
-            const src = props.cocktails[i].strDrinkThumb;
+            const cardImgSrc = props.cocktails[i].strDrinkThumb;
             const cocktailName = props.cocktails[i].strDrink;
             
             const isAlco = props.cocktails[i].strAlcoholic === ALCOHOLIC;
             
-            cards.push(addSearchCard(i, src, cocktailName, isAlco));
+            cards.push(addSearchCard(i, cardImgSrc, cocktailName, isAlco));
         }
 
         return cards;
     }
 
-    const addSearchCard = (i, src, name, isAlco) => {
+    const addSearchCard = (cardIndex, cardImgSrc, name, isAlco) => {
         return (
-            <li className="cocktail-card" key={i}>
-                <img className="cocktail-search-img" src={src} alt={name} />
+            <li className="cocktail-card" key={cardIndex}>
+                <img className="cocktail-search-img" src={cardImgSrc} alt={name} />
 
                 <span 
                     className="cocktail-search-name"
                     onClick={() => {
-                        setKey(i);
+                        setKey(cardIndex);
                         props.showCocktailModal();
                         }}
                 >
