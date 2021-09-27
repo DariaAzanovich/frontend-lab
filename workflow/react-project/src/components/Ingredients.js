@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-const Ingredients = (props) => {
+const Ingredients = () => {
     const state = useSelector(state => state);
     const result = [];
     let strIngredient = 'strIngredient';
