@@ -49,6 +49,11 @@ const SearchCocktail = (props) => {
         return cards;
     }
 
+    const searchCocktail = () => {
+        return search && props.fetchSearchCocktails(
+            addSearchParams());
+    }
+
     const addSearchCard = (cardIndex, cardImgSrc, name, isAlco) => {
         const ageLimit = {
             alco: '18+',
@@ -153,10 +158,7 @@ const SearchCocktail = (props) => {
 
                 <span 
                     className="search-btn"
-                    onClick={() => {
-                        props.fetchSearchCocktails(
-                        addSearchParams());
-                    }}
+                    onClick={searchCocktail}
                 >
                     <FontAwesomeIcon
                             icon={faSearch} 
@@ -172,11 +174,7 @@ const SearchCocktail = (props) => {
                         defaultChecked 
                         name="search-by" 
                         value="1" 
-                        onChange={() => {
-                            search &&
-                            props.fetchSearchCocktails(
-                            addSearchParams());
-                        }}
+                        onChange={searchCocktail}
                     />
                     <span>By drink name</span>
                 </label> 
@@ -186,11 +184,7 @@ const SearchCocktail = (props) => {
                         type="radio" 
                         name="search-by" 
                         value="2" 
-                        onChange={() => {
-                            search &&
-                            props.fetchSearchCocktails(
-                            addSearchParams());
-                        }}
+                        onChange={searchCocktail}
                     />
                     <span>By ingredient name</span>
                 </label> 
