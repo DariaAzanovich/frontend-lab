@@ -5,7 +5,7 @@ const initialState = {
     loader: false
 };
 
-export const randomCocktailReducer = (state = initialState, action) => {
+export const cocktailReducer = (state = initialState, action) => {
     switch(action.type) {
         case FETCH_LOADING:
             return {
