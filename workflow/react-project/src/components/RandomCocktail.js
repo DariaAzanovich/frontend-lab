@@ -5,14 +5,18 @@ import './RandomCocktail.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import Ingredients from './Ingredients';
-import { fetchRandomCocktail } from '../redux/action-creators/randomCocktailActions';
+import { fetchCocktail } from '../redux/action-creators/cocktailDataActions';
 
 const RandomCocktail = (props) => {
-    const {loader, drinks, fetchRandomCocktail, type, cocktails} = props; 
+    const {loader, drinks, fetchCocktail, type, cocktails} = props; 
 
     useEffect(() => {
-        if(!type) {
-            fetchRandomCocktail();
+        if(typeof props.cocktailKey !== 'number') {
+            fetchCocktail();
+        } else {
+            const id = cocktails[props.cocktailKey]['idDrink'];
+
+            fetchCocktail(id);
         }
     }, [type]);
     
@@ -20,11 +24,11 @@ const RandomCocktail = (props) => {
         return <Loader />
     } 
 
-    if((type && cocktails[props.cocktailKey]) || drinks) {
+    if(drinks) {
         return (
             <div className="random-cocktail">
                 <div className="cocktail-header">
-                    <p className="cocktail-name">{type ? cocktails[props.cocktailKey].strDrink : drinks.strDrink}</p>
+                    <p className="cocktail-name">{drinks.strDrink}</p>
                     <FontAwesomeIcon
                         icon={faStar} 
                         size="lg"
@@ -38,7 +42,7 @@ const RandomCocktail = (props) => {
                 <img 
                         className="cocktail-img" 
                         alt="Cocktail" 
-                        src={type ? cocktails[props.cocktailKey].strDrinkThumb : drinks.strDrinkThumb}
+                        src={drinks.strDrinkThumb}
                 />
     
                 <div className="cocktail-body">
@@ -56,7 +60,7 @@ const RandomCocktail = (props) => {
                         <Ingredients cocktailKey={type && props.cocktailKey}/>
                         </tbody>
                     </table>
-                    <p>{type ? cocktails[props.cocktailKey].strInstructions : drinks.strInstructions}</p>
+                    <p>{drinks.strInstructions}</p>
                 </div>
             </div>
         )
@@ -67,14 +71,14 @@ const RandomCocktail = (props) => {
 
 const mapStateToProps = state => {
     return {
-        loader: state.randomCocktail.loader,
-        drinks: state.randomCocktail.cocktails[0],
+        loader: state.cocktailData.loader,
+        drinks: state.cocktailData.cocktails[0],
         isAuth: state.auth.isAuth,
         cocktails: state.search.cocktails
     };
     
 };
 
-const mapDispatchToProps = { fetchRandomCocktail };
+const mapDispatchToProps = { fetchCocktail };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RandomCocktail);
