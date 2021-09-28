@@ -3,27 +3,28 @@ import { useSelector } from "react-redux";
 const IngredientCard = () => {
     const state = useSelector(state => state);
 
-    const strIngredient = 'strIngredient';
-    const strDescription = 'strDescription';
-    const strType = 'strType';
+    const STR_INGREDIENT = 'strIngredient';
+    const STR_DESCRIPTION = 'strDescription';
+    const STR_TYPE = 'strType';
+    const INGREDIENT = state.search.ingredients[0];
 
-    const ingredientName = state.search.ingredients[0][strIngredient];
-    const ingredientDescr = state.search.ingredients[0][strDescription];
-    const ingredientType = state.search.ingredients[0][strType];
-    const noInfo = '-';
+    const INGREDIENT_NAME = INGREDIENT[STR_INGREDIENT];
+    const INGREDIENT_DESCR = INGREDIENT[STR_DESCRIPTION];
+    const INGREDIENT_TYPE = INGREDIENT[STR_TYPE];
+    const NO_INFO = '-';
 
     return (
         <li className="ingredient-card">
             <p className="bold-text">
-                {ingredientName}
+                {INGREDIENT_NAME}
             </p>
             
             <p>
-            <span className="bold-text">Description: </span> {ingredientDescr || noInfo}
+            <span className="bold-text">Description: </span> {INGREDIENT_DESCR || NO_INFO}
             </p>
             
             <p>
-                <span className="bold-text">Type:</span> {ingredientType || noInfo}
+                <span className="bold-text">Type:</span> {INGREDIENT_TYPE || NO_INFO}
             </p>
         </li>
     )
