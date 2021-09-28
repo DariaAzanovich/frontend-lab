@@ -46,10 +46,13 @@ const SearchCocktail = (props) => {
     const setCardsAmount = (n) => {
         let cards = [];
         for(let i = 0; i < n; i++) {
-            const cardImgSrc = props.cocktails[i].strDrinkThumb;
-            const cocktailName = props.cocktails[i].strDrink;
+            const {
+                strDrinkThumb: cardImgSrc,
+                strDrink: cocktailName,
+                strAlcoholic: alco
+            } = props.cocktails[i];
             
-            const isAlco = props.cocktails[i].strAlcoholic === ALCOHOLIC;
+            const isAlco = alco === ALCOHOLIC;
             
             cards.push(
                 <SearchCard 
