@@ -24,7 +24,7 @@ export const fetchSearchCocktails = (search) => {
             
             dispatch({
                 type: FETCH_SEARCH_COCKTAILS_SUCCESS,
-                payload: {...json}
+                payload: json
             });
         } catch(error) {
             toast.error(error.toString());
