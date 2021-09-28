@@ -4,5 +4,5 @@ export const api = {
     SIGN_UP: '/sign-up',
     random: '/cocktails/random',
     search: '/cocktails/search?',
-    lookup: '/cocktails/lookup?'
+    lookup: '/cocktails/lookup'
 };
