@@ -18,6 +18,11 @@ const Navbar = (props) => {
         return history.push(`/${pagePath}`);
     }
 
+    const handleLogOut = () => {
+        props.logOut();
+        goTo();
+    }
+
     return (
         <>
             {props.modalState &&
@@ -83,10 +88,7 @@ const Navbar = (props) => {
                             />
 
                             <div className="dropdown-prompt log-out">
-                                <span onClick={() => {
-                                        props.logOut();
-                                        goTo();
-                                    }}
+                                <span onClick={handleLogOut}
                                 >
                                     Log out
                                 </span>
