@@ -5,15 +5,20 @@ import './RandomCocktail.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import Ingredients from './Ingredients';
-import { fetchRandomCocktail } from '../redux/action-creators/randomCocktailActions';
-
+import { fetchCocktail } from '../redux/action-creators/cocktailDataActions';
 
 const RandomCocktail = (props) => {
-    const {loader, drinks, fetchRandomCocktail} = props; 
+    const {loader, drinks, fetchCocktail, type, cocktails} = props; 
 
     useEffect(() => {
-        fetchRandomCocktail();
-    }, [])
+        if(typeof props.cocktailKey !== 'number') {
+            fetchCocktail();
+        } else {
+            const id = cocktails[props.cocktailKey]['idDrink'];
+
+            fetchCocktail(id);
+        }
+    }, [type]);
     
     if(loader) {
         return <Loader />
@@ -28,6 +33,9 @@ const RandomCocktail = (props) => {
                         icon={faStar} 
                         size="lg"
                         className="cocktail-liked"
+                        style={props.isAuth ? {
+                            visibility: 'visible'
+                        } : {}}
                     />
                 </div>
     
@@ -63,12 +71,14 @@ const RandomCocktail = (props) => {
 
 const mapStateToProps = state => {
     return {
-        loader: state.randomCocktail.loader,
-        drinks: state.randomCocktail.cocktail[0]
+        loader: state.cocktailData.loader,
+        drinks: state.cocktailData.cocktails[0],
+        isAuth: state.auth.isAuth,
+        cocktails: state.search.cocktails
     };
     
 };
 
-const mapDispatchToProps = { fetchRandomCocktail };
+const mapDispatchToProps = { fetchCocktail };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RandomCocktail);

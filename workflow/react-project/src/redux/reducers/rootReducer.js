@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import { randomCocktailReducer } from './randomCocktailReducer';
+import { cocktailReducer } from './cocktailDataReducer';
 import { authenticationReducer } from '../reducers/authenticationReducer';
 import { modalsReducer } from './modalsReducer';
+import { searchCocktailReducer } from './searchCocktailReducer';
 
 export const rootReducer = combineReducers({ 
-    randomCocktail: randomCocktailReducer,
+    cocktailData: cocktailReducer,
     auth: authenticationReducer,
-    modal: modalsReducer
+    modal: modalsReducer,
+    search: searchCocktailReducer
 });

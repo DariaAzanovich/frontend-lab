@@ -6,13 +6,23 @@ import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faHouseUser } from '@fortawesome/free-solid-svg-icons';
-import Modal from "./Modal";
-import Authentication from "./Authentication";
-import { connect } from "react-redux";
-import { logOut } from "../redux/action-creators/authActions";
-import { showRegModal } from "../redux/action-creators/modalActions";
+import Modal from './Modal';
+import Authentication from './Authentication';
+import { connect } from 'react-redux';
+import { logOut } from '../redux/action-creators/authActions';
+import { showRegModal } from '../redux/action-creators/modalActions';
+import history from '../redux/history';
 
 const Navbar = (props) => {
+    const goTo = (pagePath = '') => {
+        return history.push(`/${pagePath}`);
+    }
+
+    const handleLogOut = () => {
+        props.logOut();
+        goTo();
+    }
+
     return (
         <>
             {props.modalState &&
@@ -26,9 +36,13 @@ const Navbar = (props) => {
                         icon={faCocktail} 
                         size="3x"
                         className="navbar-logo"
+                        onClick={() => { goTo() }}
                     />
-                    <div className="navbar-title">
-                        Coctail App
+                    <div 
+                        className="navbar-title"
+                        onClick={() => { goTo() }}
+                    >
+                        Cocktail App
                     </div>
                 </div>
 
@@ -46,9 +60,10 @@ const Navbar = (props) => {
                                 icon={faSearch} 
                                 size="2x"
                                 className="navbar-search"
+                                onClick={() => goTo('search')}
                             />
 
-                            <div className="dropdown-logout search">
+                            <div className="dropdown-prompt search">
                                 <span>Search</span>
                             </div>
                         </li>
@@ -60,7 +75,7 @@ const Navbar = (props) => {
                                 className="navbar-liked"
                             />
 
-                            <div className="dropdown-logout liked">
+                            <div className="dropdown-prompt liked">
                                 <span>Liked</span>
                             </div>
                         </li>
@@ -72,8 +87,11 @@ const Navbar = (props) => {
                                 className="navbar-user"
                             />
 
-                            <div className="dropdown-logout log-out">
-                                <span onClick={props.logOut}>Log out</span>
+                            <div className="dropdown-prompt log-out">
+                                <span onClick={handleLogOut}
+                                >
+                                    Log out
+                                </span>
                             </div>
                         </li>
                     
