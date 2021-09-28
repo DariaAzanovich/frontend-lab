@@ -17,6 +17,10 @@ const SearchCocktail = (props) => {
     const [search, setSearch] = useState('');
     const [key, setKey] = useState(null);
 
+    const NO_RESULTS = !props.loader && props.cocktails.length === 0 &&  props.ingredients.length === 0;
+    const COCKTAILS_RES = !props.loader && props.cocktails.length !== 0;
+    const INGREDIENT_RES = !props.loader && props.ingredients.length !== 0;
+
     const updateSearch = (event) => {
         const { value } = event.target;
         setSearch(value);
@@ -63,7 +67,7 @@ const SearchCocktail = (props) => {
 
     const searchCocktail = (event) => {
         return search && props.fetchSearchCocktails(
-            addSearchParams(event.target.value));
+            addSearchParams(search));
     }
 
     const addSearchParams = (value) => {
@@ -133,19 +137,19 @@ const SearchCocktail = (props) => {
 
             {props.loader && <Loader />}
 
-            {!props.loader && props.cocktails.length !== 0 &&
+            {COCKTAILS_RES &&
                 <ul className="cocktail-cards-list">
                     {setCardsAmount(props.cocktails.length)}
                 </ul> 
             }
 
-            {!props.loader && props.ingredients.length !== 0 &&
+            {INGREDIENT_RES &&
                 <ul className="cocktail-cards-list">
                     <IngredientCard />
                 </ul> 
             }
 
-            {!props.loader && props.cocktails.length === 0 &&  props.ingredients.length === 0 &&
+            {NO_RESULTS &&
                 <span className="empty-search">There will be search results</span>
             }
         </section>
