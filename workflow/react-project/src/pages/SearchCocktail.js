@@ -18,9 +18,10 @@ const SearchCocktail = (props) => {
     const [key, setKey] = useState(null);
 
     const updateSearch = (event) => {
-        setSearch(event.target.value);
+        const { value } = event.target;
+        setSearch(value);
 
-        debounceSearch(addSearchParams(event.target.value));
+        debounceSearch(addSearchParams(value));
     }
 
     const debounceSearch = useCallback(
