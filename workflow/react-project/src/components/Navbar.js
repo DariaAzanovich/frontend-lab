@@ -15,7 +15,7 @@ import history from '../redux/history';
 
 const Navbar = (props) => {
     const goTo = (pagePath = '') => {
-        return typeof pagePath === 'string' ? history.push(`/${pagePath}`) : history.push('/');
+        return history.push(`/${pagePath}`);
     }
 
     return (
@@ -31,11 +31,11 @@ const Navbar = (props) => {
                         icon={faCocktail} 
                         size="3x"
                         className="navbar-logo"
-                        onClick={goTo}
+                        onClick={() => { goTo() }}
                     />
                     <div 
                         className="navbar-title"
-                        onClick={goTo}
+                        onClick={() => { goTo() }}
                     >
                         Cocktail App
                     </div>
