@@ -1,5 +1,5 @@
 import './SearchCocktail.css';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Modal from '../components/Modal';
 import { connect } from 'react-redux';
 import RandomCocktail from '../components/RandomCocktail';
@@ -19,21 +19,24 @@ const SearchCocktail = (props) => {
 
     const updateSearch = (event) => {
         setSearch(event.target.value);
+
+        debounceSearch(addSearchParams(event.target.value));
     }
 
-    const debounceSearch = useRef(
+    const debounceSearch = useCallback(
         _.debounce(search => {
-            props.fetchSearchCocktails(search);
-        }, 1000)
-    );
-    
+            if(search) {
+                props.fetchSearchCocktails(search);
+            }
+        }, 1000), 
+    []);
+ 
     useEffect(() => {
-        if (search) {
-            debounceSearch.current(addSearchParams());
+        return () => {
+            props.cleanSearchResults();
+            debounceSearch.cancel();
         }
-    }, [search]);
-
-    useEffect(props.cleanSearchResults, []);
+    }, []);
 
     const setCardsAmount = (n) => {
         let cards = [];
@@ -57,23 +60,23 @@ const SearchCocktail = (props) => {
         return cards;
     }
 
-    const searchCocktail = () => {
+    const searchCocktail = (event) => {
         return search && props.fetchSearchCocktails(
-            addSearchParams());
+            addSearchParams(event.target.value));
     }
 
-    const addSearchParams = () => {
-        if(!search) {
+    const addSearchParams = (value) => {
+        if(!value) {
             return '';
         }
 
         const radio = document.querySelector('input[name="search-by"]:checked');
 
         if(radio.value === '1') {
-            return 's=' + search;
+            return 's=' + value;
         }
 
-        return 'i=' + search;
+        return 'i=' + value;
     }
 
     return (
