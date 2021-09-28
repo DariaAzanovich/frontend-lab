@@ -25,7 +25,7 @@ const SearchCocktail = (props) => {
         const { value } = event.target;
         setSearch(value);
 
-        debounceSearch(addSearchParams(value));
+        debounceSearch(value);
     }
 
     const debounceSearch = useCallback(
@@ -69,22 +69,7 @@ const SearchCocktail = (props) => {
     }
 
     const searchCocktail = (event) => {
-        return search && props.fetchSearchCocktails(
-            addSearchParams(search));
-    }
-
-    const addSearchParams = (value) => {
-        if(!value) {
-            return '';
-        }
-
-        const radio = document.querySelector('input[name="search-by"]:checked');
-
-        if(radio.value === '1') {
-            return 's=' + value;
-        }
-
-        return 'i=' + value;
+        return search && props.fetchSearchCocktails(search);
     }
 
     return (
